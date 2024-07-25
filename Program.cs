@@ -49,7 +49,7 @@ namespace vg_the_game
         static void BussinessGuy()
         {
             enemy BussinessStudent;
-            BussinessStudent.name = "Bussiness Student";//sets enemy name
+            BussinessStudent.name = "Business Student";//sets enemy name
             BussinessStudent.enemyHealth = 20;// sets enemy health
             EnemyHealth = BussinessStudent.enemyHealth;// overides the last enemies health
             EnemyName = BussinessStudent.name;
@@ -176,7 +176,7 @@ namespace vg_the_game
             Console.Clear();
             Console.WriteLine("You are the one and only Vaughn Malkin. \nYou wake up in a cold sweat, first year math exams cover you. ");
             Thread.Sleep(1000);
-            Console.WriteLine("Just before you leave to go home to the 'Space Station' which is what you refer to as your house as.\nYou realise you are missing your trusty bottle of gin");
+            Console.WriteLine("Just before you leave to go home to the 'Space Station' which is what you refer to as your house as.\nYou realize you are missing your trusty bottle of gin");
             Thread.Sleep(2000);
             Console.WriteLine("Your mission. Find your bottle of Gin!\nSo you can go home and have a great weekend!");
             Console.WriteLine("Press enter to start");
@@ -259,7 +259,9 @@ namespace vg_the_game
             switch (choice)
             {
                 case "hallway":
-                    Console.WriteLine("You are already here press ENTER to continue");
+                    Console.WriteLine("You are already here");
+                    Thread.Sleep(3000);
+                    Console.WriteLine("press ENTER to continue");
                     Console.ReadLine();
                     hallway();
                     break;
@@ -369,11 +371,11 @@ namespace vg_the_game
 
             boom1id = 1;
 
-            if (response == "yes")
+            if (response == "yes" || response == "Yes")
             {
                 Console.WriteLine("Yes, I'll get round to marking the math papers, I just have to find my gin");
             }
-            else
+            else if (response == "no" || response == "NO");
             {
                 Console.WriteLine("No!, I need to find my gin, I don't have time to mark math papers");
                 BussinessGuy();// using his status
@@ -877,7 +879,7 @@ namespace vg_the_game
             {
                 Console.WriteLine($"You have {Health} HP and {energy} Energy.                                                          {EnemyName} has {EnemyHealth} HP");//Change to name from list
                 Console.WriteLine("---------------------------------------------------------------------------------------------------------------");
-                Console.WriteLine("Choose your move!: \n1:Strong Attack \n2: Medium Attack \n3: Low Attack \n4: Charge Attack \n5: Gain Energy");
+                Console.WriteLine("Choose your move!: \n1: Strong Attack \n2: Medium Attack \n3: Low Attack \n4: Charge Attack \n5: Gain Energy");
 
                 int option = Convert.ToInt32(Console.ReadLine());
                 int hit = random.Next(101);
