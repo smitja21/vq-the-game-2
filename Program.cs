@@ -33,7 +33,6 @@ namespace vg_the_game
 
         static void Main(string[] args)
         {
-
             Start();
         }
 
@@ -176,7 +175,7 @@ namespace vg_the_game
             Console.Clear();
             Console.WriteLine("You are the one and only Vaughn Malkin. \nYou wake up in a cold sweat, first year math exams cover you. ");
             Thread.Sleep(1000);
-            Console.WriteLine("Just before you leave to go home to the 'Space Station' which is what you refer to as your house as.\nYou realize you are missing your trusty bottle of gin");
+            Console.WriteLine("Just before you leave to go home to the 'Space Station' which is what you refer to as your house as.\nYou realise you are missing your trusty bottle of gin");
             Thread.Sleep(2000);
             Console.WriteLine("Your mission. Find your bottle of Gin!\nSo you can go home and have a great weekend!");
             Console.WriteLine("Press enter to start");
@@ -375,7 +374,7 @@ namespace vg_the_game
             {
                 Console.WriteLine("Yes, I'll get round to marking the math papers, I just have to find my gin");
             }
-            else if (response == "no" || response == "NO");
+            else if (response == "no" || response == "No");
             {
                 Console.WriteLine("No!, I need to find my gin, I don't have time to mark math papers");
                 BussinessGuy();// using his status
