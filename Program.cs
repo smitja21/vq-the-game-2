@@ -14,90 +14,103 @@ namespace vg_the_game
     }
     internal class Program
     {
-        public static double EnemyHealth = 20, Health = 100, Damage, filament = 49, energy = 100;
-        public static double armour = 0.1;
-        public static double weapon = 0.5;
-        public static double xp = 0;
-        public static int pen = 0; 
-        public static int roomid;
-        public static double difficulty = 0.1;
-        public static string EnemyName;
-        public static double DamageMod = 1;
-        public static int card = 0;
-        public static int hallwayid = 0;
-        //Room Visit ids
-        public static int officeid = 0, hallwayintro = 0, closetid = 0, boom1id = 0, broom2id = 0;  //first floor 
-        public static int printerid = 0, studioid = 0, mathsid = 0; //second floor
+        public static double enemyHealth, health, damage, filament, energy, armour, difficulty, weapon, xp, damageMod;
+        public static int pen, roomID, card, hallwayID;
+        public static string enemyName;
+
+        public static int officeid, hallwayintro, closetid, boom1id, broom2id;  //first floor 
+        public static int printerid, studioid, mathsid; //second floor
 
 
 
         static void Main(string[] args)
         {
+            officeid = 0;
+            hallwayintro = 0;
+            closetid = 0;
+            boom1id = 0;
+            broom2id = 0;
+            printerid = 0;
+            studioid = 0;
+            mathsid = 0;
+            energy = 100;
+            health = 100;
+            armour = 0.1;
+            xp = 0;
+            filament = 49;
+            weapon = 0.5;
+            difficulty = 0.1;
+            damageMod = 1;
+            pen = 0;
+            card = 0;
+            hallwayID = 0;
+
+
             Start();
         }
 
-        static void will()//method to add a enemy copy this when adding someone to the game
+        static void Will()//method to add a enemy copy this when adding someone to the game
         {
             enemy will;
             will.name = "Office Lady";//sets enemy name
-            will.enemyHealth = 25;// sets enemy health
-            EnemyHealth = will.enemyHealth;// overides the last enemies health
-            EnemyName = will.name;
-            DamageMod = 1;
+            will.enemyHealth = 25;// sets enemyHealth
+            enemyHealth = will.enemyHealth;// overrides the last enemies health
+            enemyName = will.name;
+            damageMod = 1;
         }
         static void BussinessGuy()
         {
             enemy BussinessStudent;
             BussinessStudent.name = "Business Student";//sets enemy name
-            BussinessStudent.enemyHealth = 20;// sets enemy health
-            EnemyHealth = BussinessStudent.enemyHealth;// overides the last enemies health
-            EnemyName = BussinessStudent.name;
-            DamageMod = 1;
+            BussinessStudent.enemyHealth = 20;// sets enemyHealth
+            enemyHealth = BussinessStudent.enemyHealth;// overrides the last enemies health
+            enemyName = BussinessStudent.name;
+            damageMod = 1;
         }
         static void Krissi()
         {
             enemy Krissi;
             Krissi.name = "Krissi Wood";//sets enemy name
-            Krissi.enemyHealth = 50;// sets enemy health
-            EnemyHealth = Krissi.enemyHealth;// overides the last enemies health
-            EnemyName = Krissi.name;
-            DamageMod = 1.5;
+            Krissi.enemyHealth = 50;// sets enemyHealth
+            enemyHealth = Krissi.enemyHealth;// overrides the last enemies health
+            enemyName = Krissi.name;
+            damageMod = 1.5;
         }
-        static void farmBot()
+        static void FarmBot()
         {
             enemy farmBot;
             farmBot.name = "Farm Bot";//sets enemy name
-            farmBot.enemyHealth = 100;// sets enemy health
-            EnemyHealth = farmBot.enemyHealth;// overides the last enemies health
-            EnemyName = farmBot.name;
-            DamageMod = 1.5;
+            farmBot.enemyHealth = 100;// sets enemyHealth
+            enemyHealth = farmBot.enemyHealth;// overrides the last enemies health
+            enemyName = farmBot.name;
+            damageMod = 1.5;
         }
-        static void printer()
+        static void Printer()
         {
             enemy printer;
             printer.name = "3D Printer";//sets enemy name
-            printer.enemyHealth = 30;// sets enemy health
-            EnemyHealth = printer.enemyHealth;// overides the last enemies health
-            EnemyName = printer.name;
-            DamageMod = 1.25;
+            printer.enemyHealth = 30;// sets enemyHealth
+            enemyHealth = printer.enemyHealth;// overrides the last enemies health
+            enemyName = printer.name;
+            damageMod = 1.25;
         }
-        static void mathsStudent()
+        static void MathsStudent()
         {
             enemy mathStudent;
             mathStudent.name = "Deacon";//sets enemy name
-            mathStudent.enemyHealth = 20;// sets enemy health
-            EnemyHealth = mathStudent.enemyHealth;// overides the last enemies health
-            EnemyName = mathStudent.name;
-            DamageMod = 1.33;
+            mathStudent.enemyHealth = 20;// sets enemyHealth
+            enemyHealth = mathStudent.enemyHealth;// overrides the last enemies health
+            enemyName = mathStudent.name;
+            damageMod = 1.33;
         }
         static void Victor()
         {
             enemy Victor;
             Victor.name = "Victor";//sets enemy name
-            Victor.enemyHealth = 75;// sets enemy health
-            EnemyHealth = Victor.enemyHealth;// overides the last enemies health
-            EnemyName = Victor.name;
-            DamageMod = 1.6;
+            Victor.enemyHealth = 75;// sets enemyHealth
+            enemyHealth = Victor.enemyHealth;// overrides the last enemies health
+            enemyName = Victor.name;
+            damageMod = 1.6;
         }
 
         static void Equiptment()
@@ -155,7 +168,7 @@ namespace vg_the_game
         }
         static void callroom()
         {
-            switch (hallwayid)
+            switch (hallwayID)
             {
                 case 0:
                     hallway();
@@ -180,7 +193,7 @@ namespace vg_the_game
             Console.WriteLine("Your mission. Find your bottle of Gin!\nSo you can go home and have a great weekend!");
             Console.WriteLine("Press enter to start");
             Console.ReadLine();
-            roomid = 0;
+            roomID = 0;
             armour = 0;
             weapon = 0;
             office();
@@ -196,7 +209,7 @@ namespace vg_the_game
             }
 
             Console.Clear();
-            roomid = 1;
+            roomID = 1;
             Console.WriteLine("You are in the Office");
             Thread.Sleep(1000);
             Console.WriteLine("Your environmental impact of printing off rain forests of paper for your math exams, has enraged the office lady who appears to be a blob of glue and staplers for hands ");
@@ -204,7 +217,7 @@ namespace vg_the_game
             Console.WriteLine("You must now fight your way out of this one!");
             Thread.Sleep(2000);
             officeid = 1; //prevents user from going back
-            will(); //Will is known as the office lady
+            Will(); //Will is known as the office lady
             fight(); //I believe this should be moved into the office yes you are correct i have moved it there now
             string choice = Console.ReadLine();
             switch (choice)
@@ -224,11 +237,11 @@ namespace vg_the_game
             string temp;
             int input;
 
-            roomid = 2;
+            roomID = 2;
             Console.Clear();
             Console.WriteLine("You are in the Hallway");
             Thread.Sleep(1000);
-           
+
             if (hallwayintro == 0)
             {
                 Console.WriteLine("You spot a pen lying on the ground, it seems appears to be the last Te Pūkenga BIT pen? ");
@@ -278,19 +291,19 @@ namespace vg_the_game
                     break;
             }
 
-            if (officeid == 1 && closetid == 1 && boom1id == 1 && broom2id== 1) //I feel like this should be a while loop and while not equal to this everything else runs for level 1?
+            if (officeid == 1 && closetid == 1 && boom1id == 1 && broom2id == 1) //I feel like this should be a while loop and while not equal to this everything else runs for level 1?
             {
                 Console.WriteLine("Congrats you have explored all of level 1");
                 Thread.Sleep(3000);
                 Console.WriteLine("The elevator is going up");
                 Thread.Sleep(3000);
-                hallwayid = 1;
+                hallwayID = 1;
                 hallway2();
             }
 
         }
 
-      
+
 
         //Janitor Closet 
         static void closet()
@@ -304,7 +317,7 @@ namespace vg_the_game
 
 
             Console.Clear();
-            roomid = 3;
+            roomID = 3;
             Console.WriteLine("You are in Janitor Closet");
             Thread.Sleep(2000);
             Console.WriteLine("You enter a dark gloomy room, Krissi appears from the shadows.");
@@ -362,7 +375,7 @@ namespace vg_the_game
 
             //Angry Student Boss
             Console.Clear();
-            roomid = 4;
+            roomID = 4;
             Console.WriteLine("[First Year Student]: Hi Vaughn, I was just wondering if you had marked my math exam?");
             Thread.Sleep(1000);
             Console.WriteLine("You can either respond with 'yes' or 'no'");
@@ -374,7 +387,7 @@ namespace vg_the_game
             {
                 Console.WriteLine("Yes, I'll get round to marking the math papers, I just have to find my gin");
             }
-            else if (response == "no" || response == "No");
+            else if (response == "no" || response == "No") ;
             {
                 Console.WriteLine("No!, I need to find my gin, I don't have time to mark math papers");
                 BussinessGuy();// using his status
@@ -411,7 +424,7 @@ namespace vg_the_game
 
             //Business Student Boss
             Console.Clear();
-            roomid = 5;
+            roomID = 5;
             broom2id = 1;
             Console.WriteLine("You enter into a into one of the business studies class rooms");
             Thread.Sleep(1000);
@@ -426,29 +439,29 @@ namespace vg_the_game
                 Console.WriteLine("[Business Studies Student]: Great I will sign you up - business studies student");
                 Thread.Sleep(3000);
                 Console.WriteLine("[Business Studies Student]: Hey there! Want to skyrocket your bank account to the moon?");
-                Thread.Sleep(3000); 
+                Thread.Sleep(3000);
                 Console.WriteLine("[Business Studies Student]: Well, hold onto your seatbelt because I've got something hotter than Elon's tweets: cryptocurrencies!");
-                Thread.Sleep(3000); 
+                Thread.Sleep(3000);
                 Console.WriteLine("[Business Studies Student]: Picture this: you, sipping champagne on a yacht, courtesy of your crypto investments.");
-                Thread.Sleep(3000); 
+                Thread.Sleep(3000);
                 Console.WriteLine("[Business Studies Student]: Gone are the days of boring stocks and bonds. We're talking about digital gold, baby!");
-                Thread.Sleep(3000); 
+                Thread.Sleep(3000);
                 Console.WriteLine("[Business Studies Student]: With crypto, you're not just an investor, you're a pioneer in the wild west of finance.");
-                Thread.Sleep(3000); 
+                Thread.Sleep(3000);
                 Console.WriteLine("[Business Studies Student]: And guess what? You don't need a fancy suit or a Wall Street address to get started.");
-                Thread.Sleep(3000); 
+                Thread.Sleep(3000);
                 Console.WriteLine("[Business Studies Student]: In the crypto world, everyone's welcome, from the hoodie-wearing tech geek to the hipster barista.");
-                Thread.Sleep(3000); 
+                Thread.Sleep(3000);
                 Console.WriteLine("[Business Studies Student]: So, what are you waiting for? Let's make those dreams of Lambos and private islands a reality!");
-                Thread.Sleep(3000); 
+                Thread.Sleep(3000);
                 Console.WriteLine("[Business Studies Student]: Are you ready to dive into the crypto ocean with me?");
-                Thread.Sleep(3000); 
+                Thread.Sleep(3000);
                 Console.WriteLine("[Business Studies Student]: Just imagine the thrill of riding the waves of Bitcoin highs and dodging the lows.");
-                Thread.Sleep(3000); 
+                Thread.Sleep(3000);
                 Console.WriteLine("[Business Studies Student]: It's like being a surfer on the biggest financial wave of the century!");
-                Thread.Sleep(3000); 
+                Thread.Sleep(3000);
                 Console.WriteLine("[Business Studies Student]: And hey, even if you wipe out, there's always another wave waiting to lift you back up.");
-                Thread.Sleep(3000); 
+                Thread.Sleep(3000);
                 Console.WriteLine("[Business Studies Student]: So, grab your board and let's catch that crypto wave together!");
             }
             else
@@ -476,7 +489,7 @@ namespace vg_the_game
         }
 
 
-        
+
         //Second Floor
 
         static void hallway2()
@@ -514,7 +527,7 @@ namespace vg_the_game
                 Thread.Sleep(3000);
                 Console.WriteLine("The elevator is going up");
                 Thread.Sleep(3000);
-                hallwayid = 2;
+                hallwayID = 2;
                 hallway3();
             }
 
@@ -540,7 +553,7 @@ namespace vg_the_game
             Console.ReadLine();
             Console.WriteLine("[Deacon]: Wrong. I will have to tech you a lesson about maths");
             card = 1;
-            mathsStudent();
+            MathsStudent();
             fight();
         }
         static void studioRoom()
@@ -566,7 +579,7 @@ namespace vg_the_game
                 Console.WriteLine("Go explore the hallway");
                 hallway2();
             }
-            
+
             else
             {
                 Console.WriteLine("[Vic]: How didn't you know that? Lets dance!");
@@ -607,7 +620,7 @@ namespace vg_the_game
                     weapon = 10;
                     Console.WriteLine("You got a sword");
                 }
-            } while (choice != 1 && choice !=2);
+            } while (choice != 1 && choice != 2);
             hallway2();
         }
 
@@ -617,7 +630,7 @@ namespace vg_the_game
         static void hallway3()
         {
             Console.WriteLine("You are now on the 3rd floor");
-            Console.WriteLine("You stand in the third floor hallway you can navigate to the (hallway), (office)"); 
+            Console.WriteLine("You stand in the third floor hallway you can navigate to the (hallway), (office)");
             string choice = Console.ReadLine();
             switch (choice)
             {
@@ -643,7 +656,7 @@ namespace vg_the_game
             Console.WriteLine("A robot figure appears, It's Farm Bot!");
             Thread.Sleep(1000);
             Console.WriteLine("He had returned to get his revenge");
-            farmBot();
+            FarmBot();
             fight();
             Console.WriteLine("You have defeated farmbot");
             Console.ReadLine();
@@ -871,32 +884,153 @@ namespace vg_the_game
 
         static void fight()
         {
-            Health = 100+armour;
+            health = 100 + armour;
             int charge = 0;
+            string userInput = null;
+            int option;
+            bool isValid = false;
+
             Random random = new Random();
             do
             {
-                Console.WriteLine($"You have {Health} HP and {energy} Energy.                                                          {EnemyName} has {EnemyHealth} HP");//Change to name from list
+                Console.WriteLine($"You have {health} HP and {energy} Energy.                                                          {enemyName} has {enemyHealth} HP");//Change to name from list
                 Console.WriteLine("---------------------------------------------------------------------------------------------------------------");
-                Console.WriteLine("Choose your move!: \n1: Strong Attack \n2: Medium Attack \n3: Low Attack \n4: Charge Attack \n5: Gain Energy");
 
-                int option = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("Choose your move!: \n1: Strong Attack (25% chance to hit, but for HIGH damage!) \n2: Medium Attack (50% chance to hit, for a middling level of damage) \n3: Low Attack (75% change to hit for a small amount of damage)\n4: Charge Attack (Begin to charge up a powerful attack for next turn!)\n5: Gain Energy (Regenerate a random amount of energy)");
+
+                do
+                {
+                    userInput = Console.ReadLine();
+                    switch (userInput)
+                    {
+                        case "1":
+                            {
+                                isValid = true;
+                                break;
+                            }
+                        case "2":
+                            {
+
+                                isValid = true;
+                                break;
+                            }
+                        case "3":
+                            {
+
+                                isValid = true;
+                                break;
+                            }
+                        case "4":
+                            {
+
+                                isValid = true;
+                                break;
+                            }
+                        case "5":
+                            {
+                                isValid = true;
+                                break;
+                            }
+                    }
+                } while (isValid == false);
+                option = Convert.ToInt32(userInput);
+
+
+
+
                 int hit = random.Next(101);
 
                 switch (option)
                 {
-                    case 1: if (energy >= 40) { energy -= 40; Damage = random.Next(30, 41); if (hit > 84) EnemyHealth -= Damage + weapon; else Console.WriteLine("You missed"); } else Console.WriteLine("you dont have enough energy for the Strong Attack"); break;
-                    case 2: if (energy >= 20) { energy -= 20; Damage = random.Next(19, 32); if (hit > 50) EnemyHealth -= Damage + weapon; else Console.WriteLine("You missed"); } else Console.WriteLine("you dont have enough energy for the Medium Attack"); break;
-                    case 3: if (energy >= 10) { energy -= 10; Damage = random.Next(9, 22); ; if (hit > 25) EnemyHealth -= Damage + weapon; else Console.WriteLine("You missed"); } else Console.WriteLine("you dont have enough energy for the Low Attack"); break;
-                    case 4: if (charge == 3) { Damage = random.Next(50, 80); EnemyHealth -= Damage + weapon; charge = 0; } else charge++; break;
-                    case 5: int energyGained = random.Next(1, 50); energy = Math.Min(100, energy + energyGained); break;
+                    case 1:
+                        if (energy >= 40)
+                        {
+                            energy -= 40;
+                            damage = random.Next(30, 41);
+
+                            if (hit > 84)
+                            {
+                                Console.WriteLine($"You hit the enemy for {damage} damage!");
+                                enemyHealth -= damage + weapon;
+                            }
+
+                            else
+                                Console.WriteLine("You missed!");
+                        }
+
+                        else
+                            Console.WriteLine("you dont have enough energy for the Strong Attack.");
+                        break;
+
+                    case 2:
+                        if (energy >= 20)
+                        {
+                            energy -= 20;
+                            damage = random.Next(19, 32);
+
+                            if (hit > 50)
+                            {
+                                Console.WriteLine($"You hit the enemy for {damage} damage!");
+                                enemyHealth -= damage + weapon;
+                            }
+
+                            else
+                                Console.WriteLine("You missed!");
+                        }
+
+                        else
+                            Console.WriteLine("You don't have enough energy for the Medium Attack.");
+                        break;
+
+                    case 3:
+                        {
+                            if (energy >= 10)
+                            {
+                                energy -= 10;
+                                damage = random.Next(9, 22);
+
+                                if (hit > 25)
+                                {
+                                    Console.WriteLine($"You hit the enemy for {damage} damage!");
+                                    enemyHealth -= damage + weapon;
+                                }
+
+                                else
+                                    Console.WriteLine("You missed!");
+                            }
+                            else
+                                Console.WriteLine("You don't have enough energy for the Low Attack.");
+
+
+                            break;
+                        }
+                    case 4:
+                        {
+                            if (charge == 3)
+                            {
+                                damage = random.Next(50, 80);
+                                Console.WriteLine($"You hit the enemy for {damage} damage!");
+                                enemyHealth -= damage + weapon;
+                                charge = 0;
+                            }
+
+                            else
+                                charge++; break;
+                        }
+                    case 5:
+                        {
+                            int energyGained = random.Next(25, 50);
+                            energy = Math.Min(100, energy + energyGained);
+                            break;
+                        }
                 }
 
-                if (EnemyHealth > 0) enemyAttack(); // Enemy attacks only if it's still alive
+                if (enemyHealth > 0) enemyAttack(); // Enemy attacks only if it's still alive
                 Console.WriteLine("\n\n");
-            } while (Health > 0 && EnemyHealth > 0);
+            } while (health > 0 && enemyHealth > 0);
 
-            if (Health <= 0)
+            if (health <= 0)
             {
                 Console.WriteLine("You have been defeated. Game Over.");
                 Console.ReadLine();
@@ -910,7 +1044,7 @@ namespace vg_the_game
                 }
 
             }
-            else if (EnemyHealth <= 0)
+            else if (enemyHealth <= 0)
             {
                 Console.WriteLine("You have defeated the enemy!");
                 // Implement logic to reward the player or move to the next part of the game
@@ -934,10 +1068,38 @@ namespace vg_the_game
 
             switch (enemyChoice)
             {
-                case 1: Damage = 30; if (hit > 75) Health -= Damage; else Console.WriteLine("Enemy missed"); break;//replace enemy name with one from a list
-                case 2: Damage = 20; if (hit > 50) Health -= Damage; else Console.WriteLine("Enemy missed"); break;
-                case 3: Damage = 10; if (hit > 25) Health -= Damage; else Console.WriteLine("Enemy missed"); break;
-                case 4: Damage = 5; if (hit > 1) Health -= Damage; else Console.WriteLine("Enemy missed"); break;
+                case 1:
+                    {
+                        damage = 30;
+                        if (hit > 75)
+                            health -= damage;
+                        else Console.WriteLine("Enemy missed.");
+                        break;//replace enemy name with one from a list
+                    }
+                case 2:
+                    {
+                        damage = 20;
+                        if (hit > 50)
+                            health -= damage;
+                        else Console.WriteLine("Enemy missed.");
+                        break;
+                    }
+                case 3:
+                    {
+                        damage = 10;
+                        if (hit > 25)
+                            health -= damage;
+                        else Console.WriteLine("Enemy missed.");
+                        break;
+                    }
+                case 4:
+                    {
+                        damage = 5;
+                        if (hit > 1)
+                            health -= damage;
+                        else Console.WriteLine("Enemy missed.");
+                        break;
+                    }
             }
         }
     }
