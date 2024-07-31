@@ -33,9 +33,7 @@ namespace vg_the_game
 
         static void Main(string[] args)
         {
-            TipsMenu();
-
-            //Start();
+            Start();
         }
 
         static void TipsMenu()
@@ -45,9 +43,10 @@ namespace vg_the_game
             Console.WriteLine("When your energy is low you will not be able attack");
             Console.WriteLine("Only way to gain enery to choose the gain enery option ");
             Console.WriteLine("but you might sustain damage if enemy decides to attack" +
-                             "\n and you might die         ");
+                             "\n and you might died         ");
             Console.WriteLine("\nThe chances of missing each attack is :");
-            Console.WriteLine("\\n1: Strong Attack 84 % \n2: Medium Attack 50% \n3: Low Attack 25% ");
+            Console.WriteLine("\n1: Strong Attack 84 % \n2: Medium Attack 50% \n3: Low Attack 25% ");
+            Console.WriteLine("\n\nTo activate the charge attack you must choose the option twice and deals\ndamage on the enemy between 50 and 80");
             
             }
 
