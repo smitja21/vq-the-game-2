@@ -331,8 +331,11 @@ namespace vg_the_game
             closetid = 1;
 
             Console.WriteLine("You stand in the closet you can navigate to the (closet), (hallway)");
-            string choice = Console.ReadLine().ToLower();
+            string choice;
             do
+            {
+                choice = Console.ReadLine();  
+                
                 switch (choice)
                 {
                     case "closet":
@@ -343,6 +346,7 @@ namespace vg_the_game
                         hallway();
                         break;
                 }
+            }
 
             while (choice != "closet" || choice != "hallway");
         }
@@ -367,23 +371,26 @@ namespace vg_the_game
             Console.WriteLine("[First Year Student]: Hi Vaughn, I was just wondering if you had marked my math exam?");
             Thread.Sleep(1000);
             Console.WriteLine("You can either respond with 'yes' or 'no'");
-            response = Console.ReadLine().ToLower();
 
             boom1id = 1;
 
             do
-            if (response == "yes")
+            {
+                response = Console.ReadLine().ToLower();
 
-            {
-                Console.WriteLine("Yes, I'll get round to marking the math papers, I just have to find my gin");
+                if (response == "yes")
+
+                {
+                    Console.WriteLine("Yes, I'll get round to marking the math papers, I just have to find my gin");
+                }
+                else if (response == "no")
+                {
+                    Console.WriteLine("No!, I need to find my gin, I don't have time to mark math papers");
+                    BussinessGuy();// using his status
+                    fight();
+                }
             }
-            else if (response == "no")
-            {
-                Console.WriteLine("No!, I need to find my gin, I don't have time to mark math papers");
-                BussinessGuy();// using his status
-                fight();
-            }
-            
+
             while (response != "yes" || response != "no");
 
             Console.WriteLine("You stand in the broom1 you can navigate to the (broom1), (hallway)");
