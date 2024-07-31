@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 using System.Net.Http.Headers;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
@@ -651,7 +652,6 @@ namespace vg_the_game
             Console.WriteLine("You look around your office");
             Thread.Sleep(2000);
             Console.WriteLine("you found your gin!");
-           //Where ascii was removed from
             Console.ReadLine();
             Environment.Exit(0);
         }
