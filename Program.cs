@@ -370,20 +370,24 @@ namespace vg_the_game
             Console.WriteLine("[First Year Student]: Hi Vaughn, I was just wondering if you had marked my math exam?");
             Thread.Sleep(1000);
             Console.WriteLine("You can either respond with 'yes' or 'no'");
-            response = Console.ReadLine();
+            response = Console.ReadLine().ToLower();
 
             boom1id = 1;
 
-            if (response == "yes" || response == "Yes")
+            do
+            if (response == "yes")
+
             {
                 Console.WriteLine("Yes, I'll get round to marking the math papers, I just have to find my gin");
             }
-            else if (response == "no" || response == "No");
+            else if (response == "no")
             {
                 Console.WriteLine("No!, I need to find my gin, I don't have time to mark math papers");
                 BussinessGuy();// using his status
                 fight();
             }
+            
+            while (response != "yes" || response != "no");
 
             Console.WriteLine("You stand in the broom1 you can navigate to the (broom1), (hallway)");
             string choice = Console.ReadLine();
