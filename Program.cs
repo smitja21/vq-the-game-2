@@ -334,17 +334,20 @@ namespace vg_the_game
             closetid = 1;
 
             Console.WriteLine("You stand in the closet you can navigate to the (closet), (hallway)");
-            string choice = Console.ReadLine();
-            switch (choice)
-            {
-                case "closet":
-                    Console.WriteLine("You can't go back into a room you are already in! Try the hallway instead");
-                    hallway();
-                    break;
-                case "hallway":
-                    hallway();
-                    break;
-            }
+            string choice = Console.ReadLine().ToLower();
+            do
+                switch (choice)
+                {
+                    case "closet":
+                        Console.WriteLine("You can't go back into a room you are already in! Try the hallway instead");
+                        hallway();
+                        break;
+                    case "hallway":
+                        hallway();
+                        break;
+                }
+
+            while (choice != "closet" || choice != "hallway");
         }
 
 
