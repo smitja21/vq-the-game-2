@@ -33,14 +33,18 @@ namespace vg_the_game
 
         static void Main(string[] args)
         {
-            Start();
+           Start();
         }
 
         static void TipsMenu()
         {
-            Console.WriteLine("Tips Menu ");
-            Console.WriteLine("_____________________");
-
+            Console.WriteLine("                 Tip Menu ");
+            Console.WriteLine("____________________________________________________");
+            Console.WriteLine("\nWhen your energy is low you will not be able attack" +
+                              "\nOnly way to gain enery to choose the gain enery option " +
+                              "but you might sustain damage if enemy decides to attack" +
+                              "\n\nThe chances of missing " +
+                              " ");
         }
 
         static void will()//method to add a enemy copy this when adding someone to the game
