@@ -207,17 +207,6 @@ namespace vg_the_game
             officeid = 1; //prevents user from going back
             will(); //Will is known as the office lady
             fight(); //I believe this should be moved into the office yes you are correct i have moved it there now
-            string choice = Console.ReadLine();
-            switch (choice)
-            {
-                case "office":
-                    Console.WriteLine("Your are already here\n");
-                    office();
-                    break;
-                case "hallway":
-                    hallway();
-                    break;
-            }
         }
 
         static void hallway()
