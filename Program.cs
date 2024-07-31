@@ -18,7 +18,7 @@ namespace vg_the_game
         public static double armour = 0.1;
         public static double weapon = 0.5;
         public static double xp = 0;
-        public static int pen = 0; 
+        public static int pen = 0;
         public static int roomid;
         public static double difficulty = 0.1;
         public static string EnemyName;
@@ -33,19 +33,22 @@ namespace vg_the_game
 
         static void Main(string[] args)
         {
-           Start();
+            TipsMenu();
+
+            //Start();
         }
 
         static void TipsMenu()
         {
             Console.WriteLine("                 Tip Menu ");
             Console.WriteLine("____________________________________________________");
-            Console.WriteLine("\nWhen your energy is low you will not be able attack" +
-                              "\nOnly way to gain enery to choose the gain enery option " +
-                              "but you might sustain damage if enemy decides to attack" +
-                              "\n\nThe chances of missing " +
-                              " ");
-        }
+            Console.WriteLine("When your energy is low you will not be able attack");
+            Console.WriteLine("Only way to gain enery to choose the gain enery option ");
+            Console.WriteLine("but you might sustain damage if enemy decides to attack");
+            Console.WriteLine("\nThe chances of missing each attack :");
+            Console.WriteLine($"\\n1: Strong Attack 84 % \n2: Medium Attack 50% \n3: Low Attack 25% ");
+            
+            }
 
         static void will()//method to add a enemy copy this when adding someone to the game
         {
@@ -239,7 +242,7 @@ namespace vg_the_game
             Console.Clear();
             Console.WriteLine("You are in the Hallway");
             Thread.Sleep(1000);
-           
+
             if (hallwayintro == 0)
             {
                 Console.WriteLine("You spot a pen lying on the ground, it seems appears to be the last Te Pūkenga BIT pen? ");
@@ -289,7 +292,7 @@ namespace vg_the_game
                     break;
             }
 
-            if (officeid == 1 && closetid == 1 && boom1id == 1 && broom2id== 1) //I feel like this should be a while loop and while not equal to this everything else runs for level 1?
+            if (officeid == 1 && closetid == 1 && boom1id == 1 && broom2id == 1) //I feel like this should be a while loop and while not equal to this everything else runs for level 1?
             {
                 Console.WriteLine("Congrats you have explored all of level 1");
                 Thread.Sleep(3000);
@@ -301,7 +304,7 @@ namespace vg_the_game
 
         }
 
-      
+
 
         //Janitor Closet 
         static void closet()
@@ -385,7 +388,7 @@ namespace vg_the_game
             {
                 Console.WriteLine("Yes, I'll get round to marking the math papers, I just have to find my gin");
             }
-            else if (response == "no" || response == "No");
+            else if (response == "no" || response == "No") ;
             {
                 Console.WriteLine("No!, I need to find my gin, I don't have time to mark math papers");
                 BussinessGuy();// using his status
@@ -437,29 +440,29 @@ namespace vg_the_game
                 Console.WriteLine("[Business Studies Student]: Great I will sign you up - business studies student");
                 Thread.Sleep(3000);
                 Console.WriteLine("[Business Studies Student]: Hey there! Want to skyrocket your bank account to the moon?");
-                Thread.Sleep(3000); 
+                Thread.Sleep(3000);
                 Console.WriteLine("[Business Studies Student]: Well, hold onto your seatbelt because I've got something hotter than Elon's tweets: cryptocurrencies!");
-                Thread.Sleep(3000); 
+                Thread.Sleep(3000);
                 Console.WriteLine("[Business Studies Student]: Picture this: you, sipping champagne on a yacht, courtesy of your crypto investments.");
-                Thread.Sleep(3000); 
+                Thread.Sleep(3000);
                 Console.WriteLine("[Business Studies Student]: Gone are the days of boring stocks and bonds. We're talking about digital gold, baby!");
-                Thread.Sleep(3000); 
+                Thread.Sleep(3000);
                 Console.WriteLine("[Business Studies Student]: With crypto, you're not just an investor, you're a pioneer in the wild west of finance.");
-                Thread.Sleep(3000); 
+                Thread.Sleep(3000);
                 Console.WriteLine("[Business Studies Student]: And guess what? You don't need a fancy suit or a Wall Street address to get started.");
-                Thread.Sleep(3000); 
+                Thread.Sleep(3000);
                 Console.WriteLine("[Business Studies Student]: In the crypto world, everyone's welcome, from the hoodie-wearing tech geek to the hipster barista.");
-                Thread.Sleep(3000); 
+                Thread.Sleep(3000);
                 Console.WriteLine("[Business Studies Student]: So, what are you waiting for? Let's make those dreams of Lambos and private islands a reality!");
-                Thread.Sleep(3000); 
+                Thread.Sleep(3000);
                 Console.WriteLine("[Business Studies Student]: Are you ready to dive into the crypto ocean with me?");
-                Thread.Sleep(3000); 
+                Thread.Sleep(3000);
                 Console.WriteLine("[Business Studies Student]: Just imagine the thrill of riding the waves of Bitcoin highs and dodging the lows.");
-                Thread.Sleep(3000); 
+                Thread.Sleep(3000);
                 Console.WriteLine("[Business Studies Student]: It's like being a surfer on the biggest financial wave of the century!");
-                Thread.Sleep(3000); 
+                Thread.Sleep(3000);
                 Console.WriteLine("[Business Studies Student]: And hey, even if you wipe out, there's always another wave waiting to lift you back up.");
-                Thread.Sleep(3000); 
+                Thread.Sleep(3000);
                 Console.WriteLine("[Business Studies Student]: So, grab your board and let's catch that crypto wave together!");
             }
             else
@@ -487,7 +490,7 @@ namespace vg_the_game
         }
 
 
-        
+
         //Second Floor
 
         static void hallway2()
@@ -577,7 +580,7 @@ namespace vg_the_game
                 Console.WriteLine("Go explore the hallway");
                 hallway2();
             }
-            
+
             else
             {
                 Console.WriteLine("[Vic]: How didn't you know that? Lets dance!");
@@ -618,7 +621,7 @@ namespace vg_the_game
                     weapon = 10;
                     Console.WriteLine("You got a sword");
                 }
-            } while (choice != 1 && choice !=2);
+            } while (choice != 1 && choice != 2);
             hallway2();
         }
 
@@ -628,7 +631,7 @@ namespace vg_the_game
         static void hallway3()
         {
             Console.WriteLine("You are now on the 3rd floor");
-            Console.WriteLine("You stand in the third floor hallway you can navigate to the (hallway), (office)"); 
+            Console.WriteLine("You stand in the third floor hallway you can navigate to the (hallway), (office)");
             string choice = Console.ReadLine();
             switch (choice)
             {
@@ -882,7 +885,7 @@ namespace vg_the_game
 
         static void fight()
         {
-            Health = 100+armour;
+            Health = 100 + armour;
             int charge = 0;
             Random random = new Random();
             do
