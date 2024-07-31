@@ -36,6 +36,13 @@ namespace vg_the_game
             Start();
         }
 
+        static void TipsMenu()
+        {
+            Console.WriteLine("Tips Menu ");
+            Console.WriteLine("_____________________");
+
+        }
+
         static void will()//method to add a enemy copy this when adding someone to the game
         {
             enemy will;
