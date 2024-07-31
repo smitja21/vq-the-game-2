@@ -173,12 +173,14 @@ namespace vg_the_game
         static void Start()
         {
             Console.Clear();
-            Console.WriteLine("You are the one and only Vaughn Malkin. \nYou wake up in a cold sweat, first year math exams cover you. ");
+            Console.WriteLine("\n You are the one and only Vaughn Malkin. \n You wake up in a cold sweat, first year math exams cover you. ");
             Thread.Sleep(1000);
-            Console.WriteLine("Just before you leave to go home to the 'Space Station' which is what you refer to as your house as.\nYou realise you are missing your trusty bottle of gin");
+            Console.WriteLine(" Just before you leave to go home to the 'Space Station' which is what you refer to as your house as.\n You realise you are missing your trusty bottle of gin");
             Thread.Sleep(2000);
-            Console.WriteLine("Your mission. Find your bottle of Gin!\nSo you can go home and have a great weekend!");
-            Console.WriteLine("Press enter to start");
+            Console.WriteLine("\n\n       Your mission!\n Find your bottle of Gin!\n  -So you can go home \n  -Have a great weekend!");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("\n\n\n\n\n\n\n\n Press enter to start");
+            Console.ForegroundColor= ConsoleColor.White;
             Console.ReadLine();
             roomid = 0;
             armour = 0;
@@ -191,17 +193,17 @@ namespace vg_the_game
         {
             if (officeid == 1)
             {
-                Console.WriteLine("You have already visited here, you have been sent back to the hallway");
+                Console.WriteLine(" You have already been in this room.\n\n You have been sent back to the hallway");
                 hallway();
             }
 
             Console.Clear();
             roomid = 1;
-            Console.WriteLine("You are in the Office");
+            Console.WriteLine("\n You are in the Office\n");
             Thread.Sleep(1000);
-            Console.WriteLine("Your environmental impact of printing off rain forests of paper for your math exams, has enraged the office lady who appears to be a blob of glue and staplers for hands ");
+            Console.WriteLine(" Your environmental impact of printing off rain forests of paper for your math exams, has enraged the office lady who appears to have a blob of glue and staples for hands ");
             Thread.Sleep(1000);
-            Console.WriteLine("You must now fight your way out of this one!");
+            Console.WriteLine(" You must now fight your way out of this one!");
             Thread.Sleep(2000);
             officeid = 1; //prevents user from going back
             will(); //Will is known as the office lady
