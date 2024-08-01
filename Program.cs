@@ -412,7 +412,7 @@ namespace vg_the_game
                     hallway();
                     break;
                 default:
-                    Console.WriteLine("Please enter a valid input 312312313");
+                    Console.WriteLine("Please enter a valid input");
                     break;
             }
         }
