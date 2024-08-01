@@ -34,7 +34,19 @@ namespace vg_the_game
 
         static void Main(string[] args)
         {
+            ReadStartingPage();
             Start();
+        }
+
+        static void ReadStartingPage()// method that reads the StartingPage.txt
+        {
+            List<string> lines = new List<string>();
+
+            var file = File.ReadAllLines("Starting page.txt");
+            foreach (var line in file)
+            {
+                lines.Add(line);
+            }
         }
 
         static void will()//method to add a enemy copy this when adding someone to the game
