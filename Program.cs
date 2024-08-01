@@ -244,7 +244,7 @@ namespace vg_the_game
 
             Console.Clear();
 
-            roomid = 1;
+            roomID = 1;
             Console.WriteLine("\n You are in the Office\n");
             Thread.Sleep(1000);
             Console.WriteLine(" Your environmental impact of printing off a rain forest of paper for your math exams, has enraged the office lady who\n appears to have a blob of glue and staples for hands ");
