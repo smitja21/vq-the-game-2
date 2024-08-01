@@ -1025,5 +1025,12 @@ namespace vg_the_game
                     }
             }
         }
+        static void End()
+        {
+
+
+
+            Console.ReadLine();
+        }
     }
 }
