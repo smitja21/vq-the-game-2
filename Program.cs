@@ -497,28 +497,32 @@ namespace vg_the_game
             Console.WriteLine("You are now on the 2nd floor");
             Console.WriteLine("Once you've explored all rooms on level 2, you may need to press ENTER");
             Console.WriteLine("You stand in the second floor hallway you can navigate to the (printer), (studio), (maths)");
-            string choice = Console.ReadLine();
-            switch (choice)
+            string choice;
+            do
             {
-                case "printer":
-                    if (card == 1)
-                    {
-                        printerRoom();
-                    }
-                    else
-                    {
-                        Console.WriteLine("You need a card to unlock this room, You can get this by visting the maths room");
-                        Thread.Sleep(3000);
-                        hallway2();
-                    }
-                    break;
-                case "studio":
-                    studioRoom();
-                    break;
-                case "maths":
-                    mathsRoom();
-                    break;
-            }
+                choice = Console.ReadLine();
+                switch (choice)
+                {
+                    case "printer":
+                        if (card == 1)
+                        {
+                            printerRoom();
+                        }
+                        else
+                        {
+                            Console.WriteLine("You need a card to unlock this room, You can get this by visting the maths room");
+                            Thread.Sleep(3000);
+                            hallway2();
+                        }
+                        break;
+                    case "studio":
+                        studioRoom();
+                        break;
+                    case "maths":
+                        mathsRoom();
+                        break;
+                }
+            } while (choice != "printer" || choice != "studio" || choice != "maths");
 
             if (printerid == 1 && studioid == 1 && mathsid == 1) //I feel like this should be a while loop and while not equal to this everything else runs for level 1?
             {
@@ -629,21 +633,25 @@ namespace vg_the_game
         static void hallway3()
         {
             Console.WriteLine("You are now on the 3rd floor");
-            Console.WriteLine("You stand in the third floor hallway you can navigate to the (hallway), (office)"); 
-            string choice = Console.ReadLine();
-            switch (choice)
+            Console.WriteLine("You stand in the third floor hallway you can navigate to the (hallway), (office)");
+            string choice;
+            do
             {
-                case "hallway":
-                    Console.WriteLine("You are already here press ENTER to continue");
-                    Console.ReadLine();
-                    hallway3();
-                    break;
-                case "office":
-                    VaughnOffice();
-                    break;
-            }
+                choice = Console.ReadLine();
+                switch (choice)
+                {
+                    case "hallway":
+                        Console.WriteLine("You are already here press ENTER to continue");
+                        Console.ReadLine();
+                        hallway3();
+                        break;
+                    case "office":
+                        VaughnOffice();
+                        break;
+                }
+            } while (choice != "hallway" || choice != "office");
 
-        }
+            }
 
 
         static void VaughnOffice()
