@@ -496,7 +496,7 @@ namespace vg_the_game
                 Thread.Sleep(3000);
                 Console.WriteLine(" [Business Studies Student]: Hey there! Want to skyrocket your bank account to the moon?");
                 Thread.Sleep(3000); 
-                Console.WriteLine(" [Business Studies Student]: Well, hold onto your seatbelt because I've got something hotter than Elon's tweets: cryptocurrencies!");
+                Console.WriteLine(" [Business Studies Student]: Well, hold onto your seatbelt because I've got something hotter than Elon's tweets:\n                             cryptocurrencies!");
                 Thread.Sleep(3000); 
                 Console.WriteLine(" [Business Studies Student]: Picture this: you, sipping champagne on a yacht, courtesy of your crypto investments.");
                 Thread.Sleep(3000); 
@@ -506,9 +506,9 @@ namespace vg_the_game
                 Thread.Sleep(3000); 
                 Console.WriteLine(" [Business Studies Student]: And guess what? You don't need a fancy suit or a Wall Street address to get started.");
                 Thread.Sleep(3000); 
-                Console.WriteLine(" [Business Studies Student]: In the crypto world, everyone's welcome, from the hoodie-wearing tech geek to the hipster barista.");
+                Console.WriteLine(" [Business Studies Student]: In the crypto world, everyone's welcome, from the hoodie-wearing tech geek to the hipster\n                             barista.");
                 Thread.Sleep(3000); 
-                Console.WriteLine(" [Business Studies Student]: So, what are you waiting for? Let's make those dreams of Lambos and private islands a reality!");
+                Console.WriteLine(" [Business Studies Student]: So, what are you waiting for? Let's make those dreams of Lambos and private islands a\n                             reality!");
                 Thread.Sleep(3000); 
                 Console.WriteLine(" [Business Studies Student]: Are you ready to dive into the crypto ocean with me?");
                 Thread.Sleep(3000); 
@@ -519,6 +519,13 @@ namespace vg_the_game
                 Console.WriteLine(" [Business Studies Student]: And hey, even if you wipe out, there's always another wave waiting to lift you back up.");
                 Thread.Sleep(3000); 
                 Console.WriteLine(" [Business Studies Student]: So, grab your board and let's catch that crypto wave together!");
+                Thread.Sleep(3000);
+                Console.WriteLine("\n\n      Achievement Unlocked!\n  Useless Story Line Unlocked!\n   -Did you really want this? \n   -You have been distracted from the missions.");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("\n\n\n\n\n\n\n\n  Press enter to start");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.ReadLine();
+                Console.Clear();
             }
             else
             {
@@ -568,7 +575,7 @@ namespace vg_the_game
                     }
                     else
                     {
-                        Console.WriteLine("You need a card to unlock this room, You can get this by visting the maths room");
+                        Console.WriteLine("You need a card to unlock this room, You can get this by visiting the maths room");
                         Thread.Sleep(3000);
                         hallway2();
                     }
