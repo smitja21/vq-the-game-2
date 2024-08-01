@@ -272,6 +272,9 @@ namespace vg_the_game
                     case "closet":
                         closet();
                         break;
+                    default:
+                        Console.WriteLine("Please enter a valid input");
+                        break;
                 }
             }
             while (choice != "hallway" || choice != "office" || choice != "broom1" || choice != "broom2" || choice != "closet");
@@ -345,6 +348,9 @@ namespace vg_the_game
                     case "hallway":
                         hallway();
                         break;
+                    default:
+                        Console.WriteLine("Please enter a valid input");
+                        break;
                 }
             }
 
@@ -355,14 +361,12 @@ namespace vg_the_game
         //Boss Room
         static void broom1()
         {
-            string response;
 
             if (boom1id == 1)
             {
                 Console.WriteLine("You have already visited here, you have been sent back to the hallway");
                 hallway();
             }
-
 
 
             //Angry Student Boss
@@ -373,13 +377,13 @@ namespace vg_the_game
             Console.WriteLine("You can either respond with 'yes' or 'no'");
 
             boom1id = 1;
+            string response;
 
             do
             {
                 response = Console.ReadLine().ToLower();
 
                 if (response == "yes")
-
                 {
                     Console.WriteLine("Yes, I'll get round to marking the math papers, I just have to find my gin");
                 }
@@ -389,9 +393,11 @@ namespace vg_the_game
                     BussinessGuy();// using his status
                     fight();
                 }
-            }
-
-            while (response != "yes" || response != "no");
+                else
+                {
+                    Console.WriteLine("Please enter a valid input");
+                }
+            } while (response != "yes" && response != "no");
 
             Console.WriteLine("You stand in the broom1 you can navigate to the (broom1), (hallway)");
             string choice = Console.ReadLine();
@@ -404,6 +410,9 @@ namespace vg_the_game
                     break;
                 case "hallway":
                     hallway();
+                    break;
+                default:
+                    Console.WriteLine("Please enter a valid input 312312313");
                     break;
             }
         }
@@ -484,6 +493,9 @@ namespace vg_the_game
                 case "hallway":
                     hallway();
                     break;
+                default:
+                    Console.WriteLine("Please enter a valid input");
+                    break;
             }
         }
 
@@ -520,6 +532,9 @@ namespace vg_the_game
                         break;
                     case "maths":
                         mathsRoom();
+                        break;
+                    default:
+                        Console.WriteLine("Please enter a valid input");
                         break;
                 }
             } while (choice != "printer" || choice != "studio" || choice != "maths");
@@ -623,7 +638,13 @@ namespace vg_the_game
                     weapon = 10;
                     Console.WriteLine("You got a sword");
                 }
+                else
+                {
+                    Console.WriteLine("Please enter a valid input");
+                }
+
             } while (choice != 1 && choice !=2);
+            
             hallway2();
         }
 
@@ -648,10 +669,14 @@ namespace vg_the_game
                     case "office":
                         VaughnOffice();
                         break;
+                    default:
+                        Console.WriteLine("Please enter a valid input");
+                        break;
+
                 }
             } while (choice != "hallway" || choice != "office");
 
-            }
+        }
 
 
         static void VaughnOffice()
