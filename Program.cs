@@ -542,7 +542,7 @@ namespace vg_the_game
             {
                 case "broom2":
                     Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine(" You are already here press.\n\n ENTER to continue");
+                    Console.WriteLine(" You are already here.\n\n press ENTER to continue");
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.ReadLine();
                     //broom2();
