@@ -36,20 +36,6 @@ namespace vg_the_game
             Start();
         }
 
-        static void TipsMenu()
-        {
-            Console.WriteLine("                 Tip Menu ");
-            Console.WriteLine("____________________________________________________");
-            Console.WriteLine("When your energy is low you will not be able attack");
-            Console.WriteLine("Only way to gain enery to choose the gain enery option ");
-            Console.WriteLine("but you might sustain damage if enemy decides to attack" +
-                             "\n and you might died         ");
-            Console.WriteLine("\nThe chances of missing each attack is :");
-            Console.WriteLine("\n1: Strong Attack 84 % \n2: Medium Attack 50% \n3: Low Attack 25% ");
-            Console.WriteLine("\n\nTo activate the charge attack you must choose the option twice and deals\ndamage on the enemy between 50 and 80");
-            
-            }
-
         static void will()//method to add a enemy copy this when adding someone to the game
         {
             enemy will;
@@ -939,6 +925,21 @@ namespace vg_the_game
                 callroom();
 
             }
+        }
+
+        static void TipsMenu()
+        {
+            Console.WriteLine("                 Tip Menu ");
+            Console.WriteLine("____________________________________________________");
+            Console.WriteLine("When your energy is low you will not be able attack");
+            Console.WriteLine("Only way to gain enery to choose the gain enery option ");
+            Console.WriteLine("but you might sustain damage if enemy decides to attack" +
+                             "\n and you might died         ");
+            Console.WriteLine("\n You energy for ");
+            Console.WriteLine("\nThe chances of missing each attack is :");
+            Console.WriteLine("\n1: Strong Attack 84 % \n2: Medium Attack 50% \n3: Low Attack 25% ");
+            Console.WriteLine("\n\nTo activate the charge attack you must choose the option twice and deals\ndamage on the enemy between 50 and 80");
+
         }
 
         static void enemyAttack()
