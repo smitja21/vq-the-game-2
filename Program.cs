@@ -244,50 +244,54 @@ namespace vg_the_game
             hallwayintro = 1;
 
             Console.WriteLine("You stand in the hallway you can navigate to the (office), (broom1), (broom2), (closet)"); //Need to rename broom1 and broom2
-            Console.WriteLine("Once you've explored all rooms on level 1, press ENTER");
+            Console.WriteLine("Once you've explored all rooms on level 1, you will progress to the second level");
             string choice;
 
-              do
+            while (officeid == 0 || closetid == 0 || boom1id == 0 || broom2id == 0)
             {
-                 choice = Console.ReadLine();
 
-                switch (choice)
+                do
                 {
-                    case "hallway":
-                        Console.WriteLine("You are already here");
-                        Thread.Sleep(3000);
-                        Console.WriteLine("press ENTER to continue");
-                        Console.ReadLine();
-                        hallway();
-                        break;
-                    case "office":
-                        office();
-                        break;
-                    case "broom1":
-                        broom1();
-                        break;
-                    case "broom2":
-                        broom2();
-                        break;
-                    case "closet":
-                        closet();
-                        break;
-                    default:
-                        Console.WriteLine("Please enter a valid input");
-                        break;
-                }
-            }
-            while (choice != "hallway" || choice != "office" || choice != "broom1" || choice != "broom2" || choice != "closet");
+                    choice = Console.ReadLine();
 
-            if (officeid == 1 && closetid == 1 && boom1id == 1 && broom2id== 1) //I feel like this should be a while loop and while not equal to this everything else runs for level 1?
-            {
+                    switch (choice)
+                    {
+                        case "hallway":
+                            Console.WriteLine("You are already here");
+                            Thread.Sleep(3000);
+                            Console.WriteLine("press ENTER to continue");
+                            Console.ReadLine();
+                            hallway();
+                            break;
+                        case "office":
+                            office();
+                            break;
+                        case "broom1":
+                            broom1();
+                            break;
+                        case "broom2":
+                            broom2();
+                            break;
+                        case "closet":
+                            closet();
+                            break;
+                        default:
+                            Console.WriteLine("Please enter a valid input");
+                            break;
+                    }
+                }
+                while (choice != "hallway" || choice != "office" || choice != "broom1" || choice != "broom2" || choice != "closet");
+
+            }
+           /* if (officeid == 1 && closetid == 1 && boom1id == 1 && broom2id== 1) //I feel like this should be a while loop and while not equal to this everything else runs for level 1?
+            {*/
                 Console.WriteLine("Congrats you have explored all of level 1");
                 Thread.Sleep(3000);
                 Console.WriteLine("The elevator is going up");
                 Thread.Sleep(3000);
                 hallwayid = 1;
                 hallway2();
-            }
+            //}
 
         }
 
