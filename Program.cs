@@ -514,44 +514,48 @@ namespace vg_the_game
             Console.WriteLine("Once you've explored all rooms on level 2, you may need to press ENTER");
             Console.WriteLine("You stand in the second floor hallway you can navigate to the (printer), (studio), (maths)");
             string choice;
-            do
+            while (printerid == 0 || studioid == 0 || mathsid == 0)
             {
-                choice = Console.ReadLine();
-                switch (choice)
-                {
-                    case "printer":
-                        if (card == 1)
-                        {
-                            printerRoom();
-                        }
-                        else
-                        {
-                            Console.WriteLine("You need a card to unlock this room, You can get this by visting the maths room");
-                            Thread.Sleep(3000);
-                            hallway2();
-                        }
-                        break;
-                    case "studio":
-                        studioRoom();
-                        break;
-                    case "maths":
-                        mathsRoom();
-                        break;
-                    default:
-                        Console.WriteLine("Please enter a valid input");
-                        break;
-                }
-            } while (choice != "printer" || choice != "studio" || choice != "maths");
 
-            if (printerid == 1 && studioid == 1 && mathsid == 1) //I feel like this should be a while loop and while not equal to this everything else runs for level 1?
-            {
+
+                do
+                {
+                    choice = Console.ReadLine();
+                    switch (choice)
+                    {
+                        case "printer":
+                            if (card == 1)
+                            {
+                                printerRoom();
+                            }
+                            else
+                            {
+                                Console.WriteLine("You need a card to unlock this room, You can get this by visting the maths room");
+                                Thread.Sleep(3000);
+                                hallway2();
+                            }
+                            break;
+                        case "studio":
+                            studioRoom();
+                            break;
+                        case "maths":
+                            mathsRoom();
+                            break;
+                        default:
+                            Console.WriteLine("Please enter a valid input");
+                            break;
+                    }
+                } while (choice != "printer" || choice != "studio" || choice != "maths");
+            }
+            /*if (printerid == 1 && studioid == 1 && mathsid == 1) //I feel like this should be a while loop and while not equal to this everything else runs for level 1?
+            {*/
                 Console.WriteLine("Congrats you have explored all of level 2");
                 Thread.Sleep(3000);
                 Console.WriteLine("The elevator is going up");
                 Thread.Sleep(3000);
                 hallwayid = 2;
                 hallway3();
-            }
+           //
 
 
 
