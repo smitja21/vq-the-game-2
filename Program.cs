@@ -37,10 +37,7 @@ namespace vg_the_game
             Start();
         }
 
-<<<<<<< HEAD
-=======
-       
->>>>>>> d10313ffa172995a69c7573ec807fe448a365ed6
+
         static void will()//method to add a enemy copy this when adding someone to the game
         {
             enemy will;
@@ -752,7 +749,7 @@ namespace vg_the_game
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("---------------------------------------------------------------------------------------------------------------");
                 Console.ForegroundColor= ConsoleColor.White;
-                Console.WriteLine(" Choose your move!: \n  1: Strong Attack \n  2: Medium Attack \n  3: Low Attack \n  4: Charge Attack \n  5: Gain Energy");
+                Console.WriteLine(" Choose your move!: \n  1: Strong Attack \n  2: Medium Attack \n  3: Low Attack \n  4: Charge Attack \n  5: Gain Energy \n  6:Tips");
                 int option = Convert.ToInt32(Console.ReadLine());
                 int hit = random.Next(101);
 
@@ -806,26 +803,18 @@ namespace vg_the_game
         }
 
         static void TipsMenu()
-<<<<<<< HEAD
         {
-=======
-        {    Console.Clear();
->>>>>>> d10313ffa172995a69c7573ec807fe448a365ed6
+          Console.Clear();
             Console.WriteLine("                 Tip Menu ");
             Console.WriteLine("____________________________________________________");
             Console.WriteLine("When your energy is low you will not be able attack");
             Console.WriteLine("Only way to gain enery to choose the gain enery option ");
             Console.WriteLine("but you might sustain damage if enemy decides to attack" +
                              "\n and you might died         ");
-<<<<<<< HEAD
             Console.WriteLine("\n You energy for ");
             Console.WriteLine("\nThe chances of missing each attack is :");
             Console.WriteLine("\n1: Strong Attack 84 % \n2: Medium Attack 50% \n3: Low Attack 25% ");
             Console.WriteLine("\n\nTo activate the charge attack you must choose the option twice and deals\ndamage on the enemy between 50 and 80");
-
-        }
-
-=======
             Console.WriteLine("\nThe chances of missing each attack is :");
             Console.WriteLine("\n1: Strong Attack 84% \n2: Medium Attack 50% \n3: Low Attack 25% ");
             Console.WriteLine("\n\nTo activate the charge attack you must choose the option twice and deals\ndamage on the enemy between 50 and 80");
@@ -834,7 +823,6 @@ namespace vg_the_game
         }
 
 
->>>>>>> d10313ffa172995a69c7573ec807fe448a365ed6
         static void enemyAttack()
         {
             Random random = new Random();
