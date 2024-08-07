@@ -400,7 +400,7 @@ namespace vg_the_game
                 armour = 0.5;
                 Thread.Sleep(1000);
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(" [YOU EQUPIED YOUR BOOTS]");
+                Console.WriteLine(" [YOU EQUIPED YOUR BOOTS]");
                 Console.ForegroundColor = ConsoleColor.White;
             }
 
@@ -756,7 +756,6 @@ namespace vg_the_game
                 {
                     armour = 10;
                     Console.WriteLine("You got a Shield");
-                    Console.ReadLine();
                 }
                 else if (choice == 2)
                 {
