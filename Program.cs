@@ -624,9 +624,11 @@ namespace vg_the_game
         static void hallway2()
         {
             Console.Clear();
-            Console.WriteLine("You are now on the 2nd floor");
-            Console.WriteLine("Once you've explored all rooms on level 2, you may need to press ENTER");
-            Console.WriteLine("You stand in the second floor hallway you can navigate to the (printer), (studio), (maths)");
+            Console.WriteLine("\n You are now on the 2nd floor\n");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine(" You stand in the second floor hallway you can navigate to the (printer), (studio), (maths)");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine(" Once you've explored all rooms on level 2, you will progress to the third level");
             string choice;
             while (printerid == 0 || studioid == 0 || mathsid == 0)
             {
