@@ -261,7 +261,7 @@ namespace vg_the_game
 
             Thread.Sleep(2000);
             officeid = 1; //prevents user from going back
-            Will(); //Will is known as the office lady
+            will(); //Will is known as the office lady
             fight();
         }
 
@@ -841,7 +841,7 @@ namespace vg_the_game
                 Console.WriteLine("---------------------------------------------------------------------------------------------------------------");
                 Console.ForegroundColor= ConsoleColor.White;
                 Console.WriteLine(" Choose your move!: \n  1: Strong Attack \n  2: Medium Attack \n  3: Low Attack \n  4: Charge Attack \n  5: Gain Energy \n  6:Tips");
-                int option = Convert.ToInt32(Console.ReadLine());
+                option = Convert.ToInt32(Console.ReadLine());
                 int hit = random.Next(101);
 
                 switch (option)
@@ -928,7 +928,8 @@ namespace vg_the_game
                             break;
                         }
                     case 6:
-                        TipsMenu();    
+                        TipsMenu();
+                        break;
                 }
 
                 if (enemyHealth > 0) enemyAttack(); // Enemy attacks only if it's still alive
