@@ -17,7 +17,7 @@ namespace vg_the_game
     {
 
         public static double enemyHealth, health, damage, filament, energy, armour, difficulty, weapon, xp, damageMod;
-        public static int pen, roomID, card, hallwayID;
+        public static int pen, roomID, card, hallwayID, bitcoinWallet;
         public static string enemyName;
 
         public static int officeid, hallwayintro, closetid, boom1id, broom2id;  //first floor 
@@ -47,6 +47,7 @@ namespace vg_the_game
             pen = 0;
             card = 0;
             hallwayID = 0;
+            bitcoinWallet = 0;
 
 
             Start();
@@ -116,6 +117,15 @@ namespace vg_the_game
             enemyHealth = Victor.enemyHealth;// overrides the last enemies health
             enemyName = Victor.name;
             damageMod = 1.6;
+        }
+        static void empoweredBuisnessStudent()
+        {
+            enemy buisnessStudent2;
+            buisnessStudent2.name = "Empowered Buisness Student";//sets enemy name
+            buisnessStudent2.enemyHealth = 125;// sets enemyHealth
+            enemyHealth = buisnessStudent2.enemyHealth;// overrides the last enemies health
+            enemyName = buisnessStudent2.name;
+            damageMod = 1.3;
         }
 
         static void Equiptment()
@@ -265,6 +275,7 @@ namespace vg_the_game
             officeid = 1; //prevents user from going back
             Will(); //Will is known as the office lady
             fight(); //I believe this should be moved into the office yes you are correct i have moved it there now
+
             string choice = Console.ReadLine();
             switch (choice)
             {
@@ -528,6 +539,10 @@ namespace vg_the_game
             Thread.Sleep(1000);
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Write(" Yes or No?");
+            if (bitcoinWallet == 1)
+            {
+                Console.WriteLine("...Or, you could give him the Bitcoin wallet you found... (type: give wallet)");
+            }
             Console.ForegroundColor = ConsoleColor.White;
             response = Console.ReadLine();
             if (response == "yes")
@@ -569,10 +584,17 @@ namespace vg_the_game
                 Console.Clear();
 
             }
-            else
+            if (response == "no")
             {
                 Console.WriteLine(" [Business Studies Student]: HOW DEAR YOU! YOU HAVEN'T EVEN LISTEND TO MY PITCH!");
                 BussinessGuy();
+                fight();
+            }
+            if (response == "give wallet")
+            {
+                Console.WriteLine("[Business Studies Student]: A Bitcoin wallet! With this I'll be unstoppable! Watch what I do next! ;)");
+                Console.WriteLine("An Empowered Business Studies Student approaches!");
+                empoweredBuisnessStudent();
                 fight();
             }
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -924,6 +946,26 @@ namespace vg_the_game
             else if (enemyHealth <= 0)
             {
                 Console.WriteLine(" You have defeated the enemy!");
+
+                if (officeid == 0)
+                {
+                    Console.WriteLine("You find a USB of some kind in her pocket, it seems to be a crypto wallet, full of bitcoin!");
+                    userInput = Console.ReadLine();
+
+                    do
+                    {
+                        Console.WriteLine("Do you take the Bitcoin wallet? (yes or no)");
+                    } while (userInput != "yes" || userInput != "no");
+
+                    if (userInput == "yes")
+                    {
+                        bitcoinWallet = 1;
+                    }
+                    else
+                    {
+
+                    }
+                }
                 // Implement logic to reward the player or move to the next part of the game
 
                 Console.ForegroundColor = ConsoleColor.Cyan;
