@@ -822,6 +822,11 @@ namespace vg_the_game
             Environment.Exit(0);
         }
 
+        static void platformsanddevices()
+        {
+            //Exploring and maybe you fight Paul
+        }
+
 
         static void fight()
         {
