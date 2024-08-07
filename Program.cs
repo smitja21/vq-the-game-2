@@ -47,6 +47,13 @@ namespace vg_the_game
             {
                 lines.Add(line);
             }
+
+            foreach (var line in lines)
+            {
+                Console.WriteLine(line);
+              
+            }
+            Console.ReadLine();
         }
 
         static void will()//method to add a enemy copy this when adding someone to the game
