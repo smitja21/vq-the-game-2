@@ -339,7 +339,9 @@ namespace vg_the_game
                             closet();
                             break;
                         default:
+                            Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine(" Please enter a valid input");
+                            Console.ForegroundColor = ConsoleColor.White;
                             break;
                     }
                 }
@@ -433,7 +435,9 @@ namespace vg_the_game
                         hallway();
                         break;
                     default:
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine(" Please enter a valid input");
+                        Console.ForegroundColor = ConsoleColor.White;
                         break;
                 }
             }
@@ -487,7 +491,9 @@ namespace vg_the_game
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(" Please enter a valid input");
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
             } while (response != "yes" && response != "no");
 
@@ -508,7 +514,9 @@ namespace vg_the_game
                     hallway();
                     break;
                 default:
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(" Please enter a valid input");
+                    Console.ForegroundColor = ConsoleColor.White;
                     break;
             }
         }
@@ -612,7 +620,9 @@ namespace vg_the_game
                     hallway();
                     break;
                 default:
-                    Console.WriteLine("Please enter a valid input");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(" Please enter a valid input");
+                    Console.ForegroundColor = ConsoleColor.White;
                     break;
             }
         }
@@ -632,8 +642,6 @@ namespace vg_the_game
             string choice;
             while (printerid == 0 || studioid == 0 || mathsid == 0)
             {
-
-
                 do
                 {
                     choice = Console.ReadLine();
@@ -646,7 +654,7 @@ namespace vg_the_game
                             }
                             else
                             {
-                                Console.WriteLine(" You need a card to unlock this room, You can get this by visting the maths room");
+                                Console.WriteLine(" You need a card to unlock this room, You can get this by visiting the maths room");
                                 Thread.Sleep(3000);
                                 hallway2();
                             }
@@ -658,42 +666,48 @@ namespace vg_the_game
                             mathsRoom();
                             break;
                         default:
+                            Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine(" Please enter a valid input");
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Thread.Sleep(2000);
                             break;
                     }
                 } while (choice != "printer" || choice != "studio" || choice != "maths");
             }
             /*if (printerid == 1 && studioid == 1 && mathsid == 1) //I feel like this should be a while loop and while not equal to this everything else runs for level 1?
             {*/
-                Console.WriteLine("Congrats you have explored all of level 2");
-                Thread.Sleep(3000);
-                Console.WriteLine("The elevator is going up");
-                Thread.Sleep(3000);
-                hallwayID = 2;
-                hallway3();
-           //
-
-
-
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("\n\n Congrats you have explored all of level 2");
+            Console.ForegroundColor = ConsoleColor.White;
+            Thread.Sleep(3000);
+            Console.WriteLine(" The elevator is going up...");
+            Thread.Sleep(3000);
+            hallwayID = 2;
+            hallway3();
         }
         static void mathsRoom()
         {
 
             if (mathsid == 1)
             {
-                Console.WriteLine("You have already visited here, you have been sent back to the hallway");
+                Console.WriteLine(" You have already visited here, you have been sent back to the hallway");
+                Thread.Sleep(3000);
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("\n press ENTER to continue");
+                Console.ForegroundColor = ConsoleColor.White;
                 hallway2();
             }
 
             mathsid = 1;
 
-            Console.WriteLine("You entered the Maths Room\nDeacon is there, He does not look happy");
+            Console.WriteLine("\n You are in the Maths Room\n");
+            Console.WriteLine(" Deacon is there and he does not look happy");
             Thread.Sleep(1000);
-            Console.WriteLine("[Deacon]: Vaughn you are making the tutorals a nightmare\nnone of the questions are easy");
+            Console.WriteLine(" [Deacon]: Vaughn you are making the tutorals a nightmare\nnone of the questions are easy");
             Thread.Sleep(1000);
-            Console.WriteLine("[Deacon]: What is  eiπ + ln(−1) = x2 +∫0∞​xsin(x)​dx");
+            Console.WriteLine(" [Deacon]: What is  eiπ + ln(−1) = x2 +∫0∞​xsin(x)​dx (Write an answer)");
             Console.ReadLine();
-            Console.WriteLine("[Deacon]: Wrong. I will have to tech you a lesson about maths");
+            Console.WriteLine(" [Deacon]: Wrong! I will have to tech you a lesson about maths");
             card = 1;
             MathsStudent();
             fight();
@@ -763,7 +777,9 @@ namespace vg_the_game
                 }
                 else
                 {
-                    Console.WriteLine("Please enter a valid input");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(" Please enter a valid input");
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
 
             } while (choice != 1 && choice !=2);
@@ -794,7 +810,9 @@ namespace vg_the_game
                         VaughnOffice();
                         break;
                     default:
-                        Console.WriteLine("Please enter a valid input");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine(" Please enter a valid input");
+                        Console.ForegroundColor = ConsoleColor.White;
                         break;
 
                 }
