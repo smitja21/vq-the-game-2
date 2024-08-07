@@ -824,7 +824,11 @@ namespace vg_the_game
 
         static void platformsanddevices()
         {
-            //Exploring and maybe you fight Paul
+            //You enter D312
+            //Paul asks you if you have any Tech News
+            //Answer is recorded
+            //Asks SpaceX Question
+            //Depending on the answers provided, his fight values will be either harder or easier 
         }
 
 
