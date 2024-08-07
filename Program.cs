@@ -26,7 +26,7 @@ namespace vg_the_game
 
 
 
-        static void Main(string[] args)
+        static void Main()
         {
             officeid = 0;
             hallwayintro = 0;
@@ -910,15 +910,8 @@ namespace vg_the_game
                 Console.WriteLine("\n       You have been defeated");
                 Console.WriteLine("\n             Game Over!");
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.ReadLine();
-                if (difficulty > 1)
-                {
-                    hallway();
-                }
-                else
-                {
-                    Start();
-                }
+                Thread.Sleep(2000);
+                Lose();
 
             }
             else if (enemyHealth <= 0)
@@ -1025,12 +1018,29 @@ namespace vg_the_game
                     }
             }
         }
-        static void End()
+        static void Lose()
         {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("\n\n  █████ █████                        ██████████    ███               █████ ███\r\n░░███ ░░███                        ░░███░░░░███  ░░░               ░░███ ░███\r\n ░░███ ███    ██████  █████ ████    ░███   ░░███ ████   ██████   ███████ ░███\r\n  ░░█████    ███░░███░░███ ░███     ░███    ░███░░███  ███░░███ ███░░███ ░███\r\n   ░░███    ░███ ░███ ░███ ░███     ░███    ░███ ░███ ░███████ ░███ ░███ ░███\r\n    ░███    ░███ ░███ ░███ ░███     ░███    ███  ░███ ░███░░░  ░███ ░███ ░░░ \r\n    █████   ░░██████  ░░████████    ██████████   █████░░██████ ░░████████ ███\r\n   ░░░░░     ░░░░░░    ░░░░░░░░    ░░░░░░░░░░   ░░░░░  ░░░░░░   ░░░░░░░░ ░░░ ");
+            Console.ForegroundColor = ConsoleColor.White;
+            Thread.Sleep(3000);
+            Console.Clear();
+            Console.WriteLine("\n Would you like to play again (yes or no)?");
+            string temp = Console.ReadLine().ToLower();
+            switch (temp)
+            {
+                case "yes":
+                case "y":
+                    Main();
+                    break;
+                case "no":
+                case "n":
+                    break;
+            }
 
-
-
-            Console.ReadLine();
+            Thread.Sleep(3000);
+            Environment.Exit(0);
         }
     }
 }
