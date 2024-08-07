@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Net.Http.Headers;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
+using System.Xml.Serialization;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace vg_the_game
@@ -264,23 +265,7 @@ namespace vg_the_game
             Thread.Sleep(2000);
             officeid = 1; //prevents user from going back
             Will(); //Will is known as the office lady
-            fight(); //I believe this should be moved into the office yes you are correct i have moved it there now
-            string choice = Console.ReadLine();
-            switch (choice)
-            {
-                case "office":
-                    Console.WriteLine(" Your are already here\n");
-                    Thread.Sleep(3000);
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine(" press ENTER to continue");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.ReadLine();
-                    office();
-                    break;
-                case "hallway":
-                    hallway();
-                    break;
-            }
+            fight();
         }
 
         static void hallway()
@@ -319,46 +304,62 @@ namespace vg_the_game
 
 
             hallwayintro = 1;
+            
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine(" You stand in the hallway, from here you can navigate to the (office), (broom1), (broom2), (closet).\n If you have already explored all these rooms press ENTER to continue."); //Need to rename broom1 and broom2
+            Console.WriteLine(" You stand in the hallway you can navigate to the (office), (broom1), (broom2), (closet)"); //Need to rename broom1 and broom2
             Console.ForegroundColor = ConsoleColor.White;
-            string choice = Console.ReadLine();
-            switch (choice)
-            {
-                case "hallway":
-                    Console.WriteLine(" You are already here.");
-                    Thread.Sleep(3000);
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine(" press ENTER to continue");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.ReadLine();
-                    hallway();
-                    break;
-                case "office":
-                    office();
-                    break;
-                case "broom1":
-                    broom1();
-                    break;
-                case "broom2":
-                    broom2();
-                    break;
-                case "closet":
-                    closet();
-                    break;
-            }
+            Console.WriteLine(" Once you've explored all rooms on level 1, you will progress to the second level");
+            string choice;
 
-            if (officeid == 1 && closetid == 1 && boom1id == 1 && broom2id == 1) //I feel like this should be a while loop and while not equal to this everything else runs for level 1?
+            while (officeid == 0 || closetid == 0 || boom1id == 0 || broom2id == 0)
             {
+
+                do
+                {
+                    choice = Console.ReadLine();
+
+                    switch (choice)
+                    {
+                        case "hallway":
+                            Console.WriteLine(" You are already here");
+                            Thread.Sleep(3000);
+                            Console.ForegroundColor = ConsoleColor.Cyan;
+                            Console.WriteLine(" press ENTER to continue");
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.ReadLine();
+                            hallway();
+                            break;
+                        case "office":
+                            office();
+                            break;
+                        case "broom1":
+                            broom1();
+                            break;
+                        case "broom2":
+                            broom2();
+                            break;
+                        case "closet":
+                            closet();
+                            break;
+                        default:
+                            Console.WriteLine(" Please enter a valid input");
+                            break;
+                    }
+                }
+                while (choice != "hallway" || choice != "office" || choice != "broom1" || choice != "broom2" || choice != "closet");
+
+            }
+           /* if (officeid == 1 && closetid == 1 && boom1id == 1 && broom2id== 1) //I feel like this should be a while loop and while not equal to this everything else runs for level 1?
+            {*/
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine(" Congrats you have explored all of level 1!");
                 Console.ForegroundColor = ConsoleColor.White;
                 Thread.Sleep(3000);
-                Console.WriteLine("The elevator is going up...");
+                Console.WriteLine(" The elevator is going up...");
                 Thread.Sleep(3000);
                 hallwayID = 1;
                 hallway2();
-            }
+            //}
 
         }
 
@@ -415,29 +416,38 @@ namespace vg_the_game
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine(" You stand in the closet you can navigate to the (closet), (hallway).");
             Console.ForegroundColor = ConsoleColor.White;
-            string choice = Console.ReadLine();
-            switch (choice)
+            string choice;
+            do
             {
-                case "closet":
-                    Console.WriteLine(" You can't go back into a room you are already in! Try the hallway instead.");
-                    Thread.Sleep(3000);
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine(" press ENTER to continue");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.ReadLine();
-                    hallway();
-                    break;
-                case "hallway":
-                    hallway();
-                    break;
+                choice = Console.ReadLine();  
+                
+                switch (choice)
+                {
+                    case "closet":
+                        Console.WriteLine(" You can't go back into a room you are already in! Try the hallway instead");
+                        Thread.Sleep(3000);
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.WriteLine(" press ENTER to continue");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.ReadLine();
+                        hallway();
+                        break;
+                    case "hallway":
+                        hallway();
+                        break;
+                    default:
+                        Console.WriteLine(" Please enter a valid input");
+                        break;
+                }
             }
+
+            while (choice != "closet" || choice != "hallway");
         }
 
 
         //Boss Room
         static void broom1()
         {
-            string response;
 
             if (boom1id == 1)
             {
@@ -450,32 +460,39 @@ namespace vg_the_game
             }
 
 
-
             //Angry Student Boss
             Console.Clear();
 
             Console.WriteLine("\n You are in broom1\n");
             roomID = 4;
             Console.WriteLine("[First Year Student]: Hi Vaughn, I was just wondering if you had marked my math exam?");
-
             Thread.Sleep(1000);
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("\n You can respond with either 'yes' or 'no'");
             Console.ForegroundColor = ConsoleColor.White;
-            response = Console.ReadLine();
 
             boom1id = 1;
+            string response;
 
-            if (response == "yes" || response == "Yes")
+            do
             {
-                Console.WriteLine(" Yes, I am getting through the papers at a good speed, I just have to find my gin before continuing.");
-            }
-            else if (response == "no" || response == "No") ;
-            {
-                Console.WriteLine(" No!, I need to find my gin, I don't have time to mark math papers until it is found!");
-                BussinessGuy();// using his status
-                fight();
-            }
+                response = Console.ReadLine().ToLower();
+
+                if (response == "yes")
+                {
+                    Console.WriteLine(" Yes, I'll get round to marking the math papers, I just have to find my gin");
+                }
+                else if (response == "no")
+                {
+                    Console.WriteLine(" No!, I need to find my gin, I don't have time to mark math papers");
+                    BussinessGuy();// using his status
+                    fight();
+                }
+                else
+                {
+                    Console.WriteLine(" Please enter a valid input");
+                }
+            } while (response != "yes" && response != "no");
 
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine(" You stand in the broom1 you can navigate to the (broom1), (hallway).");
@@ -492,6 +509,9 @@ namespace vg_the_game
                     break;
                 case "hallway":
                     hallway();
+                    break;
+                default:
+                    Console.WriteLine(" Please enter a valid input");
                     break;
             }
         }
@@ -594,6 +614,9 @@ namespace vg_the_game
                 case "hallway":
                     hallway();
                     break;
+                default:
+                    Console.WriteLine("Please enter a valid input");
+                    break;
             }
         }
 
@@ -607,38 +630,49 @@ namespace vg_the_game
             Console.WriteLine("You are now on the 2nd floor");
             Console.WriteLine("Once you've explored all rooms on level 2, you may need to press ENTER");
             Console.WriteLine("You stand in the second floor hallway you can navigate to the (printer), (studio), (maths)");
-            string choice = Console.ReadLine();
-            switch (choice)
+            string choice;
+            while (printerid == 0 || studioid == 0 || mathsid == 0)
             {
-                case "printer":
-                    if (card == 1)
-                    {
-                        printerRoom();
-                    }
-                    else
-                    {
-                        Console.WriteLine("You need a card to unlock this room, You can get this by visiting the maths room");
-                        Thread.Sleep(3000);
-                        hallway2();
-                    }
-                    break;
-                case "studio":
-                    studioRoom();
-                    break;
-                case "maths":
-                    mathsRoom();
-                    break;
-            }
 
-            if (printerid == 1 && studioid == 1 && mathsid == 1) //I feel like this should be a while loop and while not equal to this everything else runs for level 1?
-            {
+
+                do
+                {
+                    choice = Console.ReadLine();
+                    switch (choice)
+                    {
+                        case "printer":
+                            if (card == 1)
+                            {
+                                printerRoom();
+                            }
+                            else
+                            {
+                                Console.WriteLine(" You need a card to unlock this room, You can get this by visting the maths room");
+                                Thread.Sleep(3000);
+                                hallway2();
+                            }
+                            break;
+                        case "studio":
+                            studioRoom();
+                            break;
+                        case "maths":
+                            mathsRoom();
+                            break;
+                        default:
+                            Console.WriteLine(" Please enter a valid input");
+                            break;
+                    }
+                } while (choice != "printer" || choice != "studio" || choice != "maths");
+            }
+            /*if (printerid == 1 && studioid == 1 && mathsid == 1) //I feel like this should be a while loop and while not equal to this everything else runs for level 1?
+            {*/
                 Console.WriteLine("Congrats you have explored all of level 2");
                 Thread.Sleep(3000);
                 Console.WriteLine("The elevator is going up");
                 Thread.Sleep(3000);
                 hallwayID = 2;
                 hallway3();
-            }
+           //
 
 
 
@@ -729,7 +763,13 @@ namespace vg_the_game
                     weapon = 10;
                     Console.WriteLine("You got a sword");
                 }
-            } while (choice != 1 && choice != 2);
+                else
+                {
+                    Console.WriteLine("Please enter a valid input");
+                }
+
+            } while (choice != 1 && choice !=2);
+            
             hallway2();
         }
 
@@ -740,18 +780,27 @@ namespace vg_the_game
         {
             Console.WriteLine("You are now on the 3rd floor");
             Console.WriteLine("You stand in the third floor hallway you can navigate to the (hallway), (office)");
-            string choice = Console.ReadLine();
-            switch (choice)
+            string choice;
+            do
+
             {
-                case "hallway":
-                    Console.WriteLine("You are already here press ENTER to continue");
-                    Console.ReadLine();
-                    hallway3();
-                    break;
-                case "office":
-                    VaughnOffice();
-                    break;
-            }
+                choice = Console.ReadLine();
+                switch (choice)
+                {
+                    case "hallway":
+                        Console.WriteLine("You are already here press ENTER to continue");
+                        Console.ReadLine();
+                        hallway3();
+                        break;
+                    case "office":
+                        VaughnOffice();
+                        break;
+                    default:
+                        Console.WriteLine("Please enter a valid input");
+                        break;
+
+                }
+            } while (choice != "hallway" || choice != "office");
 
         }
 
