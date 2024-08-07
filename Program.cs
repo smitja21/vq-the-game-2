@@ -535,11 +535,11 @@ namespace vg_the_game
             Console.WriteLine(" The student comes over, trying to sell you crypto, they are quite the sales person.");
             Thread.Sleep(1000);
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine(" Do you wish to buy some crypto from the business studies student? yes or no");
+            Console.WriteLine(" Do you wish to buy some crypto from the business studies student? (yes or no)");
             Thread.Sleep(1000);
             if (bitcoinWallet == 1)
             {
-                Console.WriteLine("...Or, you could give him the Bitcoin wallet you found... (type: give wallet)");
+                Console.WriteLine("...Or, you could give him the Bitcoin wallet you found... (give wallet)");
             }
        
             Console.ForegroundColor = ConsoleColor.White;
