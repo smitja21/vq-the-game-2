@@ -21,7 +21,7 @@ namespace vg_the_game
         public static string enemyName;
 
         public static int officeid, hallwayintro, closetid, boom1id, broom2id;  //first floor 
-        public static int printerid, studioid, mathsid; //second floor
+        public static int printerid, studioid, mathsid; //second floors
 
 
 
@@ -125,7 +125,7 @@ namespace vg_the_game
             buisnessStudent2.enemyHealth = 125;// sets enemyHealth
             enemyHealth = buisnessStudent2.enemyHealth;// overrides the last enemies health
             enemyName = buisnessStudent2.name;
-            damageMod = 1.3;
+            damageMod = 2;
         }
 
         static void Equiptment()
@@ -243,7 +243,7 @@ namespace vg_the_game
             {
 
                 Console.WriteLine(" You have already been in this room.\n You have been sent back to the hallway.");
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("\n\n\n press ENTER to continue");
                 Console.ForegroundColor = ConsoleColor.White;
@@ -271,8 +271,7 @@ namespace vg_the_game
                 Console.ReadLine();
             }
 
-            Thread.Sleep(2000);
-            officeid = 1; //prevents user from going back
+            Thread.Sleep(1000);
             Will(); //Will is known as the office lady
             fight(); //I believe this should be moved into the office yes you are correct i have moved it there now
 
@@ -281,7 +280,7 @@ namespace vg_the_game
             {
                 case "office":
                     Console.WriteLine(" Your are already here\n");
-                    Thread.Sleep(3000);
+                    Thread.Sleep(1000);
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine(" press ENTER to continue");
                     Console.ForegroundColor = ConsoleColor.White;
@@ -338,7 +337,7 @@ namespace vg_the_game
             {
                 case "hallway":
                     Console.WriteLine(" You are already here.");
-                    Thread.Sleep(3000);
+                    Thread.Sleep(1000);
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine(" press ENTER to continue");
                     Console.ForegroundColor = ConsoleColor.White;
@@ -364,9 +363,9 @@ namespace vg_the_game
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine(" Congrats you have explored all of level 1!");
                 Console.ForegroundColor = ConsoleColor.White;
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 Console.WriteLine("The elevator is going up...");
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 hallwayID = 1;
                 hallway2();
             }
@@ -382,7 +381,7 @@ namespace vg_the_game
             if (closetid == 1)
             {
                 Console.WriteLine(" You have already visited here, you have been sent back to the hallway.");
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("\n press ENTER to continue");
                 Console.ForegroundColor = ConsoleColor.White;
@@ -431,7 +430,7 @@ namespace vg_the_game
             {
                 case "closet":
                     Console.WriteLine(" You can't go back into a room you are already in! Try the hallway instead.");
-                    Thread.Sleep(3000);
+                    Thread.Sleep(1000);
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine(" press ENTER to continue");
                     Console.ForegroundColor = ConsoleColor.White;
@@ -453,7 +452,7 @@ namespace vg_the_game
             if (boom1id == 1)
             {
                 Console.WriteLine(" You have already visited here, you have been sent back to the hallway.");
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("\n press ENTER to continue");
                 Console.ForegroundColor = ConsoleColor.White;
@@ -515,7 +514,7 @@ namespace vg_the_game
             if (broom2id == 1)
             {
                 Console.WriteLine(" You have already visited here, you have been sent back to the hallway.");
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("\n press ENTER to continue");
                 Console.ForegroundColor = ConsoleColor.White;
@@ -535,14 +534,14 @@ namespace vg_the_game
             Thread.Sleep(1000);
             Console.WriteLine(" The student comes over, trying to sell you crypto, they are quite the sales person.");
             Thread.Sleep(1000);
-            Console.WriteLine(" Do you wish to buy some crypto from the business studies student?");
-            Thread.Sleep(1000);
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.Write(" Yes or No?");
+            Console.WriteLine(" Do you wish to buy some crypto from the business studies student? yes or no");
+            Thread.Sleep(1000);
             if (bitcoinWallet == 1)
             {
                 Console.WriteLine("...Or, you could give him the Bitcoin wallet you found... (type: give wallet)");
             }
+       
             Console.ForegroundColor = ConsoleColor.White;
             response = Console.ReadLine();
             if (response == "yes")
@@ -592,8 +591,8 @@ namespace vg_the_game
             }
             if (response == "give wallet")
             {
-                Console.WriteLine("[Business Studies Student]: A Bitcoin wallet! With this I'll be unstoppable! Watch what I do next! ;)");
-                Console.WriteLine("An Empowered Business Studies Student approaches!");
+                Console.WriteLine(" \n[Business Studies Student]: A Bitcoin wallet! With this I'll be unstoppable! Watch what I do next! ;)");
+                Console.WriteLine(" An Empowered Business Studies Student approaches!");
                 empoweredBuisnessStudent();
                 fight();
             }
@@ -640,7 +639,7 @@ namespace vg_the_game
                     else
                     {
                         Console.WriteLine("You need a card to unlock this room, You can get this by visiting the maths room");
-                        Thread.Sleep(3000);
+                        Thread.Sleep(1000);
                         hallway2();
                     }
                     break;
@@ -655,9 +654,9 @@ namespace vg_the_game
             if (printerid == 1 && studioid == 1 && mathsid == 1) //I feel like this should be a while loop and while not equal to this everything else runs for level 1?
             {
                 Console.WriteLine("Congrats you have explored all of level 2");
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 Console.WriteLine("The elevator is going up");
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 hallwayID = 2;
                 hallway3();
             }
@@ -804,11 +803,13 @@ namespace vg_the_game
         {
 
             health = 100;
+            energy = 100;
 
             int charge = 0;
             string userInput = null;
             int option;
             bool isValid = false;
+            string input = "";
 
             Random random = new Random();
             do
@@ -949,22 +950,28 @@ namespace vg_the_game
 
                 if (officeid == 0)
                 {
-                    Console.WriteLine("You find a USB of some kind in her pocket, it seems to be a crypto wallet, full of bitcoin!");
-                    userInput = Console.ReadLine();
-
+                    Console.WriteLine("\n You find a USB of some kind in her pocket, it seems to be a crypto wallet, full of bitcoin!");
                     do
                     {
-                        Console.WriteLine("Do you take the Bitcoin wallet? (yes or no)");
-                    } while (userInput != "yes" || userInput != "no");
+                        Console.WriteLine(" Do you take the Bitcoin wallet?");
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.WriteLine("yes or no");
+                        Console.ForegroundColor = ConsoleColor.White;
 
-                    if (userInput == "yes")
+                        input = Console.ReadLine();
+                    } while (input != "yes" && input != "no");
+
+                    if (input == "yes")
                     {
+                        Console.WriteLine(" \nYou grab the bitcoin wallet and put it in your pocket");
                         bitcoinWallet = 1;
                     }
                     else
                     {
 
                     }
+                    officeid = 1;
+
                 }
                 // Implement logic to reward the player or move to the next part of the game
 
@@ -985,13 +992,13 @@ namespace vg_the_game
         {    Console.Clear();
             Console.WriteLine("                 Tip Menu ");
             Console.WriteLine("____________________________________________________");
-            Console.WriteLine("When your energy is low you will not be able attack");
-            Console.WriteLine("Only way to gain enery to choose the gain enery option ");
-            Console.WriteLine("but you might sustain damage if enemy decides to attack" +
+            Console.WriteLine(" When your energy is low you will not be able attack");
+            Console.WriteLine(" Only way to gain enery to choose the gain enery option ");
+            Console.WriteLine(" but you might sustain damage if enemy decides to attack" +
                              "\n and you might died         ");
-            Console.WriteLine("\nThe chances of missing each attack is :");
-            Console.WriteLine("\n1: Strong Attack 84% \n2: Medium Attack 50% \n3: Low Attack 25% ");
-            Console.WriteLine("\n\nTo activate the charge attack you must choose the option twice and deals\ndamage on the enemy between 50 and 80");
+            Console.WriteLine("\n The chances of missing each attack is :");
+            Console.WriteLine("\n 1: Strong Attack 84% \n2: Medium Attack 50% \n3: Low Attack 25% ");
+            Console.WriteLine("\n\n To activate the charge attack you must choose the option twice and deals\ndamage on the enemy between 50 and 80");
             Console.ReadLine();
             Console.Clear();
         }
