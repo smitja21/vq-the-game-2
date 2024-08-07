@@ -52,10 +52,7 @@ namespace vg_the_game
 
             Start();
         }
-
-
-        static void Will()//method to add a enemy copy this when adding someone to the game
-
+        static void will()//method to add a enemy copy this when adding someone to the game
         {
             enemy will;
             will.name = "Office Lady";//sets enemy name
@@ -844,24 +841,8 @@ namespace vg_the_game
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("---------------------------------------------------------------------------------------------------------------");
                 Console.ForegroundColor= ConsoleColor.White;
-
-                Console.WriteLine(" Choose your move!: \n1: Strong Attack (25% chance to hit, but for HIGH damage!) \n2: Medium Attack (50% chance to hit, for a middling level of damage) \n3: Low Attack (75% change to hit for a small amount of damage)\n4: Charge Attack (Begin to charge up a powerful attack, 3 turns of charging is needed to reach full power!)\n5: Gain Energy (Regenerate a random amount of energy)");
-
-                do
-                {
-                    userInput = Console.ReadLine();
-
-                    if (userInput == "1" || userInput == "2" || userInput == "3" || userInput == "4" || userInput == "5")
-                    {
-                        isValid = true;
-                    }
-                    else
-                        Console.WriteLine("Please enter a valid answer\n");
-                    
-                } while (isValid == false);
-                option = Convert.ToInt32(userInput);
-                Console.WriteLine("\n");
-
+                Console.WriteLine(" Choose your move!: \n  1: Strong Attack \n  2: Medium Attack \n  3: Low Attack \n  4: Charge Attack \n  5: Gain Energy \n  6:Tips");
+                int option = Convert.ToInt32(Console.ReadLine());
                 int hit = random.Next(101);
 
                 switch (option)
@@ -947,6 +928,8 @@ namespace vg_the_game
                             energy = Math.Min(100, energy + energyGained);
                             break;
                         }
+                    case 6:
+                        TipsMenu();    
                 }
 
                 if (enemyHealth > 0) enemyAttack(); // Enemy attacks only if it's still alive
@@ -989,13 +972,18 @@ namespace vg_the_game
         }
 
         static void TipsMenu()
-        {    Console.Clear();
+        {
+          Console.Clear();
             Console.WriteLine("                 Tip Menu ");
             Console.WriteLine("____________________________________________________");
             Console.WriteLine("When your energy is low you will not be able attack");
             Console.WriteLine("Only way to gain enery to choose the gain enery option ");
             Console.WriteLine("but you might sustain damage if enemy decides to attack" +
                              "\n and you might died         ");
+            Console.WriteLine("\n You energy for ");
+            Console.WriteLine("\nThe chances of missing each attack is :");
+            Console.WriteLine("\n1: Strong Attack 84 % \n2: Medium Attack 50% \n3: Low Attack 25% ");
+            Console.WriteLine("\n\nTo activate the charge attack you must choose the option twice and deals\ndamage on the enemy between 50 and 80");
             Console.WriteLine("\nThe chances of missing each attack is :");
             Console.WriteLine("\n1: Strong Attack 84% \n2: Medium Attack 50% \n3: Low Attack 25% ");
             Console.WriteLine("\n\nTo activate the charge attack you must choose the option twice and deals\ndamage on the enemy between 50 and 80");
