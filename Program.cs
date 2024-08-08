@@ -42,7 +42,7 @@ namespace vg_the_game
         {
             List<string> lines = new List<string>();
 
-            var file = File.ReadAllLines("Starting page.txt");
+            var file = File.ReadAllLines("StartImage.txt");
             foreach (var line in file)
             {
                 lines.Add(line);
@@ -53,7 +53,7 @@ namespace vg_the_game
                 Console.WriteLine(line);
               
             }
-            Console.ReadLine();
+            Thread.Sleep(2000);
         }
 
         static void will()//method to add a enemy copy this when adding someone to the game
