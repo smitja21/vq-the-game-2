@@ -910,22 +910,18 @@ namespace vg_the_game
 
         static void hallway3()
         {
-            Console.Clear();
-            Console.WriteLine("\n You are now on the 3rd floor\n");
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine(" You stand in the third floor hallway you can navigate to the (office), (D312)");
-            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("You are now on the 3rd floor");
+            Console.WriteLine("You stand in the third floor hallway you can navigate to the (hallway), (office)");
             string choice;
             do
+
             {
                 choice = Console.ReadLine();
                 switch (choice)
                 {
                     case "hallway":
-                        Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.WriteLine(" You are already here press ENTER to continue");
+                        Console.WriteLine("You are already here press ENTER to continue");
                         Console.ReadLine();
-                        Console.ForegroundColor = ConsoleColor.White;
                         hallway3();
                         break;
                     case "office":
