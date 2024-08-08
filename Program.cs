@@ -235,7 +235,6 @@ namespace vg_the_game
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("\n\n\n Press ENTER to continue");
                 Console.ForegroundColor = ConsoleColor.White;
-
                 Console.ReadLine();
                 hallway();
             }
@@ -375,6 +374,7 @@ namespace vg_the_game
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("\n Press ENTER to continue");
                 Console.ForegroundColor = ConsoleColor.White;
+                Console.ReadLine();
                 hallway();
             }
 
@@ -457,6 +457,7 @@ namespace vg_the_game
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("\n Press ENTER to continue");
                 Console.ForegroundColor = ConsoleColor.White;
+                Console.ReadLine();
                 hallway();
             }
 
@@ -533,6 +534,7 @@ namespace vg_the_game
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("\n Press ENTER to continue");
                 Console.ForegroundColor = ConsoleColor.White;
+                Console.ReadLine();
                 hallway();
             }
 
@@ -654,7 +656,9 @@ namespace vg_the_game
                             }
                             else
                             {
+                                Console.ForegroundColor = ConsoleColor.Yellow;
                                 Console.WriteLine(" You need a card to unlock this room, You can get this by visiting the maths room");
+                                Console.ForegroundColor = ConsoleColor.White;
                                 Thread.Sleep(3000);
                                 hallway2();
                             }
@@ -695,6 +699,7 @@ namespace vg_the_game
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("\n Press ENTER to continue");
                 Console.ForegroundColor = ConsoleColor.White;
+                Console.ReadLine();
                 hallway2();
             }
 
@@ -724,6 +729,7 @@ namespace vg_the_game
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("\n Press ENTER to continue");
                 Console.ForegroundColor = ConsoleColor.White;
+                Console.ReadLine();
                 hallway2();
             }
 
@@ -733,8 +739,10 @@ namespace vg_the_game
             Console.WriteLine("\n You are in the Studio Room\n");
             Console.WriteLine(" Vic is here\n He asks a serious question to ask of you");
             Thread.Sleep(1000);
-            Console.WriteLine(" [Vic]: How many seasons of The Simpsons are there?");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine(" [Vic]: How many seasons of The Simpsons are there? (Write an answer)");
             int temp = Convert.ToInt32(Console.ReadLine());
+            Console.ForegroundColor = ConsoleColor.White;
 
             if (temp == 35)
             {
@@ -763,6 +771,7 @@ namespace vg_the_game
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("\n Press ENTER to continue");
                 Console.ForegroundColor = ConsoleColor.White;
+                Console.ReadLine();
                 hallway2();
             }
 
@@ -804,6 +813,7 @@ namespace vg_the_game
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("\n\n\n Press ENTER to continue");
             Console.ForegroundColor = ConsoleColor.White;
+            Console.ReadLine();
 
             hallway2();
         }
