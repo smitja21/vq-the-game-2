@@ -22,7 +22,7 @@ namespace vg_the_game
         public static string enemyName;
 
         public static int officeid, hallwayintro, closetid, boom1id, broom2id;  //first floor 
-        public static int printerid, studioid, mathsid; //second floor
+        public static int printerid, studioid, mathsid,commonid; //second floor
 
 
 
@@ -36,6 +36,7 @@ namespace vg_the_game
             broom2id = 0;
             printerid = 0;
             studioid = 0;
+            commonid = 0;
             mathsid = 0;
             energy = 100;
             health = 100;
@@ -786,6 +787,20 @@ namespace vg_the_game
             } while (choice != 1 && choice !=2);
             
             hallway2();
+        }
+
+        static void commonRoom()
+        {
+            if (commonid == 1)
+            {
+                Console.WriteLine("You have already visited here, you have been sent back to the hallway");
+                Console.ReadLine();
+                hallway2();
+            }
+
+            commonid = 1;
+
+
         }
 
 
