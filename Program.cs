@@ -49,9 +49,9 @@ namespace vg_the_game
             pen = 0;
             card = 0;
             hallwayID = 0;
-          
-            ReadStartingPage();
-            Start();
+            commonRoom();
+            //ReadStartingPage();
+          //  Start();
         }
 
         static void ReadStartingPage()// method that reads the StartingPage.txt
@@ -135,6 +135,8 @@ namespace vg_the_game
             enemyName = Victor.name;
             damageMod = 1.6;
         }
+
+        
 
         static void Equiptment()
         {
@@ -646,9 +648,9 @@ namespace vg_the_game
             Console.Clear();
             Console.WriteLine("You are now on the 2nd floor");
             Console.WriteLine("Once you've explored all rooms on level 2, you may need to press ENTER");
-            Console.WriteLine("You stand in the second floor hallway you can navigate to the (printer), (studio), (maths)");
+            Console.WriteLine("You stand in the second floor hallway you can navigate to the (printer), (studio), (maths),(common room)");
             string choice;
-            while (printerid == 0 || studioid == 0 || mathsid == 0)
+            while (printerid == 0 || studioid == 0 || mathsid == 0 || commonid == 0)
             {
 
 
@@ -675,11 +677,15 @@ namespace vg_the_game
                         case "maths":
                             mathsRoom();
                             break;
+                        case "common room":
+                            commonRoom();
+                            break;
                         default:
                             Console.WriteLine(" Please enter a valid input");
+                            Console.ReadLine();
                             break;
                     }
-                } while (choice != "printer" || choice != "studio" || choice != "maths");
+                } while (choice != "printer" || choice != "studio" || choice != "maths" || choice!= "common room");
             }
             /*if (printerid == 1 && studioid == 1 && mathsid == 1) //I feel like this should be a while loop and while not equal to this everything else runs for level 1?
             {*/
@@ -799,7 +805,20 @@ namespace vg_the_game
             }
 
             commonid = 1;
+            
+            Console.WriteLine("\n Common Room \n");
+            Console.WriteLine(" You are in the common room, a group of Studio 1 students are working on the projects");
+            Thread.Sleep(1000);
+            Console.Write(" You notice that each and every student is using ");
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.Write("CHATGPT!!");
+            Thread.Sleep(1000);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("");
+           
+            Console.WriteLine("");
 
+            // make emily enemy 
 
         }
 
