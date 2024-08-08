@@ -1238,7 +1238,7 @@ namespace vg_the_game
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("\n\n  █████ █████                        █████   ███   █████  ███             ███\r\n░░███ ░░███                        ░░███   ░███  ░░███  ░░░             ░███\r\n ░░███ ███    ██████  █████ ████    ░███   ░███   ░███  ████  ████████  ░███\r\n  ░░█████    ███░░███░░███ ░███     ░███   ░███   ░███ ░░███ ░░███░░███ ░███\r\n   ░░███    ░███ ░███ ░███ ░███     ░░███  █████  ███   ░███  ░███ ░███ ░███\r\n    ░███    ░███ ░███ ░███ ░███      ░░░█████░█████░    ░███  ░███ ░███ ░░░ \r\n    █████   ░░██████  ░░████████       ░░███ ░░███      █████ ████ █████ ███\r\n   ░░░░░     ░░░░░░    ░░░░░░░░         ░░░   ░░░      ░░░░░ ░░░░ ░░░░░ ░░░ ");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine($" You acheved {achev} achevments");
+            Console.WriteLine($" You acheved {achev}/3 achevments");
             Thread.Sleep(3000);
             Console.Clear();
             Console.WriteLine("\n Would you like to play again (yes or no)?");
