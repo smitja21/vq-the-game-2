@@ -18,11 +18,12 @@ namespace vg_the_game
     {
 
         public static double enemyHealth, health, damage, filament, energy, armour, difficulty, weapon, xp, damageMod;
-        public static int pen, roomID, card, hallwayID;
+        public static int pen, roomID, card, hallwayID, spareKey;
         public static string enemyName;
 
         public static int officeid, hallwayintro, closetid, boom1id, broom2id;  //first floor 
         public static int printerid, studioid, mathsid; //second floor
+        public static int hallwayintro3; //third floor
 
 
 
@@ -48,7 +49,8 @@ namespace vg_the_game
             pen = 0;
             card = 0;
             hallwayID = 0;
-
+            spareKey = 0;
+            hallwayintro3 = 0;
 
             Start();
         }
@@ -774,8 +776,12 @@ namespace vg_the_game
 
         static void hallway3()
         {
-            Console.WriteLine("You are now on the 3rd floor");
-            Console.WriteLine("You stand in the third floor hallway you can navigate to the (hallway), (office)");
+            if (hallwayintro3 == 0)
+            {
+                Console.WriteLine("You are now on the 3rd floor");
+            }
+            Console.WriteLine("You stand in the third floor hallway you can navigate to the (hallway), (office), (D312)");
+            hallwayintro3 = 1;
             string choice;
             do
 
@@ -786,10 +792,14 @@ namespace vg_the_game
                     case "hallway":
                         Console.WriteLine("You are already here press ENTER to continue");
                         Console.ReadLine();
+                        Console.Clear();
                         hallway3();
                         break;
                     case "office":
                         VaughnOffice();
+                        break;
+                    case "D312":
+                        platformsanddevices();
                         break;
                     default:
                         Console.WriteLine("Please enter a valid input");
@@ -803,6 +813,17 @@ namespace vg_the_game
 
         static void VaughnOffice()
         {
+            if (spareKey == 0)
+            {
+                Console.WriteLine("It appears you don't have your keys");
+                Thread.Sleep(1000);
+                Console.WriteLine("Try visting Paul in D312");
+                Thread.Sleep(2000);
+                Console.Clear();
+                hallway3();
+            }
+            
+
             Console.WriteLine("You entered Vaughn's office");
             Thread.Sleep(1000);
             Console.WriteLine("It's dark and gloomy");
@@ -825,27 +846,80 @@ namespace vg_the_game
         static void platformsanddevices()
         {
             string response;
-            //You enter D312
-            //Paul asks you if you have any Tech News
-            //Answer is recorded
-            //Asks SpaceX Question
-            //Depending on the answers provided, his fight values will be either harder or easier
             Console.WriteLine("You enter D312, the lights illuminate");
             Thread.Sleep(1000);
+            Console.WriteLine("[Vaughn]: Hi Paul, I've lost my keys just wondering if I could use yours");
+            Thread.Sleep(1000);
+            Console.WriteLine("[Paul]: I'll have a look...");
+            Thread.Sleep(1000);
             Console.WriteLine("[Paul]: Just wondering if you've got any tech news");
+            Thread.Sleep(1000);
             Console.WriteLine("You can either respond to Paul with 'yes' or 'No'");
             do
             {
                 response = Console.ReadLine();
                 if (response == "yes")
                 {
-                    Console.WriteLine("[Paul]: Great to hear, you'll have to present that to the class!");
+                    Console.WriteLine("[Paul]: Great to hear, you'll have to present that to the class today!");
+                    Thread.Sleep(2000);
                 }
                 else if (response == "no")
                 {
-
+                    Console.WriteLine("Maybe you should check out the latest Elon Musk news on Wired.com");
+                    Thread.Sleep(2000);
                 }
-            } while (response != "yes" || response != "no");
+                else
+                {
+                    Console.WriteLine("Please enter a valid input");
+                }
+            } while (response != "yes" && response != "no");
+
+            Console.Clear();
+
+            do
+            {
+                Console.WriteLine("[Paul]: What do you think of Elon Musk?");
+                Console.WriteLine("You can respond with:");
+                Console.WriteLine("(1) He ruined Twitter!");
+                Console.WriteLine("(2) Tesla is going to destroy the world");
+                Console.WriteLine("(3) He's a rich prick");
+                response = Console.ReadLine();
+                if (response == "1")
+                {
+                    Console.WriteLine("[Paul]: Elon is actually working to make Twitter better by introducing new features and improving the platform.");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("[Paul]: Sometimes big changes can be challenging, but he's got a track record of transforming industries for the better.");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("[Paul]: It’s worth giving his vision a chance to see how it plays out.");
+                }
+                else if (response == "2")
+                {
+                    Console.WriteLine("[Paul]: Tesla is actually working towards a more sustainable future with electric vehicles and renewable energy solutions.");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("[Paul]: Their goal is to reduce reliance on fossil fuels and lower emissions, which can help combat climate change.");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("[Paul]: While no company is perfect, Tesla’s innovations are aimed at creating a better world, not destroying it.");
+                }
+                else if (response == "3")
+                {
+                    Console.WriteLine("[Paul]: It's easy to focus on someone's wealth and label them negatively, but it's also important to consider their contributions and intentions.");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("[Paul]: Elon Musk has invested heavily in technology and innovation with the aim of solving big problems like climate change and space exploration.");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("[Paul]: Criticizing someone based on their wealth alone might overlook the broader impact of their work and efforts.");
+                }
+                else
+                {
+                    Console.WriteLine("Please enter a valid input");
+                }
+            } while (response != "1" && response != "2" && response != "3");
+            
+            Thread.Sleep(2000);
+            Console.WriteLine("[Paul]: While I don't agree with everything you have said today, Vaughn");
+            Thread.Sleep(1000);
+            Console.WriteLine("[Paul]: Here is my spare key for your office");
+            spareKey = 1;
+            hallway3();
         }
 
 
