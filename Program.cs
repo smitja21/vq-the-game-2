@@ -221,8 +221,6 @@ namespace vg_the_game
                     break;
             }
         }
-
-
         static void Start()
         {
             Console.Clear();
@@ -268,7 +266,7 @@ namespace vg_the_game
             Console.WriteLine(" You must now fight your way out of this one!");
             do {
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine(" Do you wish to do the combat tutorial? yes or no?");
+                Console.WriteLine(" Do you wish to do the combat tutorial? yes or no?\n");
                 Console.ForegroundColor = ConsoleColor.White;
                 userInput = Console.ReadLine();
 
@@ -280,7 +278,7 @@ namespace vg_the_game
                     Console.WriteLine(" The gain energy button is to be used when you feel Vaughn is too low on energy, and needs some more. \n And the charge attack takes 3 turns of using charge attack to fully charge, but will deal immense damage. \n Your HP and Energy are displayed above the fight options, and your opponents HP is visable on side opposite to yours.\n\n Thats all for the tutorial, press Enter when you are ready to continue! And have fun!\n");
                     Console.ReadLine();
                 }
-            }while (userInput != "yes" && userInput != "no");
+            } while (userInput != "yes" && userInput != "no");
 
             Thread.Sleep(2000);
             officeid = 1; //prevents user from going back
@@ -302,10 +300,13 @@ namespace vg_the_game
             {
                 Console.WriteLine(" You spot a pen lying on the ground, it appears to be the last Te Pūkenga BIT pen. ");
                 Thread.Sleep(1000);
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine(" Would you like to pick up the pen (1) or leave it on the ground as there could be better things to find (0).");
-                Console.ForegroundColor = ConsoleColor.White;
-                temp = Console.ReadLine();
+                do
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("\n Would you like to pick up the pen (1) or leave it on the ground as there could be better things to find (0).\n");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    temp = Console.ReadLine();
+                } while (temp != "1" && temp != "2");
                 input = Convert.ToInt32(temp);
 
 
@@ -494,7 +495,7 @@ namespace vg_the_game
             Console.WriteLine("[First Year Student]: Hi Vaughn, I was just wondering if you had marked my math exam?");
             Thread.Sleep(1000);
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("\n You can respond with either 'yes' or 'no'");
+            Console.WriteLine("\n You can respond with either 'yes' or 'no'\n");
             Console.ForegroundColor = ConsoleColor.White;
 
             boom1id = 1;
@@ -506,7 +507,7 @@ namespace vg_the_game
 
                 if (response == "yes")
                 {
-                    Console.WriteLine(" Yes, I'll get round to marking the math papers, I just have to find my gin");
+                    Console.WriteLine("\n Yes, I'll get round to marking the math papers, I just have to find my gin");
                 }
                 else if (response == "no")
                 {
@@ -581,7 +582,7 @@ namespace vg_the_game
             Console.WriteLine(" Do you wish to buy some crypto from the business studies student?");
             Thread.Sleep(1000);
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.Write(" Yes or No?");
+            Console.WriteLine(" yes or no?");
             Console.ForegroundColor = ConsoleColor.White;
             response = Console.ReadLine();
             if (response == "yes")
@@ -914,13 +915,24 @@ namespace vg_the_game
             Random random = new Random();
             do
             {
-                Console.WriteLine($"\n You have {health} HP and {energy} Energy.                                                          {enemyName} has {enemyHealth} HP");//Change to name from list
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("---------------------------------------------------------------------------------------------------------------");
-                Console.ForegroundColor= ConsoleColor.White;
-                Console.WriteLine(" Choose your move!: \n  1: Strong Attack \n  2: Medium Attack \n  3: Low Attack \n  4: Charge Attack \n  5: Gain Energy \n  6: Tips");
-                option = Convert.ToInt32(Console.ReadLine());
+                do
+                {
+                    Console.WriteLine($"\n You have {health} HP and {energy} Energy.                                                          {enemyName} has {enemyHealth} HP");//Change to name from list
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("---------------------------------------------------------------------------------------------------------------");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine(" Choose your move!: \n  1: Strong Attack \n  2: Medium Attack \n  3: Low Attack \n  4: Charge Attack \n  5: Gain Energy \n  6: Tips\n");
+                    userInput = Console.ReadLine();
+
+                    if (userInput != "1" && userInput != "2" && userInput != "3" && userInput != "4" && userInput != "5" && userInput != "6")
+                    {
+                        Console.WriteLine("\n Please enter a valid input.");
+                    }
+                } while (userInput != "1" && userInput != "2" && userInput != "3" && userInput != "4" && userInput != "5" && userInput != "6");
+
+                option = Convert.ToInt32(userInput);
                 int hit = random.Next(101);
+                userInput = null;
 
                 switch (option)
                 {
@@ -932,16 +944,16 @@ namespace vg_the_game
 
                             if (hit > 84)
                             {
-                                Console.WriteLine($"You hit the enemy for {damage} damage!\n");
+                                Console.WriteLine($"\n You hit the enemy for {damage} damage!\n");
                                 enemyHealth -= damage + weapon;
                             }
 
                             else
-                                Console.WriteLine("You missed!");
+                                Console.WriteLine("\n You missed!");
                         }
 
                         else
-                            Console.WriteLine("you dont have enough energy for the Strong Attack.\n");
+                            Console.WriteLine("\n You dont have enough energy for the Strong Attack.\n");
                         break;
 
                     case 2:
@@ -952,16 +964,16 @@ namespace vg_the_game
 
                             if (hit > 50)
                             {
-                                Console.WriteLine($"You hit the enemy for {damage} damage!\n");
+                                Console.WriteLine($"\n You hit the enemy for {damage} damage!\n");
                                 enemyHealth -= damage + weapon;
                             }
 
                             else
-                                Console.WriteLine("You missed!");
+                                Console.WriteLine("\n You missed!");
                         }
 
                         else
-                            Console.WriteLine("You don't have enough energy for the Medium Attack.\n");
+                            Console.WriteLine("\n You don't have enough energy for the Medium Attack.\n");
                         break;
 
                     case 3:
@@ -973,15 +985,15 @@ namespace vg_the_game
 
                                 if (hit > 25)
                                 {
-                                    Console.WriteLine($"You hit the enemy for {damage} damage!\n");
+                                    Console.WriteLine($"\n You hit the enemy for {damage} damage!\n");
                                     enemyHealth -= damage + weapon;
                                 }
 
                                 else
-                                    Console.WriteLine("You missed!");
+                                    Console.WriteLine("\n You missed!");
                             }
                             else
-                                Console.WriteLine("You don't have enough energy for the Low Attack.\n");
+                                Console.WriteLine("\n You don't have enough energy for the Low Attack.\n");
 
 
                             break;
@@ -991,7 +1003,7 @@ namespace vg_the_game
                             if (charge == 3)
                             {
                                 damage = random.Next(50, 80);
-                                Console.WriteLine($"You hit the enemy for {damage} damage!\n");
+                                Console.WriteLine($"\n You hit the enemy for {damage} damage!\n");
                                 enemyHealth -= damage + weapon;
                                 charge = 0;
                             }
@@ -1010,7 +1022,7 @@ namespace vg_the_game
                         break;
                 }
 
-                if (enemyHealth > 0 && option != 6) enemyAttack() ; // Enemy attacks only if it's still alive
+                if (enemyHealth > 0 && option != 6) enemyAttack() ; // Enemy attacks only if it's still alive and the player didn't go into the tips menu.
                 Console.WriteLine("\n\n");
             } while (health > 0 && enemyHealth > 0);
 
@@ -1047,17 +1059,17 @@ namespace vg_the_game
           Console.Clear();
             Console.WriteLine("                 Tip Menu ");
             Console.WriteLine("____________________________________________________");
-            Console.WriteLine("When your energy is low you will not be able attack");
-            Console.WriteLine("Only way to gain energy to choose the gain energy option ");
-            Console.WriteLine("but you might sustain damage if enemy decides to attack" +
+            Console.WriteLine(" When your energy is low you will not be able attack");
+            Console.WriteLine(" Only way to gain energy to choose the gain energy option ");
+            Console.WriteLine(" but you might sustain damage if enemy decides to attack" +
                              "\n and you might died         ");
             Console.WriteLine("\n You energy for ");
-            Console.WriteLine("\nThe chances of missing each attack is:");
-            Console.WriteLine("\n1: Strong Attack 84 % \n2: Medium Attack 50% \n3: Low Attack 25% ");
-            Console.WriteLine("\n\nTo activate the charge attack you must choose the option twice and deals\ndamage on the enemy between 50 and 80");
-            Console.WriteLine("\nThe chances of missing each attack is :");
-            Console.WriteLine("\n1: Strong Attack 84% \n2: Medium Attack 50% \n3: Low Attack 25% ");
-            Console.WriteLine("\n\nTo activate the charge attack you must choose the option twice and deals\ndamage on the enemy between 50 and 80");
+            Console.WriteLine("\n The chances of missing each attack is:");
+            Console.WriteLine("\n 1: Strong Attack 84 % \n2: Medium Attack 50% \n3: Low Attack 25% ");
+            Console.WriteLine("\n\n To activate the charge attack you must choose the option twice and deals\ndamage on the enemy between 50 and 80");
+            Console.WriteLine("\n The chances of missing each attack is :");
+            Console.WriteLine("\n 1: Strong Attack 84% \n2: Medium Attack 50% \n3: Low Attack 25% ");
+            Console.WriteLine("\n\n To activate the charge attack you must choose the option twice and deals\ndamage on the enemy between 50 and 80");
             Console.ReadLine();
             Console.Clear();
         }
@@ -1083,7 +1095,7 @@ namespace vg_the_game
                             {
                                 health -= (damage - armour);
                             }
-                        else Console.WriteLine("Enemy missed.\n");
+                        else Console.WriteLine(" Enemy missed.\n");
                         break;//replace enemy name with one from a list
                     }
                 case 2:
@@ -1098,7 +1110,7 @@ namespace vg_the_game
                             {
                                 health -= (damage - armour);
                             }
-                        else Console.WriteLine("Enemy missed.\n");
+                        else Console.WriteLine(" Enemy missed.\n");
                         break;
                     }
                 case 3:
@@ -1113,7 +1125,7 @@ namespace vg_the_game
                             {
                                 health -= (damage - armour);
                             }
-                        else Console.WriteLine("Enemy missed.\n");
+                        else Console.WriteLine(" Enemy missed.\n");
                         break;
                     }
                 case 4:
@@ -1128,7 +1140,7 @@ namespace vg_the_game
                             {
                                 health -= (damage - armour);
                             }
-                        else Console.WriteLine("Enemy missed.\n");
+                        else Console.WriteLine(" Enemy missed.\n");
                         break;
                     }
             }
