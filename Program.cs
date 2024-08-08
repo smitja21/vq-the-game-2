@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Net.Http.Headers;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
+using System.Xml.Serialization;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace vg_the_game
@@ -48,6 +49,7 @@ namespace vg_the_game
             card = 0;
             hallwayID = 0;
             bitcoinWallet = 0;
+
 
 
             Start();
@@ -128,7 +130,7 @@ namespace vg_the_game
             damageMod = 2;
         }
 
-        static void Equiptment()
+        static void Equipment()
         {
 
             if (weapon == 0.5)
@@ -307,10 +309,17 @@ namespace vg_the_game
             {
                 Console.WriteLine(" You spot a pen lying on the ground, it appears to be the last Te Pūkenga BIT pen. ");
                 Thread.Sleep(1000);
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine(" Would you like to pick up the pen (1) or leave it on the ground as there could be better things to find (0).");
-                Console.ForegroundColor = ConsoleColor.White;
-                temp = Console.ReadLine();
+
+                do
+                {
+                    temp = "";
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine(" Would you like to pick up the pen (1) or leave it on the ground as there could be better things to find (0).");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    temp = Console.ReadLine();
+
+                } while (temp != "1" && temp != "0");
+
                 input = Convert.ToInt32(temp);
 
                 if (input == 1)
@@ -327,36 +336,41 @@ namespace vg_the_game
                 }
             }
 
-
+            string choice;
             hallwayintro = 1;
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine(" You stand in the hallway, from here you can navigate to the (office), (broom1), (broom2), (closet).\n If you have already explored all these rooms press ENTER to continue."); //Need to rename broom1 and broom2
-            Console.ForegroundColor = ConsoleColor.White;
-            string choice = Console.ReadLine();
-            switch (choice)
+
+            do
             {
-                case "hallway":
-                    Console.WriteLine(" You are already here.");
-                    Thread.Sleep(1000);
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine(" press ENTER to continue");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.ReadLine();
-                    hallway();
-                    break;
-                case "office":
-                    office();
-                    break;
-                case "broom1":
-                    broom1();
-                    break;
-                case "broom2":
-                    broom2();
-                    break;
-                case "closet":
-                    closet();
-                    break;
-            }
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine(" You stand in the hallway, from here you can navigate to the (office), (broom1), (broom2), (closet).\n If you have already explored all these rooms press ENTER to continue."); //Need to rename broom1 and broom2
+                Console.ForegroundColor = ConsoleColor.White;
+                choice = Console.ReadLine();
+                switch (choice)
+                {
+                    case "hallway":
+                        Console.WriteLine(" You are already here.");
+                        Thread.Sleep(1000);
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.WriteLine(" press ENTER to continue");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.ReadLine();
+                        hallway();
+                        break;
+                    case "office":
+                        office();
+                        break;
+                    case "broom1":
+                        broom1();
+                        break;
+                    case "broom2":
+                        broom2();
+                        break;
+                    case "closet":
+                        closet();
+                        break;
+
+                }
+            } while (choice != "hallway" && choice != "office" && choice != "broom1" && choice != "broom2" && choice != "closet");
 
             if (officeid == 1 && closetid == 1 && boom1id == 1 && broom2id == 1) //I feel like this should be a while loop and while not equal to this everything else runs for level 1?
             {
@@ -469,6 +483,7 @@ namespace vg_the_game
             Console.WriteLine("[First Year Student]: Hi Vaughn, I was just wondering if you had marked my math exam?");
 
             Thread.Sleep(1000);
+            
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("\n You can respond with either 'yes' or 'no'");
             Console.ForegroundColor = ConsoleColor.White;
@@ -955,7 +970,7 @@ namespace vg_the_game
                     {
                         Console.WriteLine(" Do you take the Bitcoin wallet?");
                         Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.WriteLine("yes or no");
+                        Console.WriteLine(" yes or no");
                         Console.ForegroundColor = ConsoleColor.White;
 
                         input = Console.ReadLine();
@@ -963,12 +978,12 @@ namespace vg_the_game
 
                     if (input == "yes")
                     {
-                        Console.WriteLine(" \nYou grab the bitcoin wallet and put it in your pocket");
+                        Console.WriteLine("\n You grab the bitcoin wallet and put it in your pocket");
                         bitcoinWallet = 1;
                     }
                     else
                     {
-
+                        Console.WriteLine("\n You leave the bitcoin wallet where it is. No need to steal now.");
                     }
                     officeid = 1;
 
