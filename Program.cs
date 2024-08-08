@@ -136,6 +136,11 @@ namespace vg_the_game
             damageMod = 1.6;
         }
 
+        static void Emily()
+        {
+
+        }
+
         
 
         static void Equiptment()
@@ -812,13 +817,36 @@ namespace vg_the_game
             Console.Write(" You notice that each and every student is using ");
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.Write("CHATGPT!!");
+            Console.ReadLine() ;
             Thread.Sleep(1000);
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("");
-           
-            Console.WriteLine("");
+            Console.WriteLine(" [Emily] : WHAT ARE YOU DOING HERE VAUGHN !");
+            Thread.Sleep(1000);
+            Console.WriteLine(" [Vaughn] : What did I tell you guys about using Chatgpt! This is how you fail Studio 1 by cheating");
+            Thread.Sleep(1000);
+            LaughBeep();
+            Console.WriteLine(" [Emily] : VAUGHN NOBOBY LIKES SNITCHES ");
+            Emily();
+            fight();
 
+
+
+            Console.ReadLine(); 
             // make emily enemy 
+
+        }
+        static void LaughBeep()
+        {
+            // Series of beeps to simulate a laugh
+            int[] frequencies = { 900, 800, 900, 800, 900 };//
+                                      //900, 1000, 1100, 1200, 1300 };
+            int duration = 100; // Duration of each beep in milliseconds
+
+            foreach (int freq in frequencies)
+            {
+                Console.Beep(freq, duration);
+                System.Threading.Thread.Sleep(150); // Short pause between beeps
+            }
 
         }
 
