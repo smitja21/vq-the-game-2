@@ -928,16 +928,16 @@ namespace vg_the_game
 
                             if (hit > 84)
                             {
-                                Console.WriteLine($"You hit the enemy for {damage} damage!\n");
+                                Console.WriteLine($" You hit the enemy for {damage} damage!\n");
                                 enemyHealth -= damage + weapon;
                             }
 
                             else
-                                Console.WriteLine("You missed!");
+                                Console.WriteLine(" You missed!");
                         }
 
                         else
-                            Console.WriteLine("you dont have enough energy for the Strong Attack.\n");
+                            Console.WriteLine(" you dont have enough energy for the Strong Attack.\n");
                         break;
 
                     case 2:
@@ -948,16 +948,16 @@ namespace vg_the_game
 
                             if (hit > 50)
                             {
-                                Console.WriteLine($"You hit the enemy for {damage} damage!\n");
+                                Console.WriteLine($" You hit the enemy for {damage} damage!\n");
                                 enemyHealth -= damage + weapon;
                             }
 
                             else
-                                Console.WriteLine("You missed!");
+                                Console.WriteLine(" You missed!");
                         }
 
                         else
-                            Console.WriteLine("You don't have enough energy for the Medium Attack.\n");
+                            Console.WriteLine(" You don't have enough energy for the Medium Attack.\n");
                         break;
 
                     case 3:
@@ -969,15 +969,15 @@ namespace vg_the_game
 
                                 if (hit > 25)
                                 {
-                                    Console.WriteLine($"You hit the enemy for {damage} damage!\n");
+                                    Console.WriteLine($" You hit the enemy for {damage} damage!\n");
                                     enemyHealth -= damage + weapon;
                                 }
 
                                 else
-                                    Console.WriteLine("You missed!");
+                                    Console.WriteLine(" You missed!");
                             }
                             else
-                                Console.WriteLine("You don't have enough energy for the Low Attack.\n");
+                                Console.WriteLine(" You don't have enough energy for the Low Attack.\n");
 
 
                             break;
@@ -987,7 +987,7 @@ namespace vg_the_game
                             if (charge == 3)
                             {
                                 damage = random.Next(50, 80);
-                                Console.WriteLine($"You hit the enemy for {damage} damage!\n");
+                                Console.WriteLine($" You hit the enemy for {damage} damage!\n");
                                 enemyHealth -= damage + weapon;
                                 charge = 0;
                             }
