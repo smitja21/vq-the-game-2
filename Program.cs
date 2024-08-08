@@ -266,16 +266,21 @@ namespace vg_the_game
             Console.WriteLine(" Your environmental impact of printing off a rain forest of paper for your math exams, has enraged the office lady who\n appears to have a blob of glue and staples for hands ");
             Thread.Sleep(1000);
             Console.WriteLine(" You must now fight your way out of this one!");
-            Console.WriteLine(" Do you wish to do the combat tutorial? Y or N?");
-            userInput = Console.ReadLine();
+            do {
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine(" Do you wish to do the combat tutorial? yes or no?");
+                Console.ForegroundColor = ConsoleColor.White;
+                userInput = Console.ReadLine();
 
-            if (userInput.ToLower() == "yes" || userInput.ToLower() == "y")
-            {
-                Console.WriteLine("\n Whenever you need to fight someone, there will be five options available to you: \n\n A strong attack.\n A medium attack.\n A low attack\n A charge attack\n And finally a gain energy\n\n");
-                Console.WriteLine(" Every attack uses energy, The stronger attacks deal higher damage, but have a higher chance for Vaughn to miss and deal no damage, as well as taking more energy to use, and if you don't have enough, the attack wont work.\n The weaker attacks, by extension do less damage and use less energy, but have a higher chance to hit.\n\n");
-                Console.WriteLine(" The gain energy button is to be used when you feel Vaughn is too low on energy, and needs some more. \n And the charge attack takes 3 turns of using charge attack to fully charge, but will deal immense damage. \n Your HP and Energy are displayed above the fight options, and your opponents HP is visable on side opposite to yours.\n\n Thats all for the tutorial, press Enter when you are ready to continue! And have fun!\n");
-                Console.ReadLine();
-            }
+                if (userInput.ToLower() == "yes" || userInput.ToLower() == "y")
+                {
+
+                    Console.WriteLine("\n Whenever you need to fight someone, there will be five options available to you: \n\n A strong attack.\n A medium attack.\n A low attack\n A charge attack\n And finally a gain energy\n\n");
+                    Console.WriteLine(" Every attack uses energy, The stronger attacks deal higher damage, but have a higher chance for Vaughn to miss and deal no damage, as well as taking more energy to use, and if you don't have enough, the attack wont work.\n The weaker attacks, by extension do less damage and use less energy, but have a higher chance to hit.\n\n");
+                    Console.WriteLine(" The gain energy button is to be used when you feel Vaughn is too low on energy, and needs some more. \n And the charge attack takes 3 turns of using charge attack to fully charge, but will deal immense damage. \n Your HP and Energy are displayed above the fight options, and your opponents HP is visable on side opposite to yours.\n\n Thats all for the tutorial, press Enter when you are ready to continue! And have fun!\n");
+                    Console.ReadLine();
+                }
+            }while (userInput != "yes" && userInput != "no");
 
             Thread.Sleep(2000);
             officeid = 1; //prevents user from going back
@@ -302,6 +307,7 @@ namespace vg_the_game
                 Console.ForegroundColor = ConsoleColor.White;
                 temp = Console.ReadLine();
                 input = Convert.ToInt32(temp);
+
 
                 if (input == 1)
                 {
@@ -459,15 +465,14 @@ namespace vg_the_game
                         Console.ForegroundColor = ConsoleColor.White;
                         break;
                 }
-            }
-
-            while (choice != "closet" || choice != "hallway");
+            } while (choice != "closet" || choice != "hallway");
         }
 
 
         //Boss Room
         static void broom1()
         {
+            string choice;
 
             if (boom1id == 1)
             {
@@ -517,28 +522,31 @@ namespace vg_the_game
                 }
             } while (response != "yes" && response != "no");
 
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine(" You stand in the broom1 you can navigate to the (broom1), (hallway).");
-            Console.ForegroundColor = ConsoleColor.White;
-            string choice = Console.ReadLine();
-            switch (choice)
+            do
             {
-                case "broom1":
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine(" You are already here.\n\n press ENTER to continue");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.ReadLine();
-                    broom1();
-                    break;
-                case "hallway":
-                    hallway();
-                    break;
-                default:
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine(" Please enter a valid input");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    break;
-            }
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine(" You stand in the broom1 you can navigate to the (broom1), (hallway).");
+                Console.ForegroundColor = ConsoleColor.White;
+                choice = Console.ReadLine();
+                switch (choice)
+                {
+                    case "broom1":
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.WriteLine(" You are already here.\n\n press ENTER to continue");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.ReadLine();
+                        broom1();
+                        break;
+                    case "hallway":
+                        hallway();
+                        break;
+                    default:
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine(" Please enter a valid input");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        break;
+                }
+            } while (choice != "broom1" && choice != "hallway");
         }
 
         //Boss Room
@@ -910,7 +918,7 @@ namespace vg_the_game
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("---------------------------------------------------------------------------------------------------------------");
                 Console.ForegroundColor= ConsoleColor.White;
-                Console.WriteLine(" Choose your move!: \n  1: Strong Attack \n  2: Medium Attack \n  3: Low Attack \n  4: Charge Attack \n  5: Gain Energy \n  6:Tips");
+                Console.WriteLine(" Choose your move!: \n  1: Strong Attack \n  2: Medium Attack \n  3: Low Attack \n  4: Charge Attack \n  5: Gain Energy \n  6: Tips");
                 option = Convert.ToInt32(Console.ReadLine());
                 int hit = random.Next(101);
 
@@ -1002,7 +1010,7 @@ namespace vg_the_game
                         break;
                 }
 
-                if (enemyHealth > 0) enemyAttack(); // Enemy attacks only if it's still alive
+                if (enemyHealth > 0 && option != 6) enemyAttack() ; // Enemy attacks only if it's still alive
                 Console.WriteLine("\n\n");
             } while (health > 0 && enemyHealth > 0);
 
@@ -1040,11 +1048,11 @@ namespace vg_the_game
             Console.WriteLine("                 Tip Menu ");
             Console.WriteLine("____________________________________________________");
             Console.WriteLine("When your energy is low you will not be able attack");
-            Console.WriteLine("Only way to gain enery to choose the gain enery option ");
+            Console.WriteLine("Only way to gain energy to choose the gain energy option ");
             Console.WriteLine("but you might sustain damage if enemy decides to attack" +
                              "\n and you might died         ");
             Console.WriteLine("\n You energy for ");
-            Console.WriteLine("\nThe chances of missing each attack is :");
+            Console.WriteLine("\nThe chances of missing each attack is:");
             Console.WriteLine("\n1: Strong Attack 84 % \n2: Medium Attack 50% \n3: Low Attack 25% ");
             Console.WriteLine("\n\nTo activate the charge attack you must choose the option twice and deals\ndamage on the enemy between 50 and 80");
             Console.WriteLine("\nThe chances of missing each attack is :");
