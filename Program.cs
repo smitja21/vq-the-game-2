@@ -892,7 +892,9 @@ namespace vg_the_game
             Console.Clear();
             Console.WriteLine(" You look around your office...");
             Thread.Sleep(2000);
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(" You found your gin!");
+            Console.ForegroundColor = ConsoleColor.White;
             Thread.Sleep(2000);
             //Environment.Exit(0); Add in connection to Win screen here
         }
