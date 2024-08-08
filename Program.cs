@@ -824,11 +824,28 @@ namespace vg_the_game
 
         static void platformsanddevices()
         {
+            string response;
             //You enter D312
             //Paul asks you if you have any Tech News
             //Answer is recorded
             //Asks SpaceX Question
-            //Depending on the answers provided, his fight values will be either harder or easier 
+            //Depending on the answers provided, his fight values will be either harder or easier
+            Console.WriteLine("You enter D312, the lights illuminate");
+            Thread.Sleep(1000);
+            Console.WriteLine("[Paul]: Just wondering if you've got any tech news");
+            Console.WriteLine("You can either respond to Paul with 'yes' or 'No'");
+            do
+            {
+                response = Console.ReadLine();
+                if (response == "yes")
+                {
+                    Console.WriteLine("[Paul]: Great to hear, you'll have to present that to the class!");
+                }
+                else if (response == "no")
+                {
+
+                }
+            } while (response != "yes" || response != "no");
         }
 
 
