@@ -48,7 +48,7 @@ namespace vg_the_game
             pen = 0;
             card = 0;
             hallwayID = 0;
-            bitcoinWallet = 0;
+            bitcoinWallet = 0; //Not working in main, need to fix
             ReadStartingPage();
             Start();
         }
