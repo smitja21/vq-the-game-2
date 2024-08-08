@@ -26,7 +26,7 @@ namespace vg_the_game
         public static int hallwayintro3; //third floor
 
 
-
+        public static int achev;
 
 
         static void Main()
@@ -53,6 +53,7 @@ namespace vg_the_game
             spareKey = 0;
             hallwayintro3 = 0;
             bitcoinWallet = 0;
+            achev = 0;
             ReadStartingPage();
             Start();
         }
@@ -676,6 +677,7 @@ namespace vg_the_game
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("\n\n\n\n\n\n\n\n  Press enter to start");
                 Console.ForegroundColor = ConsoleColor.White;
+                achev++;
                 Console.ReadLine();
                 Console.Clear();
 
@@ -992,6 +994,7 @@ namespace vg_the_game
             Console.ForegroundColor = ConsoleColor.White;
             Thread.Sleep(2000);
             //Environment.Exit(0); Add in connection to Win screen here
+            Win();
         }
 
         static void platformsanddevices()
@@ -1341,6 +1344,7 @@ namespace vg_the_game
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("\n\n  █████ █████                        █████   ███   █████  ███             ███\r\n░░███ ░░███                        ░░███   ░███  ░░███  ░░░             ░███\r\n ░░███ ███    ██████  █████ ████    ░███   ░███   ░███  ████  ████████  ░███\r\n  ░░█████    ███░░███░░███ ░███     ░███   ░███   ░███ ░░███ ░░███░░███ ░███\r\n   ░░███    ░███ ░███ ░███ ░███     ░░███  █████  ███   ░███  ░███ ░███ ░███\r\n    ░███    ░███ ░███ ░███ ░███      ░░░█████░█████░    ░███  ░███ ░███ ░░░ \r\n    █████   ░░██████  ░░████████       ░░███ ░░███      █████ ████ █████ ███\r\n   ░░░░░     ░░░░░░    ░░░░░░░░         ░░░   ░░░      ░░░░░ ░░░░ ░░░░░ ░░░ ");
             Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine($" You acheved {achev}/3 achevments");
             Thread.Sleep(3000);
             Console.Clear();
             Console.WriteLine("\n Would you like to play again (yes or no)?");
