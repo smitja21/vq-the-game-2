@@ -361,44 +361,14 @@ namespace vg_the_game
             string choice;
             hallwayintro = 1;
 
-            do
-            {
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine(" You stand in the hallway you can navigate to the (office), (broom1), (broom2), (closet)"); //Need to rename broom1 and broom2
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine(" Once you've explored all rooms on level 1, you will progress to the second level");
-                choice = Console.ReadLine();
-                switch (choice)
-                {
-                    case "hallway":
-                        Console.WriteLine(" You are already here.");
-                        Thread.Sleep(1000);
-                        Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.WriteLine(" press ENTER to continue");
-                        Console.ForegroundColor = ConsoleColor.White;
-                        Console.ReadLine();
-                        hallway();
-                        break;
-                    case "office":
-                        office();
-                        break;
-                    case "broom1":
-                        broom1();
-                        break;
-                    case "broom2":
-                        broom2();
-                        break;
-                    case "closet":
-                        closet();
-                        break;
-
-                }
-            } while (choice != "hallway" && choice != "office" && choice != "broom1" && choice != "broom2" && choice != "closet");
-
             while (officeid == 0 || closetid == 0 || boom1id == 0 || broom2id == 0)
             {
                 do
                 {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine(" You stand in the hallway you can navigate to the (office), (broom1), (broom2), (closet)"); //Need to rename broom1 and broom2
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine(" Once you've explored all rooms on level 1, you will progress to the second level");
                     choice = Console.ReadLine();
 
                     switch (choice)
