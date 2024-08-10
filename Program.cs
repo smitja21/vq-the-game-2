@@ -59,7 +59,7 @@ namespace vg_the_game
 
         static void ReadStartingPage()// method that reads the StartingPage.txt
         {
-            List<string> lines = new List<string>()
+            List<string> lines = new List<string>();
 
             var file = File.ReadAllLines("StartImage.txt");
             foreach (var line in file)
