@@ -49,7 +49,7 @@ namespace vg_the_game
             pen = 0;
             card = 0;
             hallwayID = 0;
-            commonRoom();
+            
             ReadStartingPage();
             Start();
         }
@@ -833,11 +833,6 @@ namespace vg_the_game
             Console.WriteLine(" [Emily] : VAUGHN NOBOBY LIKES SNITCHES ");
             Emily();
             fight();
-
-
-
-            Console.ReadLine(); 
-             
 
         }
         static void LaughBeep()
