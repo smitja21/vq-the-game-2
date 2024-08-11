@@ -50,8 +50,8 @@ namespace vg_the_game
             card = 0;
             hallwayID = 0;
             commonRoom();
-            //ReadStartingPage();
-          //  Start();
+            ReadStartingPage();
+            Start();
         }
 
         static void ReadStartingPage()// method that reads the StartingPage.txt
@@ -138,7 +138,12 @@ namespace vg_the_game
 
         static void Emily()
         {
-
+            enemy Emily;
+            Emily.name = "Emily";//sets enemy name
+            Emily.enemyHealth = 20;// sets enemyHealth
+            enemyHealth = Emily.enemyHealth;// overrides the last enemies health
+            enemyName = Emily.name;
+            damageMod = 1.33;
         }
 
         
@@ -817,10 +822,10 @@ namespace vg_the_game
             Console.Write(" You notice that each and every student is using ");
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.Write("CHATGPT!!");
-            Console.ReadLine() ;
+            
             Thread.Sleep(1000);
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(" [Emily] : WHAT ARE YOU DOING HERE VAUGHN !");
+            Console.WriteLine("\n [Emily] : WHAT ARE YOU DOING HERE VAUGHN !");
             Thread.Sleep(1000);
             Console.WriteLine(" [Vaughn] : What did I tell you guys about using Chatgpt! This is how you fail Studio 1 by cheating");
             Thread.Sleep(1000);
@@ -832,7 +837,7 @@ namespace vg_the_game
 
 
             Console.ReadLine(); 
-            // make emily enemy 
+             
 
         }
         static void LaughBeep()
@@ -842,11 +847,15 @@ namespace vg_the_game
                                       //900, 1000, 1100, 1200, 1300 };
             int duration = 100; // Duration of each beep in milliseconds
 
+            Console.WriteLine(" Laughing");
+            
             foreach (int freq in frequencies)
             {
                 Console.Beep(freq, duration);
-                System.Threading.Thread.Sleep(150); // Short pause between beeps
+                Thread.Sleep(150); // Short pause between beeps
             }
+
+            
 
         }
 
