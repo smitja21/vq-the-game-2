@@ -22,11 +22,11 @@ namespace vg_the_game
         public static string enemyName;
 
         public static int officeid, hallwayintro, closetid, boom1id, broom2id;  //first floor 
-        public static int printerid, studioid, mathsid; //second floor
+        public static int printerid, studioid, mathsid,commonid; //second floor
         public static int hallwayintro3; //third floor
 
 
-
+        public static int achev;
 
 
         static void Main()
@@ -38,6 +38,7 @@ namespace vg_the_game
             broom2id = 0;
             printerid = 0;
             studioid = 0;
+            commonid = 0;
             mathsid = 0;
             energy = 100;
             health = 100;
@@ -53,6 +54,7 @@ namespace vg_the_game
             spareKey = 0;
             hallwayintro3 = 0;
             bitcoinWallet = 0;
+            achev = 0;
             ReadStartingPage();
             Start();
         }
@@ -148,7 +150,17 @@ namespace vg_the_game
             damageMod = 2;
         }
 
-        static void Equipment()
+        static void Emily()
+        {
+            enemy Emily;
+            Emily.name = "Emily";//sets enemy name
+            Emily.enemyHealth = 20;// sets enemyHealth
+            enemyHealth = Emily.enemyHealth;// overrides the last enemies health
+            enemyName = Emily.name;
+            damageMod = 1.33;
+        }
+
+        static void Equiptment()
         {
 
             if (weapon == 0.5)
@@ -219,6 +231,7 @@ namespace vg_the_game
                 Console.ForegroundColor = ConsoleColor.White;
             }
         }
+      
         static void callroom()
         {
             switch (hallwayID)
@@ -234,7 +247,6 @@ namespace vg_the_game
                     break;
             }
         }
-
 
         static void Start()
         {
@@ -656,6 +668,7 @@ namespace vg_the_game
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("\n\n\n\n\n\n\n\n  Press enter to start");
                 Console.ForegroundColor = ConsoleColor.White;
+                achev++;
                 Console.ReadLine();
                 Console.Clear();
 
@@ -713,7 +726,7 @@ namespace vg_the_game
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine(" Once you've explored all rooms on level 2, you will progress to the third level");
             string choice;
-            while (printerid == 0 || studioid == 0 || mathsid == 0)
+            while (printerid == 0 || studioid == 0 || mathsid == 0 || commonid == 0)
             {
                 do
                 {
@@ -740,14 +753,17 @@ namespace vg_the_game
                         case "maths":
                             mathsRoom();
                             break;
+                        case "common room":
+                            commonRoom();
+                            break;
                         default:
                             Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine(" Please enter a valid input");
                             Console.ForegroundColor = ConsoleColor.White;
-                            Thread.Sleep(2000);
+                            Console.ReadLine();
                             break;
                     }
-                } while (choice != "printer" || choice != "studio" || choice != "maths");
+                } while (choice != "printer" || choice != "studio" || choice != "maths" || choice!= "common room");
             }
             /*if (printerid == 1 && studioid == 1 && mathsid == 1) //I feel like this should be a while loop and while not equal to this everything else runs for level 1?
             {*/
@@ -889,6 +905,55 @@ namespace vg_the_game
             hallway2();
         }
 
+        static void commonRoom()
+        {
+            if (commonid == 1)
+            {
+                Console.WriteLine("You have already visited here, you have been sent back to the hallway");
+                Console.ReadLine();
+                hallway2();
+            }
+
+            commonid = 1;
+            
+            Console.WriteLine("\n Common Room \n");
+            Console.WriteLine(" You are in the common room, a group of Studio 1 students are working on the projects");
+            Thread.Sleep(1000);
+            Console.Write(" You notice that each and every student is using ");
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.Write("CHATGPT!!");
+            
+            Thread.Sleep(1000);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("\n [Emily] : WHAT ARE YOU DOING HERE VAUGHN !");
+            Thread.Sleep(1000);
+            Console.WriteLine(" [Vaughn] : What did I tell you guys about using Chatgpt! This is how you fail Studio 1 by cheating");
+            Thread.Sleep(1000);
+            LaughBeep();
+            Console.WriteLine(" [Emily] : VAUGHN NOBOBY LIKES SNITCHES ");
+            Emily();
+            fight();
+
+        }
+        static void LaughBeep()
+        {
+            // Series of beeps to simulate a laugh
+            int[] frequencies = { 900, 800, 900, 800, 900 };//
+                                      //900, 1000, 1100, 1200, 1300 };
+            int duration = 100; // Duration of each beep in milliseconds
+
+            Console.WriteLine(" Laughing");
+            
+            foreach (int freq in frequencies)
+            {
+                Console.Beep(freq, duration);
+                Thread.Sleep(150); // Short pause between beeps
+            }
+
+            
+
+        }
+
 
         //Third Floor
 
@@ -972,6 +1037,7 @@ namespace vg_the_game
             Console.ForegroundColor = ConsoleColor.White;
             Thread.Sleep(2000);
             //Environment.Exit(0); Add in connection to Win screen here
+            Win();
         }
 
         static void platformsanddevices()
@@ -1320,6 +1386,7 @@ namespace vg_the_game
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("\n\n  █████ █████                        █████   ███   █████  ███             ███\r\n░░███ ░░███                        ░░███   ░███  ░░███  ░░░             ░███\r\n ░░███ ███    ██████  █████ ████    ░███   ░███   ░███  ████  ████████  ░███\r\n  ░░█████    ███░░███░░███ ░███     ░███   ░███   ░███ ░░███ ░░███░░███ ░███\r\n   ░░███    ░███ ░███ ░███ ░███     ░░███  █████  ███   ░███  ░███ ░███ ░███\r\n    ░███    ░███ ░███ ░███ ░███      ░░░█████░█████░    ░███  ░███ ░███ ░░░ \r\n    █████   ░░██████  ░░████████       ░░███ ░░███      █████ ████ █████ ███\r\n   ░░░░░     ░░░░░░    ░░░░░░░░         ░░░   ░░░      ░░░░░ ░░░░ ░░░░░ ░░░ ");
             Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine($" You acheved {achev}/3 achevments");
             Thread.Sleep(3000);
             Console.Clear();
             Console.WriteLine("\n Would you like to play again (yes or no)?");
