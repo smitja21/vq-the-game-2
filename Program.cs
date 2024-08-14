@@ -21,7 +21,7 @@ namespace vg_the_game
         public static int pen, roomID, card, hallwayID, spareKey, bitcoinWallet;
         public static string enemyName;
 
-        public static int officeid, hallwayintro, closetid, boom1id, D103id;  //first floor 
+        public static int officeid, hallwayintro, closetid, D102id, D103id;  //first floor 
         public static int printerid, studioid, mathsid,commonid; //second floor
         public static int hallwayintro3; //third floor
 
@@ -34,7 +34,7 @@ namespace vg_the_game
             officeid = 0;
             hallwayintro = 0;
             closetid = 0;
-            boom1id = 0;
+            D102id = 0;
             D103id = 0;
             printerid = 0;
             studioid = 0;
@@ -375,7 +375,7 @@ namespace vg_the_game
             string choice;
             hallwayintro = 1;
 
-            while (officeid == 0 || closetid == 0 || boom1id == 0 || D103id == 0)
+            while (officeid == 0 || closetid == 0 || D102id == 0 || D103id == 0)
             {
                 do
                 {
@@ -455,6 +455,8 @@ namespace vg_the_game
             roomID = 3;
             Console.WriteLine("You are in Janitor Closet");
 
+            closetid = 1;
+
             Thread.Sleep(2000);
             Console.WriteLine(" You enter a dark gloomy room, Krissi appears from the shadows in front of you.");
             Thread.Sleep(2000);
@@ -481,7 +483,6 @@ namespace vg_the_game
                 fight();
             }
 
-            closetid = 1;
 
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine(" You stand in the closet you can navigate to the (closet), (hallway).");
@@ -520,7 +521,7 @@ namespace vg_the_game
         {
             string choice;
 
-            if (boom1id == 1)
+            if (D102id == 1)
             {
                 Console.WriteLine(" You have already visited here, you have been sent back to the hallway.");
                 Thread.Sleep(1000);
@@ -544,7 +545,7 @@ namespace vg_the_game
             Console.WriteLine("\n You can respond with either 'yes' or 'no'\n");
             Console.ForegroundColor = ConsoleColor.White;
 
-            boom1id = 1;
+            D102id = 1;
             string response;
 
             do
