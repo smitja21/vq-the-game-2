@@ -264,7 +264,7 @@ namespace vg_the_game
             roomID = 0;
             armour = 0;
             weapon = 0;
-            office();
+            hallway2();
         }
 
         //admin/office - item room
@@ -298,7 +298,7 @@ namespace vg_the_game
                 Console.ForegroundColor = ConsoleColor.White;
                 userInput = Console.ReadLine();
 
-                if (userInput.ToLower() == "yes" || userInput.ToLower() == "y")
+                if (userInput.ToLower() == "yes")
                 {
 
                     Console.WriteLine("\n Whenever you need to fight someone, there will be five options available to you: \n\n A strong attack.\n A medium attack.\n A low attack\n A charge attack\n And finally a gain energy\n\n");
@@ -306,7 +306,7 @@ namespace vg_the_game
                     Console.WriteLine(" The gain energy button is to be used when you feel Vaughn is too low on energy, and needs some more. \n And the charge attack takes 3 turns of using charge attack to fully charge, but will deal immense damage. \n Your HP and Energy are displayed above the fight options, and your opponents HP is visable on side opposite to yours.\n\n Thats all for the tutorial, press Enter when you are ready to continue! And have fun!\n");
                     Console.ReadLine();
                 }
-            } while (userInput != "yes" && userInput != "no");
+            } while (userInput != "yes" && userInput != "no" );
 
             Thread.Sleep(1000);
             will(); //Will is known as the office lady
@@ -742,7 +742,8 @@ namespace vg_the_game
                             else
                             {
                                 Console.ForegroundColor = ConsoleColor.Yellow;
-                                Console.WriteLine(" You need a card to unlock this room, You can get this by visiting the maths room");
+                                Console.WriteLine(" You need a card to unlock this room, You can get this by visiting the maths room (Press ENTER to continue");
+                                Console.ReadLine();
                                 Console.ForegroundColor = ConsoleColor.White;
                                 Thread.Sleep(3000);
                                 hallway2();
@@ -761,10 +762,9 @@ namespace vg_the_game
                             Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine(" Please enter a valid input");
                             Console.ForegroundColor = ConsoleColor.White;
-                            Console.ReadLine();
                             break;
                     }
-                } while (choice != "printer" || choice != "studio" || choice != "maths" || choice!= "common room");
+                } while (choice != "printer" && choice != "studio" && choice != "maths" && choice!= "common room");
             }
             /*if (printerid == 1 && studioid == 1 && mathsid == 1) //I feel like this should be a while loop and while not equal to this everything else runs for level 1?
             {*/
@@ -783,7 +783,7 @@ namespace vg_the_game
             if (mathsid == 1)
             {
                 Console.WriteLine(" You have already visited here, you will be sent back to the hallway");
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("\n Press ENTER to continue");
                 Console.ForegroundColor = ConsoleColor.White;
@@ -813,7 +813,7 @@ namespace vg_the_game
             if (studioid == 1)
             {
                 Console.WriteLine(" You have already visited here, you will be sent back to the hallway");
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("\n Press ENTER to continue");
                 Console.ForegroundColor = ConsoleColor.White;
@@ -829,13 +829,15 @@ namespace vg_the_game
             Thread.Sleep(1000);
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine(" [Vic]: How many seasons of The Simpsons are there? (Write an answer)");
-            int temp = Convert.ToInt32(Console.ReadLine());
             Console.ForegroundColor = ConsoleColor.White;
+            int temp = Convert.ToInt32(Console.ReadLine());
 
             if (temp == 35)
             {
                 Console.WriteLine(" [Vic]: Wow! I didn't expect you to get that right! Well done");
-                Console.WriteLine(" Go explore the hallway");
+                Console.WriteLine(" Go explore the hallway (Press ENTER to continue)");
+
+                Console.ReadLine();
                 hallway2();
             }
 
@@ -855,7 +857,7 @@ namespace vg_the_game
             if (printerid == 1)
             {
                 Console.WriteLine(" You have already visited here, you will be sent back to the hallway");
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("\n Press ENTER to continue");
                 Console.ForegroundColor = ConsoleColor.White;
@@ -1130,7 +1132,6 @@ namespace vg_the_game
             int charge = 0;
             string userInput = null;
             int option;
-            bool isValid = false;
             string input = "";
 
             Random random = new Random();
