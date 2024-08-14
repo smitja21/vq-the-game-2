@@ -83,7 +83,7 @@ namespace vg_the_game
         static void IntroSound ()
         {
             // Series of beeps to simulate a laugh
-            int[] frequencies = { 900, 500, 1100,300, 1300 };
+            int[] frequencies = { 900, 500, 1100, 300, 1300 };
             int duration = 125; // Duration of each beep in milliseconds
             
             foreach (int freq in frequencies)
@@ -129,15 +129,7 @@ namespace vg_the_game
             enemyName = farmBot.name;
             damageMod = 1.5;
         }
-        static void Printer()
-        {
-            enemy printer;
-            printer.name = "3D Printer";//sets enemy name
-            printer.enemyHealth = 30;// sets enemyHealth
-            enemyHealth = printer.enemyHealth;// overrides the last enemies health
-            enemyName = printer.name;
-            damageMod = 1.25;
-        }
+        
         static void MathsStudent()
         {
             enemy mathStudent;
@@ -176,78 +168,6 @@ namespace vg_the_game
             damageMod = 1.33;
         }
 
-        static void Equiptment()
-        {
-
-            if (weapon == 0.5)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(" You have no weapon");
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-
-            else if (weapon == 1)
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(" You have weapon 1");
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-
-            else if (weapon == 1.5)
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(" You have weapon 2");
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-
-            else if (weapon == 2)
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(" You have weapon 3 (Highest Level)");
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-
-
-            if (armour == 0.1)
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(" You have no Armour");
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-
-            else if (armour == 0.5)
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(" You have Vaughn boots, maybe you should go tramping");
-                armour = 0.5;
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-
-            else if (armour == 1)
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(" You have Ginmail");
-                armour = 1;
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-
-            else if (armour == 1.5)
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(" You have weapon ResinRanger Rain Coat ");
-                armour = 1.5;
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-
-            else if (armour == 2)
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(" You have PLA Power Vest (Highest Level)");
-                armour = 2;
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-        }
-      
         static void callroom()
         {
             switch (hallwayID)
