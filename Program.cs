@@ -69,13 +69,28 @@ namespace vg_the_game
             {
                 lines.Add(line);
             }
-
+            
             foreach (var line in lines)
             {
                 Console.WriteLine(line);
               
             }
+            IntroSound();
             Thread.Sleep(2000);
+
+        }
+
+        static void IntroSound ()
+        {
+            // Series of beeps to simulate a laugh
+            int[] frequencies = { 900, 500, 1100,300, 1300 };
+            int duration = 125; // Duration of each beep in milliseconds
+            
+            foreach (int freq in frequencies)
+            {
+                Console.Beep(freq, duration);
+                Thread.Sleep(150); // Short pause between beeps
+            }
         }
 
         static void will()//method to add a enemy copy this when adding someone to the game
