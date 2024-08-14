@@ -264,7 +264,7 @@ namespace vg_the_game
             roomID = 0;
             armour = 0;
             weapon = 0;
-            hallway2();
+            office();
         }
 
         //admin/office - item room
@@ -331,6 +331,7 @@ namespace vg_the_game
 
         static void hallway()
         {
+            officeid = 1;
             string temp;
             int input;
 
@@ -382,7 +383,7 @@ namespace vg_the_game
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine(" You stand in the hallway you can navigate to the (office), (broom1), (broom2), (closet)"); //Need to rename broom1 and broom2
                     Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine(" Once you've explored all rooms on level 1, you will progress to the second level");
+                    Console.WriteLine(" Once you've explored all rooms on level 1, you will progress to the second level\n");
                     choice = Console.ReadLine();
 
                     switch (choice)
@@ -453,7 +454,7 @@ namespace vg_the_game
             Console.Clear();
 
             roomID = 3;
-            Console.WriteLine("You are in Janitor Closet");
+            Console.WriteLine(" You are in Janitor Closet");
 
             Thread.Sleep(2000);
             Console.WriteLine(" You enter a dark gloomy room, Krissi appears from the shadows in front of you.");
@@ -484,7 +485,7 @@ namespace vg_the_game
             closetid = 1;
 
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine(" You stand in the closet you can navigate to the (closet), (hallway).");
+            Console.WriteLine(" You stand in the closet you can navigate to the (closet), (hallway).\n");
             Console.ForegroundColor = ConsoleColor.White;
             string choice;
             do
@@ -537,7 +538,7 @@ namespace vg_the_game
 
             Console.WriteLine("\n You are in broom1\n");
             roomID = 4;
-            Console.WriteLine("[First Year Student]: Hi Vaughn, I was just wondering if you had marked my math exam?");
+            Console.WriteLine(" [First Year Student]: Hi Vaughn, I was just wondering if you had marked my math exam?\n");
             Thread.Sleep(1000);
             
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -723,10 +724,11 @@ namespace vg_the_game
             Console.Clear();
             Console.WriteLine("\n You are now on the 2nd floor\n");
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine(" You stand in the second floor hallway you can navigate to the (printer), (studio), (maths)");
+            Console.WriteLine(" You stand in the second floor hallway you can navigate to the (printer), (studio), (maths), (common room)");
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine(" Once you've explored all rooms on level 2, you will progress to the third level");
             string choice;
+            
             while (printerid == 0 || studioid == 0 || mathsid == 0 || commonid == 0)
             {
                 do
@@ -800,8 +802,8 @@ namespace vg_the_game
             Thread.Sleep(1000);
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine(" [Deacon]: What is  eiπ + ln(−1) = x2 +∫0∞​xsin(x)​dx? (Write an answer)");
-            Console.ReadLine();
             Console.ForegroundColor = ConsoleColor.White;
+            Console.ReadLine();
             Console.WriteLine(" [Deacon]: Wrong! I will have to tech you a lesson about maths");
             card = 1;
             MathsStudent();
@@ -1266,7 +1268,7 @@ namespace vg_the_game
                     Console.WriteLine("\n You find a USB of some kind in her pocket, it seems to be a crypto wallet, full of bitcoin!");
                     do
                     {
-                        Console.WriteLine(" Do you take the Bitcoin wallet?");
+                        Console.WriteLine(" Do you take the Bitcoin wallet?\n");
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine(" yes or no");
                         Console.ForegroundColor = ConsoleColor.White;
@@ -1283,9 +1285,15 @@ namespace vg_the_game
                     {
                         Console.WriteLine("\n You leave the bitcoin wallet where it is. No need to steal now.");
                     }
-                    officeid = 1;
-
+                 
                 }
+
+                if (mathsid == 1)
+                {
+                    Console.WriteLine(" You see the keycard to the printing room, you grab it and put it in your pocket.");
+                    mathsid++;
+                }
+
                 // Implement logic to reward the player or move to the next part of the game
 
                 Console.ForegroundColor = ConsoleColor.Cyan;
@@ -1316,6 +1324,7 @@ namespace vg_the_game
             Console.WriteLine("\n The chances of missing each attack is :");
             Console.WriteLine("\n 1: Strong Attack 84% \n2: Medium Attack 50% \n3: Low Attack 25% ");
             Console.WriteLine("\n\n To activate the charge attack you must choose the option twice and deals\ndamage on the enemy between 50 and 80");
+            Console.WriteLine("\n\n Hit ENTER to continue");
             Console.ReadLine();
             Console.Clear();
         }
