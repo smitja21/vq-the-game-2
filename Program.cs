@@ -21,7 +21,7 @@ namespace vg_the_game
         public static int pen, roomID, card, hallwayID, spareKey, bitcoinWallet;
         public static string enemyName;
 
-        public static int officeid, hallwayintro, closetid, boom1id, broom2id;  //first floor 
+        public static int officeid, hallwayintro, closetid, D102id, D103id;  //first floor 
         public static int printerid, studioid, mathsid,commonid; //second floor
         public static int hallwayintro3; //third floor
 
@@ -34,8 +34,8 @@ namespace vg_the_game
             officeid = 0;
             hallwayintro = 0;
             closetid = 0;
-            boom1id = 0;
-            broom2id = 0;
+            D102id = 0;
+            D103id = 0;
             printerid = 0;
             studioid = 0;
             commonid = 0;
@@ -375,12 +375,12 @@ namespace vg_the_game
             string choice;
             hallwayintro = 1;
 
-            while (officeid == 0 || closetid == 0 || boom1id == 0 || broom2id == 0)
+            while (officeid == 0 || closetid == 0 || D102id == 0 || D103id == 0)
             {
                 do
                 {
                     Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine(" You stand in the hallway you can navigate to the (office), (broom1), (broom2), (closet)"); //Need to rename broom1 and broom2
+                    Console.WriteLine(" You stand in the hallway you can navigate to the (office), (D102), (D103), (closet)"); //Need to rename D102 and D103
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine(" Once you've explored all rooms on level 1, you will progress to the second level");
                     choice = Console.ReadLine();
@@ -399,11 +399,11 @@ namespace vg_the_game
                         case "office":
                             office();
                             break;
-                        case "broom1":
-                            broom1();
+                        case "D102":
+                            D102();
                             break;
-                        case "broom2":
-                            broom2();
+                        case "D103":
+                            D103();
                             break;
                         case "closet":
                             closet();
@@ -415,10 +415,10 @@ namespace vg_the_game
                             break;
                     }
                 }
-                while (choice != "hallway" || choice != "office" || choice != "broom1" || choice != "broom2" || choice != "closet");
+                while (choice != "hallway" || choice != "office" || choice != "D102" || choice != "D103" || choice != "closet");
 
             }
-           /* if (officeid == 1 && closetid == 1 && boom1id == 1 && broom2id== 1) //I feel like this should be a while loop and while not equal to this everything else runs for level 1?
+           /* if (officeid == 1 && closetid == 1 && boom1id == 1 && D103id== 1) //I feel like this should be a while loop and while not equal to this everything else runs for level 1?
             {*/
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine(" Congrats you have explored all of level 1!");
@@ -455,6 +455,8 @@ namespace vg_the_game
             roomID = 3;
             Console.WriteLine("You are in Janitor Closet");
 
+            closetid = 1;
+
             Thread.Sleep(2000);
             Console.WriteLine(" You enter a dark gloomy room, Krissi appears from the shadows in front of you.");
             Thread.Sleep(2000);
@@ -481,7 +483,6 @@ namespace vg_the_game
                 fight();
             }
 
-            closetid = 1;
 
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine(" You stand in the closet you can navigate to the (closet), (hallway).");
@@ -516,11 +517,11 @@ namespace vg_the_game
 
 
         //Boss Room
-        static void broom1()
+        static void D102()
         {
             string choice;
 
-            if (boom1id == 1)
+            if (D102id == 1)
             {
                 Console.WriteLine(" You have already visited here, you have been sent back to the hallway.");
                 Thread.Sleep(1000);
@@ -535,7 +536,7 @@ namespace vg_the_game
             //Angry Student Boss
             Console.Clear();
 
-            Console.WriteLine("\n You are in broom1\n");
+            Console.WriteLine("\n You are in D102\n");
             roomID = 4;
             Console.WriteLine("[First Year Student]: Hi Vaughn, I was just wondering if you had marked my math exam?");
             Thread.Sleep(1000);
@@ -544,7 +545,7 @@ namespace vg_the_game
             Console.WriteLine("\n You can respond with either 'yes' or 'no'\n");
             Console.ForegroundColor = ConsoleColor.White;
 
-            boom1id = 1;
+            D102id = 1;
             string response;
 
             do
@@ -572,17 +573,17 @@ namespace vg_the_game
             do
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine(" You stand in the broom1 you can navigate to the (broom1), (hallway).");
+                Console.WriteLine(" You stand in the D102 you can navigate to the (D102), (hallway).");
                 Console.ForegroundColor = ConsoleColor.White;
                 choice = Console.ReadLine();
                 switch (choice)
                 {
-                    case "broom1":
+                    case "D102":
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine(" You are already here.\n\n press ENTER to continue");
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.ReadLine();
-                        broom1();
+                        D102();
                         break;
                     case "hallway":
                         hallway();
@@ -593,15 +594,15 @@ namespace vg_the_game
                         Console.ForegroundColor = ConsoleColor.White;
                         break;
                 }
-            } while (choice != "broom1" && choice != "hallway");
+            } while (choice != "D102" && choice != "hallway");
         }
 
         //Boss Room
-        static void broom2()
+        static void D103()
         {
             string response;
 
-            if (broom2id == 1)
+            if (D103id == 1)
             {
                 Console.WriteLine(" You have already visited here, you have been sent back to the hallway.");
                 Thread.Sleep(1000);
@@ -617,10 +618,10 @@ namespace vg_the_game
             //Business Student Boss
             Console.Clear();
 
-            Console.WriteLine("\n You are in broom2\n");
+            Console.WriteLine("\n You are in D103\n");
             roomID = 5;
 
-            broom2id = 1;
+            D103id = 1;
             Console.WriteLine(" You enter one of the business studies class rooms.");
             Thread.Sleep(1000);
             Console.WriteLine(" The student comes over, trying to sell you crypto, they are quite the sales person.");
@@ -688,18 +689,18 @@ namespace vg_the_game
                 fight();
             }
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine(" You stand in the broom2 you can navigate to the (broom2), (hallway).");
+            Console.WriteLine(" You stand in the D103 you can navigate to the (D103), (hallway).");
             Console.ForegroundColor = ConsoleColor.White;
-            //Console.WriteLine(" You can now navigate to (broom2) or (hallway)");
+            //Console.WriteLine(" You can now navigate to (D103) or (hallway)");
             string choice = Console.ReadLine();
             switch (choice)
             {
-                case "broom2":
+                case "D103":
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine(" You are already here.\n\n press ENTER to continue");
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.ReadLine();
-                    //broom2();
+                    //D103();
                     Console.WriteLine(" You can't go back into a room you are already in! Try the hallway instead.");
                     hallway();
                     break;
