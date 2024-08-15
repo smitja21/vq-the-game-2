@@ -56,8 +56,8 @@ namespace vg_the_game
             hallwayintro3 = 0;
             bitcoinWallet = 0;
             achev = 0;
-           
-            ReadStartingPage();
+            
+           ReadStartingPage();
             Start();
         }
 
@@ -1365,7 +1365,7 @@ namespace vg_the_game
         {
 
             int[] frequencies = { 1000 };// 1000, 1000, 1000, 1000 };
-            int duration = 1000; // Duration of each beep in milliseconds
+            int duration = 3000; // Duration of each beep in milliseconds
 
            
 
