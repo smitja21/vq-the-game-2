@@ -935,8 +935,7 @@ namespace vg_the_game
             Thread.Sleep(1000);
             Console.Write(" You notice that each and every student is using ");
             Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.Write("CHATGPT!!");
-            
+            Console.Write(" CHATGPT!!");
             Thread.Sleep(1000);
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("\n [Emily] : WHAT ARE YOU DOING HERE VAUGHN !");
@@ -1021,9 +1020,11 @@ namespace vg_the_game
 
             if (spareKey == 0)
             {
-                Console.WriteLine("It appears you don't have your keys");
+                Console.WriteLine(" It appears you don't have your keys");
                 Thread.Sleep(1000);
-                Console.WriteLine("Try visting Paul in D312");
+                Console.ForegroundColor= ConsoleColor.Cyan;
+                Console.WriteLine("\n Try visting Paul in D312");
+                Console.ForegroundColor = ConsoleColor.White;
                 Thread.Sleep(2000);
                 Console.Clear();
                 hallway3();
@@ -1050,38 +1051,41 @@ namespace vg_the_game
             Console.WriteLine(" You found your gin!");
             Console.ForegroundColor = ConsoleColor.White;
             Thread.Sleep(2000);
-            //Environment.Exit(0); Add in connection to Win screen here
             Win();
         }
 
         static void platformsanddevices()
         {
             string response;
-            Console.WriteLine("You enter D312, the lights illuminate");
+            Console.WriteLine(" You enter D312, the lights illuminate");
             Thread.Sleep(1000);
-            Console.WriteLine("[Vaughn]: Hi Paul, I've lost my keys just wondering if I could use yours");
+            Console.WriteLine(" [Vaughn]: Hi Paul, I've lost my keys just wondering if I could use yours");
             Thread.Sleep(1000);
-            Console.WriteLine("[Paul]: I'll have a look...");
+            Console.WriteLine(" [Paul]: I'll have a look...");
             Thread.Sleep(1000);
-            Console.WriteLine("[Paul]: Just wondering if you've got any tech news");
+            Console.WriteLine(" [Paul]: Just wondering if you've got any tech news");
             Thread.Sleep(1000);
-            Console.WriteLine("You can either respond to Paul with 'yes' or 'No'");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine(" You can either respond to Paul with 'yes' or 'No'");
+            Console.ForegroundColor = ConsoleColor.White;
             do
             {
                 response = Console.ReadLine();
                 if (response == "yes")
                 {
-                    Console.WriteLine("[Paul]: Great to hear, you'll have to present that to the class today!");
+                    Console.WriteLine(" [Paul]: Great to hear, you'll have to present that to the class today!");
                     Thread.Sleep(2000);
                 }
                 else if (response == "no")
                 {
-                    Console.WriteLine("Maybe you should check out the latest Elon Musk news on Wired.com");
+                    Console.WriteLine(" Maybe you should check out the latest Elon Musk news on Wired.com");
                     Thread.Sleep(2000);
                 }
                 else
                 {
-                    Console.WriteLine("Please enter a valid input");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(" Please enter a valid input");
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
             } while (response != "yes" && response != "no");
 
@@ -1089,46 +1093,59 @@ namespace vg_the_game
 
             do
             {
-                Console.WriteLine("[Paul]: What do you think of Elon Musk?");
-                Console.WriteLine("You can respond with:");
+                Console.WriteLine(" [Paul]: What do you think of Elon Musk?");
+                Console.WriteLine(" You can respond with:");
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("(1) He ruined Twitter!");
                 Console.WriteLine("(2) Tesla is going to destroy the world");
                 Console.WriteLine("(3) He's a rich prick");
+                Console.ForegroundColor = ConsoleColor.White;
                 response = Console.ReadLine();
                 if (response == "1")
                 {
-                    Console.WriteLine("[Paul]: Elon is actually working to make Twitter better by introducing new features and improving the platform.");
+                    Console.WriteLine(" [Paul]: Elon is actually working to make Twitter better by introducing new features and improving the platform.");
                     Thread.Sleep(1000);
-                    Console.WriteLine("[Paul]: Sometimes big changes can be challenging, but he's got a track record of transforming industries for the better.");
+                    Console.WriteLine(" [Paul]: Sometimes big changes can be challenging, but he's got a track record of transforming industries for the better.");
                     Thread.Sleep(1000);
-                    Console.WriteLine("[Paul]: It’s worth giving his vision a chance to see how it plays out.");
+                    Console.WriteLine(" [Paul]: It’s worth giving his vision a chance to see how it plays out.");
                 }
                 else if (response == "2")
                 {
-                    Console.WriteLine("[Paul]: Tesla is actually working towards a more sustainable future with electric vehicles and renewable energy solutions.");
+                    Console.WriteLine(" [Paul]: Tesla is actually working towards a more sustainable future with electric vehicles and renewable energy solutions.");
                     Thread.Sleep(1000);
-                    Console.WriteLine("[Paul]: Their goal is to reduce reliance on fossil fuels and lower emissions, which can help combat climate change.");
+                    Console.WriteLine(" [Paul]: Their goal is to reduce reliance on fossil fuels and lower emissions, which can help combat climate change.");
                     Thread.Sleep(1000);
-                    Console.WriteLine("[Paul]: While no company is perfect, Tesla’s innovations are aimed at creating a better world, not destroying it.");
+                    Console.WriteLine(" [Paul]: While no company is perfect, Tesla’s innovations are aimed at creating a better world, not destroying it.");
                 }
                 else if (response == "3")
                 {
-                    Console.WriteLine("[Paul]: It's easy to focus on someone's wealth and label them negatively, but it's also important to consider their contributions and intentions.");
+                    Console.WriteLine(" [Paul]: It's easy to focus on someone's wealth and label them negatively, but it's also important to consider their contributions and intentions.");
                     Thread.Sleep(1000);
-                    Console.WriteLine("[Paul]: Elon Musk has invested heavily in technology and innovation with the aim of solving big problems like climate change and space exploration.");
+                    Console.WriteLine(" [Paul]: Elon Musk has invested heavily in technology and innovation with the aim of solving big problems like climate change and space exploration.");
                     Thread.Sleep(1000);
-                    Console.WriteLine("[Paul]: Criticizing someone based on their wealth alone might overlook the broader impact of their work and efforts.");
+                    Console.WriteLine(" [Paul]: Criticizing someone based on their wealth alone might overlook the broader impact of their work and efforts.");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("\n\n      Achievement Unlocked!\n  You Criticizer!\n   -Did you even think about how mean that is \n   -What was the purpose.");
+                    achev++;
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("\n\n\n Press ENTER to continue");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.ReadLine();
                 }
                 else
                 {
-                    Console.WriteLine("Please enter a valid input");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(" Please enter a valid input");
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
             } while (response != "1" && response != "2" && response != "3");
             
             Thread.Sleep(2000);
-            Console.WriteLine("[Paul]: While I don't agree with everything you have said today, Vaughn");
+            Console.WriteLine(" [Paul]: While I don't agree with everything you have said today, Vaughn");
             Thread.Sleep(1000);
-            Console.WriteLine("[Paul]: Here is my spare key for your office");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(" [Paul]: Here is my spare key for your office");
+            Console.ForegroundColor = ConsoleColor.White;
             spareKey = 1;
             hallway3();
         }
@@ -1316,8 +1333,10 @@ namespace vg_the_game
         static void TipsMenu()
         {
           Console.Clear();
-            Console.WriteLine("                 Tip Menu ");
+            Console.WriteLine("\n                 Tip Menu ");
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("____________________________________________________");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine(" When your energy is low you will not be able attack");
             Console.WriteLine(" Only way to gain enery to choose the gain enery option ");
             Console.WriteLine(" but you might sustain damage if enemy decides to attack and you might die");
@@ -1328,6 +1347,9 @@ namespace vg_the_game
             Console.WriteLine("\n The chances of missing each attack is :");
             Console.WriteLine("\n 1: Strong Attack 84% \n2: Medium Attack 50% \n3: Low Attack 25% ");
             Console.WriteLine("\n\n To activate the charge attack you must choose the option twice and deals\ndamage on the enemy between 50 and 80");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine(" Press ENTER to continue");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.ReadLine();
             Console.Clear();
         }
@@ -1410,7 +1432,7 @@ namespace vg_the_game
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("\n\n  █████ █████                        █████   ███   █████  ███             ███\r\n░░███ ░░███                        ░░███   ░███  ░░███  ░░░             ░███\r\n ░░███ ███    ██████  █████ ████    ░███   ░███   ░███  ████  ████████  ░███\r\n  ░░█████    ███░░███░░███ ░███     ░███   ░███   ░███ ░░███ ░░███░░███ ░███\r\n   ░░███    ░███ ░███ ░███ ░███     ░░███  █████  ███   ░███  ░███ ░███ ░███\r\n    ░███    ░███ ░███ ░███ ░███      ░░░█████░█████░    ░███  ░███ ░███ ░░░ \r\n    █████   ░░██████  ░░████████       ░░███ ░░███      █████ ████ █████ ███\r\n   ░░░░░     ░░░░░░    ░░░░░░░░         ░░░   ░░░      ░░░░░ ░░░░ ░░░░░ ░░░ ");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine($" You acheved {achev}/3 achevments");
+            Console.WriteLine($"\n You acheved {achev}/3 achevments");
             Thread.Sleep(3000);
             Console.Clear();
             Console.WriteLine("\n Would you like to play again (yes or no)?");
