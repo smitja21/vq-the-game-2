@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "vg-the-game": {
+      "commandName": "Project",
+      "hotReloadEnabled": false,
+      "remoteDebugEnabled": false
+    }
+  }
+}

@@ -18,12 +18,12 @@ namespace vg_the_game
     {
 
         public static double enemyHealth, health, damage, filament, energy, armour, difficulty, weapon, xp, damageMod;
-        public static int pen, roomID, card, hallwayID, spareKey, bitcoinWallet;
+        public static int pen, roomID, card, hallwayID, spareKey, bitcoinWallet, printerkeycard, finalboss;
         public static string enemyName;
 
         public static int officeid, hallwayintro, closetid, boom1id, broom2id;  //first floor 
         public static int printerid, studioid, mathsid,commonid; //second floor
-        public static int hallwayintro3; //third floor
+        public static int hallwayintro3, D312id; //third floor
 
 
         public static int achev;
@@ -39,7 +39,7 @@ namespace vg_the_game
             printerid = 0;
             studioid = 0;
             commonid = 0;
-            mathsid = 0;
+            mathsid = 1;
             energy = 100;
             health = 100;
             armour = 0.1;
@@ -54,29 +54,13 @@ namespace vg_the_game
             spareKey = 0;
             hallwayintro3 = 0;
             bitcoinWallet = 0;
+            D312id = 0;
             achev = 0;
-            ReadStartingPage();
+            printerkeycard = 0;
+            finalboss = 0;
             Start();
         }
 
-        static void ReadStartingPage()// method that reads the StartingPage.txt
-        {
-            List<string> lines = new List<string>();
-
-            
-            var file = File.ReadAllLines("StartImage.txt");
-            foreach (var line in file)
-            {
-                lines.Add(line);
-            }
-
-            foreach (var line in lines)
-            {
-                Console.WriteLine(line);
-              
-            }
-            Thread.Sleep(2000);
-        }
 
         static void will()//method to add a enemy copy this when adding someone to the game
         {
@@ -113,6 +97,7 @@ namespace vg_the_game
             enemyHealth = farmBot.enemyHealth;// overrides the last enemies health
             enemyName = farmBot.name;
             damageMod = 1.5;
+            finalboss = 1;
         }
         static void Printer()
         {
@@ -744,7 +729,7 @@ namespace vg_the_game
                             else
                             {
                                 Console.ForegroundColor = ConsoleColor.Yellow;
-                                Console.WriteLine(" You need a card to unlock this room, You can get this by visiting the maths room (Press ENTER to continue");
+                                Console.WriteLine(" You need a card to unlock this room, You can get this by visiting the maths room (Press ENTER to continue)");
                                 Console.ReadLine();
                                 Console.ForegroundColor = ConsoleColor.White;
                                 Thread.Sleep(3000);
@@ -830,13 +815,13 @@ namespace vg_the_game
             Console.WriteLine(" Vic is here\n He asks a serious question to ask of you");
             Thread.Sleep(1000);
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine(" [Vic]: How many seasons of The Simpsons are there? (Write an answer)");
+            Console.WriteLine(" [Vic]: How many seasons of The Simpsons are there? (Write an answer)\n");
             Console.ForegroundColor = ConsoleColor.White;
             int temp = Convert.ToInt32(Console.ReadLine());
 
             if (temp == 35)
             {
-                Console.WriteLine(" [Vic]: Wow! I didn't expect you to get that right! Well done");
+                Console.WriteLine("\n [Vic]: Wow! I didn't expect you to get that right! Well done");
                 Console.WriteLine(" Go explore the hallway (Press ENTER to continue)");
 
                 Console.ReadLine();
@@ -914,7 +899,7 @@ namespace vg_the_game
         {
             if (commonid == 1)
             {
-                Console.WriteLine("You have already visited here, you have been sent back to the hallway");
+                Console.WriteLine("You have already visited here, you have been sent back to the hallway (Press ENTER to continue)");
                 Console.ReadLine();
                 hallway2();
             }
@@ -970,7 +955,7 @@ namespace vg_the_game
             Console.WriteLine("\n You are now on the 3rd floor\n");
             }
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine(" You stand in the third floor hallway you can navigate to the (office), (D312)");
+            Console.WriteLine(" You stand in the third floor hallway you can navigate to the (office), (D312)\n");
             Console.ForegroundColor = ConsoleColor.White;            
             hallwayintro3 = 1;
 
@@ -1032,23 +1017,26 @@ namespace vg_the_game
             Console.WriteLine(" He has returned to get his revenge!");
             FarmBot();
             fight();
-            Console.WriteLine(" You have defeated Farm bot!");
-            Thread.Sleep(1000);
-            Console.Clear();
-            Console.WriteLine(" You look around your office...");
-            Thread.Sleep(2000);
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(" You found your gin!");
-            Console.ForegroundColor = ConsoleColor.White;
-            Thread.Sleep(2000);
-            //Environment.Exit(0); Add in connection to Win screen here
-            Win();
         }
 
         static void platformsanddevices()
         {
+            
+            if (D312id == 1)
+            {
+                Console.WriteLine(" \nYou have already visited here, you will be sent back to the hallway");
+                Thread.Sleep(1000);
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("\n Press ENTER to continue");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.ReadLine();
+                hallway3();
+            }
+
+            D312id = 1;
+
             string response;
-            Console.WriteLine("You enter D312, the lights illuminate");
+            Console.WriteLine("\nYou enter D312, the lights illuminate");
             Thread.Sleep(1000);
             Console.WriteLine("[Vaughn]: Hi Paul, I've lost my keys just wondering if I could use yours");
             Thread.Sleep(1000);
@@ -1056,23 +1044,25 @@ namespace vg_the_game
             Thread.Sleep(1000);
             Console.WriteLine("[Paul]: Just wondering if you've got any tech news");
             Thread.Sleep(1000);
-            Console.WriteLine("You can either respond to Paul with 'yes' or 'No'");
+            Console.WriteLine("You can either respond to Paul with 'yes' or 'No'\n");
             do
             {
                 response = Console.ReadLine();
                 if (response == "yes")
                 {
-                    Console.WriteLine("[Paul]: Great to hear, you'll have to present that to the class today!");
+                    Console.WriteLine("\n[Paul]: Great to hear, you'll have to present that to the class today!");
                     Thread.Sleep(2000);
                 }
                 else if (response == "no")
                 {
-                    Console.WriteLine("Maybe you should check out the latest Elon Musk news on Wired.com");
+                    Console.WriteLine("\nMaybe you should check out the latest Elon Musk news on Wired.com");
                     Thread.Sleep(2000);
                 }
                 else
                 {
-                    Console.WriteLine("Please enter a valid input");
+                    Console.ForegroundColor= ConsoleColor.Red;
+                    Console.WriteLine("\nPlease enter a valid input");
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
             } while (response != "yes" && response != "no");
 
@@ -1084,11 +1074,11 @@ namespace vg_the_game
                 Console.WriteLine("You can respond with:");
                 Console.WriteLine("(1) He ruined Twitter!");
                 Console.WriteLine("(2) Tesla is going to destroy the world");
-                Console.WriteLine("(3) He's a rich prick");
+                Console.WriteLine("(3) He's a rich prick\n");
                 response = Console.ReadLine();
                 if (response == "1")
                 {
-                    Console.WriteLine("[Paul]: Elon is actually working to make Twitter better by introducing new features and improving the platform.");
+                    Console.WriteLine("\n[Paul]: Elon is actually working to make Twitter better by introducing new features and improving the platform.");
                     Thread.Sleep(1000);
                     Console.WriteLine("[Paul]: Sometimes big changes can be challenging, but he's got a track record of transforming industries for the better.");
                     Thread.Sleep(1000);
@@ -1096,7 +1086,7 @@ namespace vg_the_game
                 }
                 else if (response == "2")
                 {
-                    Console.WriteLine("[Paul]: Tesla is actually working towards a more sustainable future with electric vehicles and renewable energy solutions.");
+                    Console.WriteLine("\n[Paul]: Tesla is actually working towards a more sustainable future with electric vehicles and renewable energy solutions.");
                     Thread.Sleep(1000);
                     Console.WriteLine("[Paul]: Their goal is to reduce reliance on fossil fuels and lower emissions, which can help combat climate change.");
                     Thread.Sleep(1000);
@@ -1104,7 +1094,7 @@ namespace vg_the_game
                 }
                 else if (response == "3")
                 {
-                    Console.WriteLine("[Paul]: It's easy to focus on someone's wealth and label them negatively, but it's also important to consider their contributions and intentions.");
+                    Console.WriteLine("\n[Paul]: It's easy to focus on someone's wealth and label them negatively, but it's also important to consider their contributions and intentions.");
                     Thread.Sleep(1000);
                     Console.WriteLine("[Paul]: Elon Musk has invested heavily in technology and innovation with the aim of solving big problems like climate change and space exploration.");
                     Thread.Sleep(1000);
@@ -1288,10 +1278,16 @@ namespace vg_the_game
                  
                 }
 
-                if (mathsid == 1)
+                if (mathsid == 1 && printerkeycard != 1)
                 {
                     Console.WriteLine(" You see the keycard to the printing room, you grab it and put it in your pocket.");
+                    printerkeycard = 1;
                     mathsid++;
+                }
+
+                if (finalboss == 1)
+                {
+                    Win();
                 }
 
                 // Implement logic to reward the player or move to the next part of the game
@@ -1402,7 +1398,18 @@ namespace vg_the_game
         }
         static void Win()
         {
-            //To be attached to the final room
+            string temp;
+
+            Console.WriteLine(" You have defeated Farm bot! (Press ENTER to continue)");
+            Console.ReadLine();
+            Thread.Sleep(1000);
+            Console.Clear();
+            Console.WriteLine(" You look around your office...");
+            Thread.Sleep(2000);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(" You found your gin!");
+            Console.ForegroundColor = ConsoleColor.White;
+            Thread.Sleep(2000);
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("\n\n  █████ █████                        █████   ███   █████  ███             ███\r\n░░███ ░░███                        ░░███   ░███  ░░███  ░░░             ░███\r\n ░░███ ███    ██████  █████ ████    ░███   ░███   ░███  ████  ████████  ░███\r\n  ░░█████    ███░░███░░███ ░███     ░███   ░███   ░███ ░░███ ░░███░░███ ░███\r\n   ░░███    ░███ ░███ ░███ ░███     ░░███  █████  ███   ░███  ░███ ░███ ░███\r\n    ░███    ░███ ░███ ░███ ░███      ░░░█████░█████░    ░███  ░███ ░███ ░░░ \r\n    █████   ░░██████  ░░████████       ░░███ ░░███      █████ ████ █████ ███\r\n   ░░░░░     ░░░░░░    ░░░░░░░░         ░░░   ░░░      ░░░░░ ░░░░ ░░░░░ ░░░ ");
@@ -1410,8 +1417,18 @@ namespace vg_the_game
             Console.WriteLine($" You acheved {achev}/3 achevments");
             Thread.Sleep(3000);
             Console.Clear();
-            Console.WriteLine("\n Would you like to play again (yes or no)?");
-            string temp = Console.ReadLine().ToLower();
+            do
+            {
+                Console.WriteLine("\n Would you like to play again (yes or no)?");
+                temp = Console.ReadLine().ToLower();
+                if (temp != "yes" && temp != "no")
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Please Enter a valid input.");
+                    Console.ForegroundColor= ConsoleColor.White;
+                }
+            } while (temp != "yes" && temp != "no");
+
             switch (temp)
             {
                 case "yes":
