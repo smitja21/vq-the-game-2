@@ -29,6 +29,7 @@ namespace vg_the_game
         public static int achev;
 
 
+
         static void Main()
         {
             officeid = 0;
@@ -58,9 +59,28 @@ namespace vg_the_game
             achev = 0;
             printerkeycard = 0;
             finalboss = 0;
+            ReadStartingPage();
             Start();
         }
 
+        static void ReadStartingPage()// method that reads the StartingPage.txt
+        {
+            List<string> lines = new List<string>();
+
+
+            var file = File.ReadAllLines("StartImage.txt");
+            foreach (var line in file)
+            {
+                lines.Add(line);
+            }
+
+            foreach (var line in lines)
+            {
+                Console.WriteLine(line);
+
+            }
+            Thread.Sleep(2000);
+        }
 
         static void will()//method to add a enemy copy this when adding someone to the game
         {
