@@ -7,6 +7,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Xml.Serialization;
 using static System.Net.Mime.MediaTypeNames;
 
+
 namespace vg_the_game
 {
     public struct enemy
@@ -55,6 +56,7 @@ namespace vg_the_game
             hallwayintro3 = 0;
             bitcoinWallet = 0;
             achev = 0;
+           
             ReadStartingPage();
             Start();
         }
@@ -874,9 +876,9 @@ namespace vg_the_game
         static void LaughBeep()
         {
             // Series of beeps to simulate a laugh
-            int[] frequencies = { 900, 800, 900, 800, 900 };//
+            int[] frequencies = { 537, 350, 575, 300, 537, 350, 575 };//
                                       //900, 1000, 1100, 1200, 1300 };
-            int duration = 100; // Duration of each beep in milliseconds
+            int duration = 50; // Duration of each beep in milliseconds
 
             Console.WriteLine(" Laughing");
             
@@ -886,10 +888,7 @@ namespace vg_the_game
                 Thread.Sleep(150); // Short pause between beeps
             }
 
-            
-
         }
-
 
         //Third Floor
 
@@ -1356,6 +1355,7 @@ namespace vg_the_game
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\n\n  █████ █████                        ██████████    ███               █████ ███\r\n░░███ ░░███                        ░░███░░░░███  ░░░               ░░███ ░███\r\n ░░███ ███    ██████  █████ ████    ░███   ░░███ ████   ██████   ███████ ░███\r\n  ░░█████    ███░░███░░███ ░███     ░███    ░███░░███  ███░░███ ███░░███ ░███\r\n   ░░███    ░███ ░███ ░███ ░███     ░███    ░███ ░███ ░███████ ░███ ░███ ░███\r\n    ░███    ░███ ░███ ░███ ░███     ░███    ███  ░███ ░███░░░  ░███ ░███ ░░░ \r\n    █████   ░░██████  ░░████████    ██████████   █████░░██████ ░░████████ ███\r\n   ░░░░░     ░░░░░░    ░░░░░░░░    ░░░░░░░░░░   ░░░░░  ░░░░░░   ░░░░░░░░ ░░░ ");
+           LoseSound();
             Console.ForegroundColor = ConsoleColor.White;
             Thread.Sleep(3000);
             Console.Clear();
@@ -1374,6 +1374,21 @@ namespace vg_the_game
 
             Thread.Sleep(3000);
             Environment.Exit(0);
+        }
+
+        static void LoseSound()
+        {
+
+            int[] frequencies = { 1000 };// 1000, 1000, 1000, 1000 };
+            int duration = 1000; // Duration of each beep in milliseconds
+
+           
+
+            foreach (int freq in frequencies)
+            {
+                Console.Beep(freq, duration);
+               
+            }
         }
     }
 }
