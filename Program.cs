@@ -21,7 +21,7 @@ namespace vg_the_game
         public static int pen, roomID, card, hallwayID, spareKey, bitcoinWallet;
         public static string enemyName;
 
-        public static int officeid, hallwayintro, closetid, boom1id, broom2id;  //first floor 
+        public static int officeid, hallwayintro, closetid, D102id, D103id;  //first floor 
         public static int printerid, studioid, mathsid,commonid; //second floor
         public static int hallwayintro3; //third floor
 
@@ -34,8 +34,8 @@ namespace vg_the_game
             officeid = 0;
             hallwayintro = 0;
             closetid = 0;
-            boom1id = 0;
-            broom2id = 0;
+            D102id = 0;
+            D103id = 0;
             printerid = 0;
             studioid = 0;
             commonid = 0;
@@ -63,6 +63,7 @@ namespace vg_the_game
         {
             List<string> lines = new List<string>();
 
+            
             var file = File.ReadAllLines("StartImage.txt");
             foreach (var line in file)
             {
@@ -293,7 +294,7 @@ namespace vg_the_game
             Console.WriteLine(" You must now fight your way out of this one!");
             do {
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine(" Do you wish to do the combat tutorial? yes or no?");
+                Console.WriteLine(" Do you wish to do the combat tutorial? yes or no?\n");
                 Console.ForegroundColor = ConsoleColor.White;
                 userInput = Console.ReadLine();
 
@@ -305,7 +306,7 @@ namespace vg_the_game
                     Console.WriteLine(" The gain energy button is to be used when you feel Vaughn is too low on energy, and needs some more. \n And the charge attack takes 3 turns of using charge attack to fully charge, but will deal immense damage. \n Your HP and Energy are displayed above the fight options, and your opponents HP is visable on side opposite to yours.\n\n Thats all for the tutorial, press Enter when you are ready to continue! And have fun!\n");
                     Console.ReadLine();
                 }
-            }while (userInput != "yes" && userInput != "no");
+            } while (userInput != "yes" && userInput != "no");
 
             Thread.Sleep(1000);
             will(); //Will is known as the office lady
@@ -353,6 +354,7 @@ namespace vg_the_game
 
                 } while (temp != "1" && temp != "0");
 
+
                 input = Convert.ToInt32(temp);
 
 
@@ -373,12 +375,12 @@ namespace vg_the_game
             string choice;
             hallwayintro = 1;
 
-            while (officeid == 0 || closetid == 0 || boom1id == 0 || broom2id == 0)
+            while (officeid == 0 || closetid == 0 || D102id == 0 || D103id == 0)
             {
                 do
                 {
                     Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine(" You stand in the hallway you can navigate to the (office), (broom1), (broom2), (closet)"); //Need to rename broom1 and broom2
+                    Console.WriteLine(" You stand in the hallway you can navigate to the (office), (D102), (D103), (closet)"); //Need to rename D102 and D103
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine(" Once you've explored all rooms on level 1, you will progress to the second level");
                     choice = Console.ReadLine();
@@ -397,11 +399,11 @@ namespace vg_the_game
                         case "office":
                             office();
                             break;
-                        case "broom1":
-                            broom1();
+                        case "D102":
+                            D102();
                             break;
-                        case "broom2":
-                            broom2();
+                        case "D103":
+                            D103();
                             break;
                         case "closet":
                             closet();
@@ -413,10 +415,10 @@ namespace vg_the_game
                             break;
                     }
                 }
-                while (choice != "hallway" || choice != "office" || choice != "broom1" || choice != "broom2" || choice != "closet");
+                while (choice != "hallway" || choice != "office" || choice != "D102" || choice != "D103" || choice != "closet");
 
             }
-           /* if (officeid == 1 && closetid == 1 && boom1id == 1 && broom2id== 1) //I feel like this should be a while loop and while not equal to this everything else runs for level 1?
+           /* if (officeid == 1 && closetid == 1 && boom1id == 1 && D103id== 1) //I feel like this should be a while loop and while not equal to this everything else runs for level 1?
             {*/
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine(" Congrats you have explored all of level 1!");
@@ -453,6 +455,8 @@ namespace vg_the_game
             roomID = 3;
             Console.WriteLine("You are in Janitor Closet");
 
+            closetid = 1;
+
             Thread.Sleep(2000);
             Console.WriteLine(" You enter a dark gloomy room, Krissi appears from the shadows in front of you.");
             Thread.Sleep(2000);
@@ -479,7 +483,6 @@ namespace vg_the_game
                 fight();
             }
 
-            closetid = 1;
 
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine(" You stand in the closet you can navigate to the (closet), (hallway).");
@@ -514,11 +517,11 @@ namespace vg_the_game
 
 
         //Boss Room
-        static void broom1()
+        static void D102()
         {
             string choice;
 
-            if (boom1id == 1)
+            if (D102id == 1)
             {
                 Console.WriteLine(" You have already visited here, you have been sent back to the hallway.");
                 Thread.Sleep(1000);
@@ -533,16 +536,16 @@ namespace vg_the_game
             //Angry Student Boss
             Console.Clear();
 
-            Console.WriteLine("\n You are in broom1\n");
+            Console.WriteLine("\n You are in D102\n");
             roomID = 4;
             Console.WriteLine("[First Year Student]: Hi Vaughn, I was just wondering if you had marked my math exam?");
             Thread.Sleep(1000);
             
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("\n You can respond with either 'yes' or 'no'");
+            Console.WriteLine("\n You can respond with either 'yes' or 'no'\n");
             Console.ForegroundColor = ConsoleColor.White;
 
-            boom1id = 1;
+            D102id = 1;
             string response;
 
             do
@@ -551,7 +554,7 @@ namespace vg_the_game
 
                 if (response == "yes")
                 {
-                    Console.WriteLine(" Yes, I'll get round to marking the math papers, I just have to find my gin");
+                    Console.WriteLine("\n Yes, I'll get round to marking the math papers, I just have to find my gin");
                 }
                 else if (response == "no")
                 {
@@ -570,17 +573,17 @@ namespace vg_the_game
             do
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine(" You stand in the broom1 you can navigate to the (broom1), (hallway).");
+                Console.WriteLine(" You stand in the D102 you can navigate to the (D102), (hallway).");
                 Console.ForegroundColor = ConsoleColor.White;
                 choice = Console.ReadLine();
                 switch (choice)
                 {
-                    case "broom1":
+                    case "D102":
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine(" You are already here.\n\n press ENTER to continue");
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.ReadLine();
-                        broom1();
+                        D102();
                         break;
                     case "hallway":
                         hallway();
@@ -591,15 +594,15 @@ namespace vg_the_game
                         Console.ForegroundColor = ConsoleColor.White;
                         break;
                 }
-            } while (choice != "broom1" && choice != "hallway");
+            } while (choice != "D102" && choice != "hallway");
         }
 
         //Boss Room
-        static void broom2()
+        static void D103()
         {
             string response;
 
-            if (broom2id == 1)
+            if (D103id == 1)
             {
                 Console.WriteLine(" You have already visited here, you have been sent back to the hallway.");
                 Thread.Sleep(1000);
@@ -615,10 +618,10 @@ namespace vg_the_game
             //Business Student Boss
             Console.Clear();
 
-            Console.WriteLine("\n You are in broom2\n");
+            Console.WriteLine("\n You are in D103\n");
             roomID = 5;
 
-            broom2id = 1;
+            D103id = 1;
             Console.WriteLine(" You enter one of the business studies class rooms.");
             Thread.Sleep(1000);
             Console.WriteLine(" The student comes over, trying to sell you crypto, they are quite the sales person.");
@@ -630,7 +633,6 @@ namespace vg_the_game
             {
                 Console.WriteLine("...Or, you could give him the Bitcoin wallet you found... (give wallet)");
             }
-       
             Console.ForegroundColor = ConsoleColor.White;
             response = Console.ReadLine();
             if (response == "yes")
@@ -687,18 +689,18 @@ namespace vg_the_game
                 fight();
             }
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine(" You stand in the broom2 you can navigate to the (broom2), (hallway).");
+            Console.WriteLine(" You stand in the D103 you can navigate to the (D103), (hallway).");
             Console.ForegroundColor = ConsoleColor.White;
-            //Console.WriteLine(" You can now navigate to (broom2) or (hallway)");
+            //Console.WriteLine(" You can now navigate to (D103) or (hallway)");
             string choice = Console.ReadLine();
             switch (choice)
             {
-                case "broom2":
+                case "D103":
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine(" You are already here.\n\n press ENTER to continue");
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.ReadLine();
-                    //broom2();
+                    //D103();
                     Console.WriteLine(" You can't go back into a room you are already in! Try the hallway instead.");
                     hallway();
                     break;
@@ -1135,13 +1137,24 @@ namespace vg_the_game
             Random random = new Random();
             do
             {
-                Console.WriteLine($"\n You have {health} HP and {energy} Energy.                                                          {enemyName} has {enemyHealth} HP");//Change to name from list
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("---------------------------------------------------------------------------------------------------------------");
-                Console.ForegroundColor= ConsoleColor.White;
-                Console.WriteLine(" Choose your move!: \n  1: Strong Attack \n  2: Medium Attack \n  3: Low Attack \n  4: Charge Attack \n  5: Gain Energy \n  6: Tips");
-                option = Convert.ToInt32(Console.ReadLine());
+                do
+                {
+                    Console.WriteLine($"\n You have {health} HP and {energy} Energy.                                                          {enemyName} has {enemyHealth} HP");//Change to name from list
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("---------------------------------------------------------------------------------------------------------------");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine(" Choose your move!: \n  1: Strong Attack \n  2: Medium Attack \n  3: Low Attack \n  4: Charge Attack \n  5: Gain Energy \n  6: Tips\n");
+                    userInput = Console.ReadLine();
+
+                    if (userInput != "1" && userInput != "2" && userInput != "3" && userInput != "4" && userInput != "5" && userInput != "6")
+                    {
+                        Console.WriteLine("\n Please enter a valid input.");
+                    }
+                } while (userInput != "1" && userInput != "2" && userInput != "3" && userInput != "4" && userInput != "5" && userInput != "6");
+
+                option = Convert.ToInt32(userInput);
                 int hit = random.Next(101);
+                userInput = null;
 
                 switch (option)
                 {
@@ -1153,16 +1166,17 @@ namespace vg_the_game
 
                             if (hit > 84)
                             {
-                                Console.WriteLine($" You hit the enemy for {damage} damage!\n");
+                                Console.WriteLine($"\n You hit the enemy for {damage} damage!\n");
+
                                 enemyHealth -= damage + weapon;
                             }
 
                             else
-                                Console.WriteLine(" You missed!");
+                                Console.WriteLine("\n You missed!");
                         }
 
                         else
-                            Console.WriteLine(" you dont have enough energy for the Strong Attack.\n");
+                            Console.WriteLine("\n You dont have enough energy for the Strong Attack.\n");
                         break;
 
                     case 2:
@@ -1173,16 +1187,16 @@ namespace vg_the_game
 
                             if (hit > 50)
                             {
-                                Console.WriteLine($" You hit the enemy for {damage} damage!\n");
+                                Console.WriteLine($"\n You hit the enemy for {damage} damage!\n");
                                 enemyHealth -= damage + weapon;
                             }
 
                             else
-                                Console.WriteLine(" You missed!");
+                                Console.WriteLine("\n You missed!");
                         }
 
                         else
-                            Console.WriteLine(" You don't have enough energy for the Medium Attack.\n");
+                            Console.WriteLine("\n You don't have enough energy for the Medium Attack.\n");
                         break;
 
                     case 3:
@@ -1194,17 +1208,15 @@ namespace vg_the_game
 
                                 if (hit > 25)
                                 {
-                                    Console.WriteLine($" You hit the enemy for {damage} damage!\n");
+                                    Console.WriteLine($"\n You hit the enemy for {damage} damage!\n");
                                     enemyHealth -= damage + weapon;
                                 }
 
                                 else
-                                    Console.WriteLine(" You missed!");
+                                    Console.WriteLine("\n You missed!");
                             }
                             else
-                                Console.WriteLine(" You don't have enough energy for the Low Attack.\n");
-
-
+                                Console.WriteLine("\n You don't have enough energy for the Low Attack.\n");
                             break;
                         }
                     case 4:
@@ -1212,7 +1224,7 @@ namespace vg_the_game
                             if (charge == 3)
                             {
                                 damage = random.Next(50, 80);
-                                Console.WriteLine($" You hit the enemy for {damage} damage!\n");
+                                Console.WriteLine($"\n You hit the enemy for {damage} damage!\n");
                                 enemyHealth -= damage + weapon;
                                 charge = 0;
                             }
@@ -1231,7 +1243,7 @@ namespace vg_the_game
                         break;
                 }
 
-                if (enemyHealth > 0 && option != 6) enemyAttack() ; // Enemy attacks only if it's still alive
+                if (enemyHealth > 0 && option != 6) enemyAttack() ; // Enemy attacks only if it's still alive and the player didn't go into the tips menu.
                 Console.WriteLine("\n\n");
             } while (health > 0 && enemyHealth > 0);
 
@@ -1298,12 +1310,12 @@ namespace vg_the_game
             Console.WriteLine(" Only way to gain enery to choose the gain enery option ");
             Console.WriteLine(" but you might sustain damage if enemy decides to attack and you might die");
             Console.WriteLine("\n You energy for ");
-            Console.WriteLine("\nThe chances of missing each attack is:");
-            Console.WriteLine("\n1: Strong Attack 84 % \n2: Medium Attack 50% \n3: Low Attack 25% ");
-            Console.WriteLine("\n\nTo activate the charge attack you must choose the option twice and deals\ndamage on the enemy between 50 and 80");
-            Console.WriteLine("\nThe chances of missing each attack is :");
-            Console.WriteLine("\n1: Strong Attack 84% \n2: Medium Attack 50% \n3: Low Attack 25% ");
-            Console.WriteLine("\n\nTo activate the charge attack you must choose the option twice and deals\ndamage on the enemy between 50 and 80");
+            Console.WriteLine("\n The chances of missing each attack is:");
+            Console.WriteLine("\n 1: Strong Attack 84 % \n2: Medium Attack 50% \n3: Low Attack 25% ");
+            Console.WriteLine("\n\n To activate the charge attack you must choose the option twice and deals\ndamage on the enemy between 50 and 80");
+            Console.WriteLine("\n The chances of missing each attack is :");
+            Console.WriteLine("\n 1: Strong Attack 84% \n2: Medium Attack 50% \n3: Low Attack 25% ");
+            Console.WriteLine("\n\n To activate the charge attack you must choose the option twice and deals\ndamage on the enemy between 50 and 80");
             Console.ReadLine();
             Console.Clear();
         }
@@ -1329,7 +1341,7 @@ namespace vg_the_game
                             {
                                 health -= (damage - armour);
                             }
-                        else Console.WriteLine("Enemy missed.\n");
+                        else Console.WriteLine(" Enemy missed.\n");
                         break;//replace enemy name with one from a list
                     }
                 case 2:
@@ -1344,7 +1356,7 @@ namespace vg_the_game
                             {
                                 health -= (damage - armour);
                             }
-                        else Console.WriteLine("Enemy missed.\n");
+                        else Console.WriteLine(" Enemy missed.\n");
                         break;
                     }
                 case 3:
@@ -1359,7 +1371,7 @@ namespace vg_the_game
                             {
                                 health -= (damage - armour);
                             }
-                        else Console.WriteLine("Enemy missed.\n");
+                        else Console.WriteLine(" Enemy missed.\n");
                         break;
                     }
                 case 4:
@@ -1374,7 +1386,7 @@ namespace vg_the_game
                             {
                                 health -= (damage - armour);
                             }
-                        else Console.WriteLine("Enemy missed.\n");
+                        else Console.WriteLine(" Enemy missed.\n");
                         break;
                     }
             }
