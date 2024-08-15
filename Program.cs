@@ -291,7 +291,7 @@ namespace vg_the_game
             Thread.Sleep(1000);
             Console.WriteLine(" Your environmental impact of printing off a rain forest of paper for your math exams, has enraged the office lady who\n appears to have a blob of glue and staples for hands ");
             Thread.Sleep(1000);
-            Console.WriteLine(" You must now fight your way out of this one!");
+            Console.WriteLine(" You must now fight your way out of this one!\n");
             do {
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine(" Do you wish to do the combat tutorial? yes or no?\n");
@@ -388,7 +388,7 @@ namespace vg_the_game
                     switch (choice)
                     {
                         case "hallway":
-                            Console.WriteLine(" You are already here");
+                            Console.WriteLine(" You are already here\n");
                             Thread.Sleep(3000);
                             Console.ForegroundColor = ConsoleColor.Cyan;
                             Console.WriteLine(" Press ENTER to continue");
@@ -453,14 +453,14 @@ namespace vg_the_game
             Console.Clear();
 
             roomID = 3;
-            Console.WriteLine("You are in Janitor Closet");
+            Console.WriteLine("\n You are in the Janitor Closet\n");
 
             closetid = 1;
 
             Thread.Sleep(2000);
             Console.WriteLine(" You enter a dark gloomy room, Krissi appears from the shadows in front of you.");
             Thread.Sleep(2000);
-            Console.WriteLine(" [Krissi]: Vaughn... Have you brought me a pen??\n If you would like you see your boots again, I would need a pen in return.\n I trust you would have one on you as you are marking math exams.");
+            Console.WriteLine(" [Krissi]: Vaughn... Have you brought me a pen??\n If you would like you see your boots again I need a pen in return.\n I trust you would have one on you as you are marking math exams.");
             Thread.Sleep(2000);
 
             if (pen == 1)
@@ -495,7 +495,7 @@ namespace vg_the_game
                 switch (choice)
                 {
                     case "closet":
-                        Console.WriteLine(" You can't go back into a room you are already in! Try the hallway instead");
+                        Console.WriteLine(" You can't go back into a room you are already in! Try the hallway instead\n");
                         Thread.Sleep(3000);
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine(" Press ENTER to continue");
@@ -538,7 +538,7 @@ namespace vg_the_game
 
             Console.WriteLine("\n You are in D102\n");
             roomID = 4;
-            Console.WriteLine("[First Year Student]: Hi Vaughn, I was just wondering if you had marked my math exam?");
+            Console.WriteLine(" [First Year Student]: Hi Vaughn, I was just wondering if you had marked my math exam?");
             Thread.Sleep(1000);
             
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -554,11 +554,11 @@ namespace vg_the_game
 
                 if (response == "yes")
                 {
-                    Console.WriteLine("\n Yes, I'll get round to marking the math papers, I just have to find my gin");
+                    Console.WriteLine("\n Yes, I just have to find my gin before I continue");
                 }
                 else if (response == "no")
                 {
-                    Console.WriteLine(" No!, I need to find my gin, I don't have time to mark math papers");
+                    Console.WriteLine(" No! I need to find my gin, I don't have time to mark math papers");
                     BussinessGuy();// using his status
                     fight();
                 }
@@ -579,8 +579,9 @@ namespace vg_the_game
                 switch (choice)
                 {
                     case "D102":
+                        Console.WriteLine(" You are already here\n");
                         Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.WriteLine(" You are already here.\n\n press ENTER to continue");
+                        Console.WriteLine(" Press ENTER to continue");
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.ReadLine();
                         D102();
@@ -631,7 +632,7 @@ namespace vg_the_game
             Thread.Sleep(1000);
             if (bitcoinWallet == 1)
             {
-                Console.WriteLine("...Or, you could give him the Bitcoin wallet you found... (give wallet)");
+                Console.WriteLine(" ...Or, you could give him the Bitcoin wallet you found... (give wallet)");
             }
             Console.ForegroundColor = ConsoleColor.White;
             response = Console.ReadLine();
@@ -668,7 +669,7 @@ namespace vg_the_game
                 Thread.Sleep(3000);
                 Console.WriteLine("\n\n      Achievement Unlocked!\n  Useless Story Line Unlocked!\n   -Did you really want this? \n   -You have been distracted from the missions.");
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine("\n\n\n\n\n\n\n\n  Press enter to start");
+                Console.WriteLine("\n\n\n\n\n\n\n\n  Press enter to Continue");
                 Console.ForegroundColor = ConsoleColor.White;
                 achev++;
                 Console.ReadLine();
@@ -683,7 +684,8 @@ namespace vg_the_game
             }
             if (response == "give wallet")
             {
-                Console.WriteLine(" \n[Business Studies Student]: A Bitcoin wallet! With this I'll be unstoppable! Watch what I do next! ;)");
+                Console.WriteLine("\n [Business Studies Student]: A Bitcoin wallet! With this I'll be unstoppable! Watch what I do next! ;)");
+                Thread.Sleep(1000);
                 Console.WriteLine(" An Empowered Business Studies Student approaches!");
                 empoweredBuisnessStudent();
                 fight();
@@ -696,8 +698,9 @@ namespace vg_the_game
             switch (choice)
             {
                 case "D103":
+                    Console.WriteLine(" You are already here.\n");
                     Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine(" You are already here.\n\n press ENTER to continue");
+                    Console.WriteLine(" Press ENTER to continue");
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.ReadLine();
                     //D103();
@@ -899,10 +902,16 @@ namespace vg_the_game
 
             } while (choice != 1 && choice !=2);
 
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("\n\n\n Press ENTER to continue");
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.ReadLine();
+            if ((mathsid == 0) && (studioid == 0))
+            {
+                Thread.Sleep(1000);
+                Console.WriteLine("\n\n      Achievement Unlocked!\n  Upgrades First!\n   -Getting strong before the fight \n   -You have helped towards the mission.");
+                achev++;
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("\n\n\n Press ENTER to continue");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.ReadLine();
+            }
 
             hallway2();
         }
@@ -911,7 +920,10 @@ namespace vg_the_game
         {
             if (commonid == 1)
             {
-                Console.WriteLine("You have already visited here, you have been sent back to the hallway");
+                Console.WriteLine(" You have already visited here, you will be sent back to the hallway");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("\n Press ENTER to continue");
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.ReadLine();
                 hallway2();
             }
