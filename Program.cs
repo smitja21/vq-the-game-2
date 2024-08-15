@@ -7,6 +7,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Xml.Serialization;
 using static System.Net.Mime.MediaTypeNames;
 
+
 namespace vg_the_game
 {
     public struct enemy
@@ -56,6 +57,7 @@ namespace vg_the_game
             bitcoinWallet = 0;
             achiev = 0;
             ReadStartingPage();
+
             Start();
         }
 
@@ -69,13 +71,28 @@ namespace vg_the_game
             {
                 lines.Add(line);
             }
-
+            
             foreach (var line in lines)
             {
                 Console.WriteLine(line);
               
             }
+            IntroSound();
             Thread.Sleep(2000);
+
+        }
+
+        static void IntroSound ()
+        {
+            // Series of beeps to simulate a laugh
+            int[] frequencies = { 900, 500, 1100, 300, 1300 };
+            int duration = 125; // Duration of each beep in milliseconds
+            
+            foreach (int freq in frequencies)
+            {
+                Console.Beep(freq, duration);
+                Thread.Sleep(150); // Short pause between beeps
+            }
         }
 
         static void will()//method to add a enemy copy this when adding someone to the game
@@ -114,15 +131,7 @@ namespace vg_the_game
             enemyName = farmBot.name;
             damageMod = 1.5;
         }
-        static void Printer()
-        {
-            enemy printer;
-            printer.name = "3D Printer";//sets enemy name
-            printer.enemyHealth = 30;// sets enemyHealth
-            enemyHealth = printer.enemyHealth;// overrides the last enemies health
-            enemyName = printer.name;
-            damageMod = 1.25;
-        }
+        
         static void MathsStudent()
         {
             enemy mathStudent;
@@ -161,78 +170,6 @@ namespace vg_the_game
             damageMod = 1.33;
         }
 
-        static void Equiptment()
-        {
-
-            if (weapon == 0.5)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(" You have no weapon");
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-
-            else if (weapon == 1)
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(" You have weapon 1");
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-
-            else if (weapon == 1.5)
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(" You have weapon 2");
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-
-            else if (weapon == 2)
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(" You have weapon 3 (Highest Level)");
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-
-
-            if (armour == 0.1)
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(" You have no Armour");
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-
-            else if (armour == 0.5)
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(" You have Vaughn boots, maybe you should go tramping");
-                armour = 0.5;
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-
-            else if (armour == 1)
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(" You have Ginmail");
-                armour = 1;
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-
-            else if (armour == 1.5)
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(" You have weapon ResinRanger Rain Coat ");
-                armour = 1.5;
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-
-            else if (armour == 2)
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(" You have PLA Power Vest (Highest Level)");
-                armour = 2;
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-        }
-      
         static void callroom()
         {
             switch (hallwayID)
@@ -942,31 +879,13 @@ namespace vg_the_game
             Thread.Sleep(1000);
             Console.WriteLine(" [Vaughn] : What did I tell you guys about using Chatgpt! This is how you fail Studio 1 by cheating");
             Thread.Sleep(1000);
-            LaughBeep();
+            
             Console.WriteLine(" [Emily] : VAUGHN NOBOBY LIKES SNITCHES ");
             Emily();
             fight();
 
         }
-        static void LaughBeep()
-        {
-            // Series of beeps to simulate a laugh
-            int[] frequencies = { 900, 800, 900, 800, 900 };//
-                                      //900, 1000, 1100, 1200, 1300 };
-            int duration = 100; // Duration of each beep in milliseconds
-
-            Console.WriteLine(" Laughing");
-            
-            foreach (int freq in frequencies)
-            {
-                Console.Beep(freq, duration);
-                Thread.Sleep(150); // Short pause between beeps
-            }
-
-            
-
-        }
-
+        
 
         //Third Floor
 
@@ -1456,6 +1375,7 @@ namespace vg_the_game
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\n\n  █████ █████                        ██████████    ███               █████ ███\r\n░░███ ░░███                        ░░███░░░░███  ░░░               ░░███ ░███\r\n ░░███ ███    ██████  █████ ████    ░███   ░░███ ████   ██████   ███████ ░███\r\n  ░░█████    ███░░███░░███ ░███     ░███    ░███░░███  ███░░███ ███░░███ ░███\r\n   ░░███    ░███ ░███ ░███ ░███     ░███    ░███ ░███ ░███████ ░███ ░███ ░███\r\n    ░███    ░███ ░███ ░███ ░███     ░███    ███  ░███ ░███░░░  ░███ ░███ ░░░ \r\n    █████   ░░██████  ░░████████    ██████████   █████░░██████ ░░████████ ███\r\n   ░░░░░     ░░░░░░    ░░░░░░░░    ░░░░░░░░░░   ░░░░░  ░░░░░░   ░░░░░░░░ ░░░ ");
+           LoseSound();
             Console.ForegroundColor = ConsoleColor.White;
             Thread.Sleep(3000);
             Console.Clear();
@@ -1474,6 +1394,21 @@ namespace vg_the_game
 
             Thread.Sleep(3000);
             Environment.Exit(0);
+        }
+
+        static void LoseSound()
+        {
+
+            int[] frequencies = { 1000 };// 1000, 1000, 1000, 1000 };
+            int duration = 3000; // Duration of each beep in milliseconds
+
+           
+
+            foreach (int freq in frequencies)
+            {
+                Console.Beep(freq, duration);
+               
+            }
         }
     }
 }
