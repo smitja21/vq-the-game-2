@@ -867,28 +867,13 @@ namespace vg_the_game
             Thread.Sleep(1000);
             Console.WriteLine(" [Vaughn] : What did I tell you guys about using Chatgpt! This is how you fail Studio 1 by cheating");
             Thread.Sleep(1000);
-            LaughBeep();
+            
             Console.WriteLine(" [Emily] : VAUGHN NOBOBY LIKES SNITCHES ");
             Emily();
             fight();
 
         }
-        static void LaughBeep()
-        {
-            // Series of beeps to simulate a laugh
-            int[] frequencies = { 537, 350, 575, 300, 537, 350, 575 };//
-                                      //900, 1000, 1100, 1200, 1300 };
-            int duration = 50; // Duration of each beep in milliseconds
-
-            Console.WriteLine(" Laughing");
-            
-            foreach (int freq in frequencies)
-            {
-                Console.Beep(freq, duration);
-                Thread.Sleep(150); // Short pause between beeps
-            }
-
-        }
+        
 
         //Third Floor
 
