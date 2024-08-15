@@ -26,7 +26,7 @@ namespace vg_the_game
         public static int hallwayintro3; //third floor
 
 
-        public static int achev;
+        public static int achiev;
 
 
         static void Main()
@@ -54,7 +54,7 @@ namespace vg_the_game
             spareKey = 0;
             hallwayintro3 = 0;
             bitcoinWallet = 0;
-            achev = 0;
+            achiev = 0;
             ReadStartingPage();
             Start();
         }
@@ -671,7 +671,7 @@ namespace vg_the_game
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("\n\n\n\n\n\n\n\n  Press enter to Continue");
                 Console.ForegroundColor = ConsoleColor.White;
-                achev++;
+                achiev++;
                 Console.ReadLine();
                 Console.Clear();
 
@@ -906,7 +906,7 @@ namespace vg_the_game
             {
                 Thread.Sleep(1000);
                 Console.WriteLine("\n\n      Achievement Unlocked!\n  Upgrades First!\n   -Getting strong before the fight \n   -You have helped towards the mission.");
-                achev++;
+                achiev++;
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("\n\n\n Press ENTER to continue");
                 Console.ForegroundColor = ConsoleColor.White;
@@ -1126,7 +1126,7 @@ namespace vg_the_game
                     Console.WriteLine(" [Paul]: Criticizing someone based on their wealth alone might overlook the broader impact of their work and efforts.");
                     Thread.Sleep(1000);
                     Console.WriteLine("\n\n      Achievement Unlocked!\n  You Criticizer!\n   -Did you even think about how mean that is \n   -What was the purpose.");
-                    achev++;
+                    achiev++;
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine("\n\n\n Press ENTER to continue");
                     Console.ForegroundColor = ConsoleColor.White;
@@ -1432,7 +1432,7 @@ namespace vg_the_game
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("\n\n  █████ █████                        █████   ███   █████  ███             ███\r\n░░███ ░░███                        ░░███   ░███  ░░███  ░░░             ░███\r\n ░░███ ███    ██████  █████ ████    ░███   ░███   ░███  ████  ████████  ░███\r\n  ░░█████    ███░░███░░███ ░███     ░███   ░███   ░███ ░░███ ░░███░░███ ░███\r\n   ░░███    ░███ ░███ ░███ ░███     ░░███  █████  ███   ░███  ░███ ░███ ░███\r\n    ░███    ░███ ░███ ░███ ░███      ░░░█████░█████░    ░███  ░███ ░███ ░░░ \r\n    █████   ░░██████  ░░████████       ░░███ ░░███      █████ ████ █████ ███\r\n   ░░░░░     ░░░░░░    ░░░░░░░░         ░░░   ░░░      ░░░░░ ░░░░ ░░░░░ ░░░ ");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine($"\n You acheved {achev}/3 achevments");
+            Console.WriteLine($"\n You achieved {achiev}/3 achievments");
             Thread.Sleep(3000);
             Console.Clear();
             Console.WriteLine("\n Would you like to play again (yes or no)?");
