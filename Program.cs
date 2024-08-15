@@ -252,7 +252,7 @@ namespace vg_the_game
 
             Thread.Sleep(1000);
             will(); //Will is known as the office lady
-            fight(); //I believe this should be moved into the office yes you are correct i have moved it there now
+            fight(); 
             string choice = Console.ReadLine();
             switch (choice)
             {
@@ -323,7 +323,7 @@ namespace vg_the_game
                 do
                 {
                     Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine(" You stand in the hallway you can navigate to the (office), (D102), (D103), (closet)"); //Need to rename D102 and D103
+                    Console.WriteLine(" You stand in the hallway you can navigate to the (office), (D102), (D103), (closet)"); 
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine(" Once you've explored all rooms on level 1, you will progress to the second level\n");
                     choice = Console.ReadLine();
@@ -361,8 +361,7 @@ namespace vg_the_game
                 while (choice != "hallway" || choice != "office" || choice != "D102" || choice != "D103" || choice != "closet");
 
             }
-           /* if (officeid == 1 && closetid == 1 && boom1id == 1 && D103id== 1) //I feel like this should be a while loop and while not equal to this everything else runs for level 1?
-            {*/
+          
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine(" Congrats you have explored all of level 1!");
                 Console.ForegroundColor = ConsoleColor.White;
@@ -714,8 +713,7 @@ namespace vg_the_game
                     }
                 } while (choice != "printer" && choice != "studio" && choice != "maths" && choice!= "common room");
             }
-            /*if (printerid == 1 && studioid == 1 && mathsid == 1) //I feel like this should be a while loop and while not equal to this everything else runs for level 1?
-            {*/
+  
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("\n\n Congrats you have explored all of level 2");
             Console.ForegroundColor = ConsoleColor.White;
