@@ -7,6 +7,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Xml.Serialization;
 using static System.Net.Mime.MediaTypeNames;
 
+
 namespace vg_the_game
 {
     public struct enemy
@@ -18,15 +19,16 @@ namespace vg_the_game
     {
 
         public static double enemyHealth, health, damage, filament, energy, armour, difficulty, weapon, xp, damageMod;
-        public static int pen, roomID, card, hallwayID, spareKey, bitcoinWallet;
+        public static int pen, roomID, card, hallwayID, spareKey, bitcoinWallet, printerkeycard, finalboss;
         public static string enemyName;
 
         public static int officeid, hallwayintro, closetid, D102id, D103id;  //first floor 
         public static int printerid, studioid, mathsid,commonid; //second floor
-        public static int hallwayintro3; //third floor
+        public static int hallwayintro3, D312id; //third floor
 
 
-        public static int achev;
+        public static int achiev;
+
 
 
         static void Main()
@@ -39,7 +41,7 @@ namespace vg_the_game
             printerid = 0;
             studioid = 0;
             commonid = 0;
-            mathsid = 0;
+            mathsid = 1;
             energy = 100;
             health = 100;
             armour = 0.1;
@@ -54,8 +56,12 @@ namespace vg_the_game
             spareKey = 0;
             hallwayintro3 = 0;
             bitcoinWallet = 0;
-            achev = 0;
+            D312id = 0;
+            printerkeycard = 0;
+            finalboss = 0;
+            achiev = 0;
             ReadStartingPage();
+
             Start();
         }
 
@@ -63,19 +69,34 @@ namespace vg_the_game
         {
             List<string> lines = new List<string>();
 
-            
+
             var file = File.ReadAllLines("StartImage.txt");
             foreach (var line in file)
             {
                 lines.Add(line);
             }
-
+            
             foreach (var line in lines)
             {
                 Console.WriteLine(line);
-              
+
             }
+            IntroSound();
             Thread.Sleep(2000);
+
+        }
+
+        static void IntroSound ()
+        {
+            // Series of beeps to simulate a laugh
+            int[] frequencies = { 900, 500, 1100, 300, 1300 };
+            int duration = 125; // Duration of each beep in milliseconds
+            
+            foreach (int freq in frequencies)
+            {
+                Console.Beep(freq, duration);
+                Thread.Sleep(150); // Short pause between beeps
+            }
         }
 
         static void will()//method to add a enemy copy this when adding someone to the game
@@ -113,16 +134,9 @@ namespace vg_the_game
             enemyHealth = farmBot.enemyHealth;// overrides the last enemies health
             enemyName = farmBot.name;
             damageMod = 1.5;
+            finalboss = 1;
         }
-        static void Printer()
-        {
-            enemy printer;
-            printer.name = "3D Printer";//sets enemy name
-            printer.enemyHealth = 30;// sets enemyHealth
-            enemyHealth = printer.enemyHealth;// overrides the last enemies health
-            enemyName = printer.name;
-            damageMod = 1.25;
-        }
+        
         static void MathsStudent()
         {
             enemy mathStudent;
@@ -161,78 +175,6 @@ namespace vg_the_game
             damageMod = 1.33;
         }
 
-        static void Equiptment()
-        {
-
-            if (weapon == 0.5)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(" You have no weapon");
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-
-            else if (weapon == 1)
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(" You have weapon 1");
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-
-            else if (weapon == 1.5)
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(" You have weapon 2");
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-
-            else if (weapon == 2)
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(" You have weapon 3 (Highest Level)");
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-
-
-            if (armour == 0.1)
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(" You have no Armour");
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-
-            else if (armour == 0.5)
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(" You have Vaughn boots, maybe you should go tramping");
-                armour = 0.5;
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-
-            else if (armour == 1)
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(" You have Ginmail");
-                armour = 1;
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-
-            else if (armour == 1.5)
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(" You have weapon ResinRanger Rain Coat ");
-                armour = 1.5;
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-
-            else if (armour == 2)
-            {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(" You have PLA Power Vest (Highest Level)");
-                armour = 2;
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-        }
-      
         static void callroom()
         {
             switch (hallwayID)
@@ -291,14 +233,14 @@ namespace vg_the_game
             Thread.Sleep(1000);
             Console.WriteLine(" Your environmental impact of printing off a rain forest of paper for your math exams, has enraged the office lady who\n appears to have a blob of glue and staples for hands ");
             Thread.Sleep(1000);
-            Console.WriteLine(" You must now fight your way out of this one!");
+            Console.WriteLine(" You must now fight your way out of this one!\n");
             do {
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine(" Do you wish to do the combat tutorial? yes or no?\n");
                 Console.ForegroundColor = ConsoleColor.White;
                 userInput = Console.ReadLine();
 
-                if (userInput.ToLower() == "yes" || userInput.ToLower() == "y")
+                if (userInput.ToLower() == "yes")
                 {
 
                     Console.WriteLine("\n Whenever you need to fight someone, there will be five options available to you: \n\n A strong attack.\n A medium attack.\n A low attack\n A charge attack\n And finally a gain energy\n\n");
@@ -306,7 +248,7 @@ namespace vg_the_game
                     Console.WriteLine(" The gain energy button is to be used when you feel Vaughn is too low on energy, and needs some more. \n And the charge attack takes 3 turns of using charge attack to fully charge, but will deal immense damage. \n Your HP and Energy are displayed above the fight options, and your opponents HP is visable on side opposite to yours.\n\n Thats all for the tutorial, press Enter when you are ready to continue! And have fun!\n");
                     Console.ReadLine();
                 }
-            } while (userInput != "yes" && userInput != "no");
+            } while (userInput != "yes" && userInput != "no" );
 
             Thread.Sleep(1000);
             will(); //Will is known as the office lady
@@ -331,6 +273,7 @@ namespace vg_the_game
 
         static void hallway()
         {
+            officeid = 1;
             string temp;
             int input;
 
@@ -382,13 +325,13 @@ namespace vg_the_game
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine(" You stand in the hallway you can navigate to the (office), (D102), (D103), (closet)"); //Need to rename D102 and D103
                     Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine(" Once you've explored all rooms on level 1, you will progress to the second level");
+                    Console.WriteLine(" Once you've explored all rooms on level 1, you will progress to the second level\n");
                     choice = Console.ReadLine();
 
                     switch (choice)
                     {
                         case "hallway":
-                            Console.WriteLine(" You are already here");
+                            Console.WriteLine(" You are already here\n");
                             Thread.Sleep(3000);
                             Console.ForegroundColor = ConsoleColor.Cyan;
                             Console.WriteLine(" Press ENTER to continue");
@@ -453,14 +396,14 @@ namespace vg_the_game
             Console.Clear();
 
             roomID = 3;
-            Console.WriteLine("You are in Janitor Closet");
+            Console.WriteLine("\n You are in the Janitor Closet\n");
 
             closetid = 1;
 
             Thread.Sleep(2000);
             Console.WriteLine(" You enter a dark gloomy room, Krissi appears from the shadows in front of you.");
             Thread.Sleep(2000);
-            Console.WriteLine(" [Krissi]: Vaughn... Have you brought me a pen??\n If you would like you see your boots again, I would need a pen in return.\n I trust you would have one on you as you are marking math exams.");
+            Console.WriteLine(" [Krissi]: Vaughn... Have you brought me a pen??\n If you would like you see your boots again I need a pen in return.\n I trust you would have one on you as you are marking math exams.");
             Thread.Sleep(2000);
 
             if (pen == 1)
@@ -485,7 +428,7 @@ namespace vg_the_game
 
 
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine(" You stand in the closet you can navigate to the (closet), (hallway).");
+            Console.WriteLine(" You stand in the closet you can navigate to the (closet), (hallway).\n");
             Console.ForegroundColor = ConsoleColor.White;
             string choice;
             do
@@ -495,7 +438,7 @@ namespace vg_the_game
                 switch (choice)
                 {
                     case "closet":
-                        Console.WriteLine(" You can't go back into a room you are already in! Try the hallway instead");
+                        Console.WriteLine(" You can't go back into a room you are already in! Try the hallway instead\n");
                         Thread.Sleep(3000);
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine(" Press ENTER to continue");
@@ -538,7 +481,7 @@ namespace vg_the_game
 
             Console.WriteLine("\n You are in D102\n");
             roomID = 4;
-            Console.WriteLine("[First Year Student]: Hi Vaughn, I was just wondering if you had marked my math exam?");
+            Console.WriteLine(" [First Year Student]: Hi Vaughn, I was just wondering if you had marked my math exam?\n");
             Thread.Sleep(1000);
             
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -554,11 +497,11 @@ namespace vg_the_game
 
                 if (response == "yes")
                 {
-                    Console.WriteLine("\n Yes, I'll get round to marking the math papers, I just have to find my gin");
+                    Console.WriteLine("\n Yes, I just have to find my gin before I continue");
                 }
                 else if (response == "no")
                 {
-                    Console.WriteLine(" No!, I need to find my gin, I don't have time to mark math papers");
+                    Console.WriteLine(" No! I need to find my gin, I don't have time to mark math papers");
                     BussinessGuy();// using his status
                     fight();
                 }
@@ -579,8 +522,9 @@ namespace vg_the_game
                 switch (choice)
                 {
                     case "D102":
+                        Console.WriteLine(" You are already here\n");
                         Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.WriteLine(" You are already here.\n\n press ENTER to continue");
+                        Console.WriteLine(" Press ENTER to continue");
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.ReadLine();
                         D102();
@@ -631,7 +575,7 @@ namespace vg_the_game
             Thread.Sleep(1000);
             if (bitcoinWallet == 1)
             {
-                Console.WriteLine("...Or, you could give him the Bitcoin wallet you found... (give wallet)");
+                Console.WriteLine(" ...Or, you could give him the Bitcoin wallet you found... (give wallet)");
             }
             Console.ForegroundColor = ConsoleColor.White;
             response = Console.ReadLine();
@@ -668,9 +612,9 @@ namespace vg_the_game
                 Thread.Sleep(3000);
                 Console.WriteLine("\n\n      Achievement Unlocked!\n  Useless Story Line Unlocked!\n   -Did you really want this? \n   -You have been distracted from the missions.");
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine("\n\n\n\n\n\n\n\n  Press enter to start");
+                Console.WriteLine("\n\n\n\n\n\n\n\n  Press enter to Continue");
                 Console.ForegroundColor = ConsoleColor.White;
-                achev++;
+                achiev++;
                 Console.ReadLine();
                 Console.Clear();
 
@@ -683,7 +627,8 @@ namespace vg_the_game
             }
             if (response == "give wallet")
             {
-                Console.WriteLine(" \n[Business Studies Student]: A Bitcoin wallet! With this I'll be unstoppable! Watch what I do next! ;)");
+                Console.WriteLine("\n [Business Studies Student]: A Bitcoin wallet! With this I'll be unstoppable! Watch what I do next! ;)");
+                Thread.Sleep(1000);
                 Console.WriteLine(" An Empowered Business Studies Student approaches!");
                 empoweredBuisnessStudent();
                 fight();
@@ -696,8 +641,9 @@ namespace vg_the_game
             switch (choice)
             {
                 case "D103":
+                    Console.WriteLine(" You are already here.\n");
                     Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine(" You are already here.\n\n press ENTER to continue");
+                    Console.WriteLine(" Press ENTER to continue");
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.ReadLine();
                     //D103();
@@ -724,10 +670,11 @@ namespace vg_the_game
             Console.Clear();
             Console.WriteLine("\n You are now on the 2nd floor\n");
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine(" You stand in the second floor hallway you can navigate to the (printer), (studio), (maths)");
+            Console.WriteLine(" You stand in the second floor hallway you can navigate to the (printer), (studio), (maths), (common room)");
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine(" Once you've explored all rooms on level 2, you will progress to the third level");
             string choice;
+            
             while (printerid == 0 || studioid == 0 || mathsid == 0 || commonid == 0)
             {
                 do
@@ -743,7 +690,8 @@ namespace vg_the_game
                             else
                             {
                                 Console.ForegroundColor = ConsoleColor.Yellow;
-                                Console.WriteLine(" You need a card to unlock this room, You can get this by visiting the maths room");
+                                Console.WriteLine(" You need a card to unlock this room, You can get this by visiting the maths room (Press ENTER to continue)");
+                                Console.ReadLine();
                                 Console.ForegroundColor = ConsoleColor.White;
                                 Thread.Sleep(3000);
                                 hallway2();
@@ -762,10 +710,9 @@ namespace vg_the_game
                             Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine(" Please enter a valid input");
                             Console.ForegroundColor = ConsoleColor.White;
-                            Console.ReadLine();
                             break;
                     }
-                } while (choice != "printer" || choice != "studio" || choice != "maths" || choice!= "common room");
+                } while (choice != "printer" && choice != "studio" && choice != "maths" && choice!= "common room");
             }
             /*if (printerid == 1 && studioid == 1 && mathsid == 1) //I feel like this should be a while loop and while not equal to this everything else runs for level 1?
             {*/
@@ -784,7 +731,7 @@ namespace vg_the_game
             if (mathsid == 1)
             {
                 Console.WriteLine(" You have already visited here, you will be sent back to the hallway");
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("\n Press ENTER to continue");
                 Console.ForegroundColor = ConsoleColor.White;
@@ -801,8 +748,8 @@ namespace vg_the_game
             Thread.Sleep(1000);
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine(" [Deacon]: What is  eiπ + ln(−1) = x2 +∫0∞​xsin(x)​dx? (Write an answer)");
-            Console.ReadLine();
             Console.ForegroundColor = ConsoleColor.White;
+            Console.ReadLine();
             Console.WriteLine(" [Deacon]: Wrong! I will have to tech you a lesson about maths");
             card = 1;
             MathsStudent();
@@ -814,7 +761,7 @@ namespace vg_the_game
             if (studioid == 1)
             {
                 Console.WriteLine(" You have already visited here, you will be sent back to the hallway");
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("\n Press ENTER to continue");
                 Console.ForegroundColor = ConsoleColor.White;
@@ -829,14 +776,16 @@ namespace vg_the_game
             Console.WriteLine(" Vic is here\n He asks a serious question to ask of you");
             Thread.Sleep(1000);
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine(" [Vic]: How many seasons of The Simpsons are there? (Write an answer)");
-            int temp = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(" [Vic]: How many seasons of The Simpsons are there? (Write an answer)\n");
             Console.ForegroundColor = ConsoleColor.White;
+            int temp = Convert.ToInt32(Console.ReadLine());
 
             if (temp == 35)
             {
-                Console.WriteLine(" [Vic]: Wow! I didn't expect you to get that right! Well done");
-                Console.WriteLine(" Go explore the hallway");
+                Console.WriteLine("\n [Vic]: Wow! I didn't expect you to get that right! Well done");
+                Console.WriteLine(" Go explore the hallway (Press ENTER to continue)");
+
+                Console.ReadLine();
                 hallway2();
             }
 
@@ -856,7 +805,7 @@ namespace vg_the_game
             if (printerid == 1)
             {
                 Console.WriteLine(" You have already visited here, you will be sent back to the hallway");
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("\n Press ENTER to continue");
                 Console.ForegroundColor = ConsoleColor.White;
@@ -899,10 +848,16 @@ namespace vg_the_game
 
             } while (choice != 1 && choice !=2);
 
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("\n\n\n Press ENTER to continue");
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.ReadLine();
+            if ((mathsid == 0) && (studioid == 0))
+            {
+                Thread.Sleep(1000);
+                Console.WriteLine("\n\n      Achievement Unlocked!\n  Upgrades First!\n   -Getting strong before the fight \n   -You have helped towards the mission.");
+                achiev++;
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("\n\n\n Press ENTER to continue");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.ReadLine();
+            }
 
             hallway2();
         }
@@ -911,7 +866,10 @@ namespace vg_the_game
         {
             if (commonid == 1)
             {
-                Console.WriteLine("You have already visited here, you have been sent back to the hallway");
+                Console.WriteLine(" You have already visited here, you will be sent back to the hallway");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("\n Press ENTER to continue");
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.ReadLine();
                 hallway2();
             }
@@ -923,39 +881,20 @@ namespace vg_the_game
             Thread.Sleep(1000);
             Console.Write(" You notice that each and every student is using ");
             Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.Write("CHATGPT!!");
-            
+            Console.Write(" CHATGPT!!");
             Thread.Sleep(1000);
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("\n [Emily] : WHAT ARE YOU DOING HERE VAUGHN !");
             Thread.Sleep(1000);
             Console.WriteLine(" [Vaughn] : What did I tell you guys about using Chatgpt! This is how you fail Studio 1 by cheating");
             Thread.Sleep(1000);
-            LaughBeep();
+            
             Console.WriteLine(" [Emily] : VAUGHN NOBOBY LIKES SNITCHES ");
             Emily();
             fight();
 
         }
-        static void LaughBeep()
-        {
-            // Series of beeps to simulate a laugh
-            int[] frequencies = { 900, 800, 900, 800, 900 };//
-                                      //900, 1000, 1100, 1200, 1300 };
-            int duration = 100; // Duration of each beep in milliseconds
-
-            Console.WriteLine(" Laughing");
-            
-            foreach (int freq in frequencies)
-            {
-                Console.Beep(freq, duration);
-                Thread.Sleep(150); // Short pause between beeps
-            }
-
-            
-
-        }
-
+        
 
         //Third Floor
 
@@ -967,7 +906,7 @@ namespace vg_the_game
             Console.WriteLine("\n You are now on the 3rd floor\n");
             }
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine(" You stand in the third floor hallway you can navigate to the (office), (D312)");
+            Console.WriteLine(" You stand in the third floor hallway you can navigate to the (office), (D312)\n");
             Console.ForegroundColor = ConsoleColor.White;            
             hallwayintro3 = 1;
 
@@ -1009,9 +948,11 @@ namespace vg_the_game
 
             if (spareKey == 0)
             {
-                Console.WriteLine("It appears you don't have your keys");
+                Console.WriteLine(" It appears you don't have your keys");
                 Thread.Sleep(1000);
-                Console.WriteLine("Try visting Paul in D312");
+                Console.ForegroundColor= ConsoleColor.Cyan;
+                Console.WriteLine("\n Try visting Paul in D312");
+                Console.ForegroundColor = ConsoleColor.White;
                 Thread.Sleep(2000);
                 Console.Clear();
                 hallway3();
@@ -1029,47 +970,54 @@ namespace vg_the_game
             Console.WriteLine(" He has returned to get his revenge!");
             FarmBot();
             fight();
-            Console.WriteLine(" You have defeated Farm bot!");
-            Thread.Sleep(1000);
-            Console.Clear();
-            Console.WriteLine(" You look around your office...");
-            Thread.Sleep(2000);
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(" You found your gin!");
-            Console.ForegroundColor = ConsoleColor.White;
-            Thread.Sleep(2000);
-            //Environment.Exit(0); Add in connection to Win screen here
-            Win();
         }
 
         static void platformsanddevices()
         {
+            
+            if (D312id == 1)
+            {
+                Console.WriteLine(" \nYou have already visited here, you will be sent back to the hallway");
+                Thread.Sleep(1000);
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine("\n Press ENTER to continue");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.ReadLine();
+                hallway3();
+            }
+
+            D312id = 1;
+
             string response;
-            Console.WriteLine("You enter D312, the lights illuminate");
+            Console.WriteLine("\n You enter D312, the lights illuminate");
             Thread.Sleep(1000);
-            Console.WriteLine("[Vaughn]: Hi Paul, I've lost my keys just wondering if I could use yours");
+            Console.WriteLine(" [Vaughn]: Hi Paul, I've lost my keys just wondering if I could use yours");
             Thread.Sleep(1000);
-            Console.WriteLine("[Paul]: I'll have a look...");
+            Console.WriteLine(" [Paul]: I'll have a look...");
             Thread.Sleep(1000);
-            Console.WriteLine("[Paul]: Just wondering if you've got any tech news");
+            Console.WriteLine(" [Paul]: Just wondering if you've got any tech news");
             Thread.Sleep(1000);
-            Console.WriteLine("You can either respond to Paul with 'yes' or 'No'");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine(" You can either respond to Paul with 'yes' or 'No'");
+            Console.ForegroundColor = ConsoleColor.White;
             do
             {
                 response = Console.ReadLine();
                 if (response == "yes")
                 {
-                    Console.WriteLine("[Paul]: Great to hear, you'll have to present that to the class today!");
+                    Console.WriteLine(" [Paul]: Great to hear, you'll have to present that to the class today!");
                     Thread.Sleep(2000);
                 }
                 else if (response == "no")
                 {
-                    Console.WriteLine("Maybe you should check out the latest Elon Musk news on Wired.com");
+                    Console.WriteLine(" Maybe you should check out the latest Elon Musk news on Wired.com");
                     Thread.Sleep(2000);
                 }
                 else
                 {
-                    Console.WriteLine("Please enter a valid input");
+                    Console.ForegroundColor= ConsoleColor.Red;
+                    Console.WriteLine("\n Please enter a valid input");
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
             } while (response != "yes" && response != "no");
 
@@ -1077,46 +1025,59 @@ namespace vg_the_game
 
             do
             {
-                Console.WriteLine("[Paul]: What do you think of Elon Musk?");
-                Console.WriteLine("You can respond with:");
-                Console.WriteLine("(1) He ruined Twitter!");
-                Console.WriteLine("(2) Tesla is going to destroy the world");
-                Console.WriteLine("(3) He's a rich prick");
+                Console.WriteLine(" [Paul]: What do you think of Elon Musk?");
+                Console.WriteLine(" You can respond with:");
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine(" (1) He ruined Twitter!");
+                Console.WriteLine(" (2) Tesla is going to destroy the world");
+                Console.WriteLine(" (3) He's a rich prick\n");
+                Console.ForegroundColor = ConsoleColor.White;
                 response = Console.ReadLine();
                 if (response == "1")
                 {
-                    Console.WriteLine("[Paul]: Elon is actually working to make Twitter better by introducing new features and improving the platform.");
+                    Console.WriteLine("\n [Paul]: Elon is actually working to make Twitter better by introducing new features and improving the platform.");
                     Thread.Sleep(1000);
-                    Console.WriteLine("[Paul]: Sometimes big changes can be challenging, but he's got a track record of transforming industries for the better.");
+                    Console.WriteLine(" [Paul]: Sometimes big changes can be challenging, but he's got a track record of transforming industries for the better.");
                     Thread.Sleep(1000);
-                    Console.WriteLine("[Paul]: It’s worth giving his vision a chance to see how it plays out.");
+                    Console.WriteLine(" [Paul]: It’s worth giving his vision a chance to see how it plays out.");
                 }
                 else if (response == "2")
                 {
-                    Console.WriteLine("[Paul]: Tesla is actually working towards a more sustainable future with electric vehicles and renewable energy solutions.");
+                    Console.WriteLine("\n [Paul]: Tesla is actually working towards a more sustainable future with electric vehicles and renewable energy solutions.");
                     Thread.Sleep(1000);
-                    Console.WriteLine("[Paul]: Their goal is to reduce reliance on fossil fuels and lower emissions, which can help combat climate change.");
+                    Console.WriteLine(" [Paul]: Their goal is to reduce reliance on fossil fuels and lower emissions, which can help combat climate change.");
                     Thread.Sleep(1000);
-                    Console.WriteLine("[Paul]: While no company is perfect, Tesla’s innovations are aimed at creating a better world, not destroying it.");
+                    Console.WriteLine(" [Paul]: While no company is perfect, Tesla’s innovations are aimed at creating a better world, not destroying it.");
                 }
                 else if (response == "3")
                 {
-                    Console.WriteLine("[Paul]: It's easy to focus on someone's wealth and label them negatively, but it's also important to consider their contributions and intentions.");
+                    Console.WriteLine("\n [Paul]: It's easy to focus on someone's wealth and label them negatively, but it's also important to consider their contributions and intentions.");
                     Thread.Sleep(1000);
-                    Console.WriteLine("[Paul]: Elon Musk has invested heavily in technology and innovation with the aim of solving big problems like climate change and space exploration.");
+                    Console.WriteLine(" [Paul]: Elon Musk has invested heavily in technology and innovation with the aim of solving big problems like climate change and space exploration.");
                     Thread.Sleep(1000);
-                    Console.WriteLine("[Paul]: Criticizing someone based on their wealth alone might overlook the broader impact of their work and efforts.");
+                    Console.WriteLine(" [Paul]: Criticizing someone based on their wealth alone might overlook the broader impact of their work and efforts.");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("\n\n      Achievement Unlocked!\n  You Criticizer!\n   -Did you even think about how mean that is \n   -What was the purpose.");
+                    achiev++;
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("\n\n\n Press ENTER to continue");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.ReadLine();
                 }
                 else
                 {
-                    Console.WriteLine("Please enter a valid input");
-                }
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(" Please enter a valid input");
+                    Console.ForegroundColor = ConsoleColor.White;
+
             } while (response != "1" && response != "2" && response != "3");
             
             Thread.Sleep(2000);
-            Console.WriteLine("[Paul]: While I don't agree with everything you have said today, Vaughn");
+            Console.WriteLine(" [Paul]: While I don't agree with everything you have said today, Vaughn");
             Thread.Sleep(1000);
-            Console.WriteLine("[Paul]: Here is my spare key for your office");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(" [Paul]: Here is my spare key for your office");
+            Console.ForegroundColor = ConsoleColor.White;
             spareKey = 1;
             hallway3();
         }
@@ -1131,7 +1092,6 @@ namespace vg_the_game
             int charge = 0;
             string userInput = null;
             int option;
-            bool isValid = false;
             string input = "";
 
             Random random = new Random();
@@ -1266,7 +1226,7 @@ namespace vg_the_game
                     Console.WriteLine("\n You find a USB of some kind in her pocket, it seems to be a crypto wallet, full of bitcoin!");
                     do
                     {
-                        Console.WriteLine(" Do you take the Bitcoin wallet?");
+                        Console.WriteLine(" Do you take the Bitcoin wallet?\n");
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine(" yes or no");
                         Console.ForegroundColor = ConsoleColor.White;
@@ -1283,9 +1243,21 @@ namespace vg_the_game
                     {
                         Console.WriteLine("\n You leave the bitcoin wallet where it is. No need to steal now.");
                     }
-                    officeid = 1;
-
+                 
                 }
+
+                if (mathsid == 1 && printerkeycard != 1)
+                {
+                    Console.WriteLine(" You see the keycard to the printing room, you grab it and put it in your pocket.");
+                    printerkeycard = 1;
+                    mathsid++;
+                }
+
+                if (finalboss == 1)
+                {
+                    Win();
+                }
+
                 // Implement logic to reward the player or move to the next part of the game
 
                 Console.ForegroundColor = ConsoleColor.Cyan;
@@ -1304,8 +1276,10 @@ namespace vg_the_game
         static void TipsMenu()
         {
           Console.Clear();
-            Console.WriteLine("                 Tip Menu ");
+            Console.WriteLine("\n                 Tip Menu ");
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("____________________________________________________");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine(" When your energy is low you will not be able attack");
             Console.WriteLine(" Only way to gain enery to choose the gain enery option ");
             Console.WriteLine(" but you might sustain damage if enemy decides to attack and you might die");
@@ -1316,6 +1290,9 @@ namespace vg_the_game
             Console.WriteLine("\n The chances of missing each attack is :");
             Console.WriteLine("\n 1: Strong Attack 84% \n2: Medium Attack 50% \n3: Low Attack 25% ");
             Console.WriteLine("\n\n To activate the charge attack you must choose the option twice and deals\ndamage on the enemy between 50 and 80");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("\n\n Press ENTER to continue");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.ReadLine();
             Console.Clear();
         }
@@ -1393,16 +1370,37 @@ namespace vg_the_game
         }
         static void Win()
         {
-            //To be attached to the final room
+            string temp;
+
+            Console.WriteLine(" You have defeated Farm bot! (Press ENTER to continue)");
+            Console.ReadLine();
+            Thread.Sleep(1000);
+            Console.Clear();
+            Console.WriteLine(" You look around your office...");
+            Thread.Sleep(2000);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(" You found your gin!");
+            Console.ForegroundColor = ConsoleColor.White;
+            Thread.Sleep(2000);
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("\n\n  █████ █████                        █████   ███   █████  ███             ███\r\n░░███ ░░███                        ░░███   ░███  ░░███  ░░░             ░███\r\n ░░███ ███    ██████  █████ ████    ░███   ░███   ░███  ████  ████████  ░███\r\n  ░░█████    ███░░███░░███ ░███     ░███   ░███   ░███ ░░███ ░░███░░███ ░███\r\n   ░░███    ░███ ░███ ░███ ░███     ░░███  █████  ███   ░███  ░███ ░███ ░███\r\n    ░███    ░███ ░███ ░███ ░███      ░░░█████░█████░    ░███  ░███ ░███ ░░░ \r\n    █████   ░░██████  ░░████████       ░░███ ░░███      █████ ████ █████ ███\r\n   ░░░░░     ░░░░░░    ░░░░░░░░         ░░░   ░░░      ░░░░░ ░░░░ ░░░░░ ░░░ ");
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine($" You acheved {achev}/3 achevments");
+            Console.WriteLine($"\n You achieved {achiev}/3 achievments");
             Thread.Sleep(3000);
             Console.Clear();
-            Console.WriteLine("\n Would you like to play again (yes or no)?");
-            string temp = Console.ReadLine().ToLower();
+            do
+            {
+                Console.WriteLine("\n Would you like to play again (yes or no)?");
+                temp = Console.ReadLine().ToLower();
+                if (temp != "yes" && temp != "no")
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Please Enter a valid input.");
+                    Console.ForegroundColor= ConsoleColor.White;
+                }
+            } while (temp != "yes" && temp != "no");
+
             switch (temp)
             {
                 case "yes":
@@ -1422,6 +1420,7 @@ namespace vg_the_game
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\n\n  █████ █████                        ██████████    ███               █████ ███\r\n░░███ ░░███                        ░░███░░░░███  ░░░               ░░███ ░███\r\n ░░███ ███    ██████  █████ ████    ░███   ░░███ ████   ██████   ███████ ░███\r\n  ░░█████    ███░░███░░███ ░███     ░███    ░███░░███  ███░░███ ███░░███ ░███\r\n   ░░███    ░███ ░███ ░███ ░███     ░███    ░███ ░███ ░███████ ░███ ░███ ░███\r\n    ░███    ░███ ░███ ░███ ░███     ░███    ███  ░███ ░███░░░  ░███ ░███ ░░░ \r\n    █████   ░░██████  ░░████████    ██████████   █████░░██████ ░░████████ ███\r\n   ░░░░░     ░░░░░░    ░░░░░░░░    ░░░░░░░░░░   ░░░░░  ░░░░░░   ░░░░░░░░ ░░░ ");
+           LoseSound();
             Console.ForegroundColor = ConsoleColor.White;
             Thread.Sleep(3000);
             Console.Clear();
@@ -1440,6 +1439,21 @@ namespace vg_the_game
 
             Thread.Sleep(3000);
             Environment.Exit(0);
+        }
+
+        static void LoseSound()
+        {
+
+            int[] frequencies = { 1000 };// 1000, 1000, 1000, 1000 };
+            int duration = 3000; // Duration of each beep in milliseconds
+
+           
+
+            foreach (int freq in frequencies)
+            {
+                Console.Beep(freq, duration);
+               
+            }
         }
     }
 }
