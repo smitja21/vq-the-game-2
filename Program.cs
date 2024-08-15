@@ -1069,6 +1069,7 @@ namespace vg_the_game
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(" Please enter a valid input");
                     Console.ForegroundColor = ConsoleColor.White;
+                }
 
             } while (response != "1" && response != "2" && response != "3");
             
