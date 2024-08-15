@@ -1081,7 +1081,7 @@ namespace vg_the_game
                 else
                 {
                     Console.ForegroundColor= ConsoleColor.Red;
-                    Console.WriteLine("\nPlease enter a valid input");
+                    Console.WriteLine("\n Please enter a valid input");
                     Console.ForegroundColor = ConsoleColor.White;
                 }
             } while (response != "yes" && response != "no");
@@ -1090,39 +1090,39 @@ namespace vg_the_game
 
             do
             {
-                Console.WriteLine("[Paul]: What do you think of Elon Musk?");
-                Console.WriteLine("You can respond with:");
-                Console.WriteLine("(1) He ruined Twitter!");
-                Console.WriteLine("(2) Tesla is going to destroy the world");
-                Console.WriteLine("(3) He's a rich prick\n");
+                Console.WriteLine(" [Paul]: What do you think of Elon Musk?");
+                Console.WriteLine(" You can respond with:");
+                Console.WriteLine(" (1) He ruined Twitter!");
+                Console.WriteLine(" (2) Tesla is going to destroy the world");
+                Console.WriteLine(" (3) He's a rich prick\n");
                 response = Console.ReadLine();
                 if (response == "1")
                 {
-                    Console.WriteLine("\n[Paul]: Elon is actually working to make Twitter better by introducing new features and improving the platform.");
+                    Console.WriteLine("\n [Paul]: Elon is actually working to make Twitter better by introducing new features and improving the platform.");
                     Thread.Sleep(1000);
-                    Console.WriteLine("[Paul]: Sometimes big changes can be challenging, but he's got a track record of transforming industries for the better.");
+                    Console.WriteLine(" [Paul]: Sometimes big changes can be challenging, but he's got a track record of transforming industries for the better.");
                     Thread.Sleep(1000);
-                    Console.WriteLine("[Paul]: It’s worth giving his vision a chance to see how it plays out.");
+                    Console.WriteLine(" [Paul]: It’s worth giving his vision a chance to see how it plays out.");
                 }
                 else if (response == "2")
                 {
-                    Console.WriteLine("\n[Paul]: Tesla is actually working towards a more sustainable future with electric vehicles and renewable energy solutions.");
+                    Console.WriteLine("\n [Paul]: Tesla is actually working towards a more sustainable future with electric vehicles and renewable energy solutions.");
                     Thread.Sleep(1000);
-                    Console.WriteLine("[Paul]: Their goal is to reduce reliance on fossil fuels and lower emissions, which can help combat climate change.");
+                    Console.WriteLine(" [Paul]: Their goal is to reduce reliance on fossil fuels and lower emissions, which can help combat climate change.");
                     Thread.Sleep(1000);
-                    Console.WriteLine("[Paul]: While no company is perfect, Tesla’s innovations are aimed at creating a better world, not destroying it.");
+                    Console.WriteLine(" [Paul]: While no company is perfect, Tesla’s innovations are aimed at creating a better world, not destroying it.");
                 }
                 else if (response == "3")
                 {
-                    Console.WriteLine("\n[Paul]: It's easy to focus on someone's wealth and label them negatively, but it's also important to consider their contributions and intentions.");
+                    Console.WriteLine("\n [Paul]: It's easy to focus on someone's wealth and label them negatively, but it's also important to consider their contributions and intentions.");
                     Thread.Sleep(1000);
-                    Console.WriteLine("[Paul]: Elon Musk has invested heavily in technology and innovation with the aim of solving big problems like climate change and space exploration.");
+                    Console.WriteLine(" [Paul]: Elon Musk has invested heavily in technology and innovation with the aim of solving big problems like climate change and space exploration.");
                     Thread.Sleep(1000);
-                    Console.WriteLine("[Paul]: Criticizing someone based on their wealth alone might overlook the broader impact of their work and efforts.");
+                    Console.WriteLine(" [Paul]: Criticizing someone based on their wealth alone might overlook the broader impact of their work and efforts.");
                 }
                 else
                 {
-                    Console.WriteLine("Please enter a valid input");
+                    Console.WriteLine(" Please enter a valid input");
                 }
             } while (response != "1" && response != "2" && response != "3");
             
